@@ -11,13 +11,14 @@
 </head>
 
 <body>
-  <div id="main">
+	<div id="main">
 	
 	<div id="header">  
 	  
-	  <div id="welcome">
-	    <h1><a href="#">Welcome To Leafy</a></h1>
-	  </div><!--close welcome-->
+	<div id="welcome">
+	    
+<h1><a href="#">Main Page</a></h1>
+	</div><!--close welcome-->
 
 
 
@@ -27,9 +28,6 @@
 
 
 	  
-
-
-
 
 	
 

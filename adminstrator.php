@@ -23,6 +23,16 @@
 	<?php
 		include "menu.php";
 	?>
+	<?php
+
+		$em = "";
+		$cem = "";
+		$pass = "";
+		$cpass = "";
+
+		$emre="*";
+		$lpass = "*"
+	?>
 
 	
 	<div id="header_image"></div>	    	
@@ -34,36 +44,29 @@
 
 	<div class="content_item">
 		<h1>Adminstrator</h1>
-		  	<p>Paragraph</p>		  
-				<div class="content_container">
-			  		<h3>Mr Joe Bloggs</h3>
-			  			<p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.&rdquo;</p>
-				</div><!--close content_container-->
 
-             			<div class="content_container">
-			  		<h3>Mr Joe Bloggs</h3>
-			  			<p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.&rdquo;</p>
-				</div><!--close content_container--> 
 
-				<div class="content_container">
-			  		<h3>Mr Joe Bloggs</h3>
-			  			<p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.&rdquo;</p>
-				</div><!--close content_container-->
+		  
+	
+							Username (Email): <?php print $emre; ?><br />
+								<input type="text" maxlength = "50" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
+							<br />
+					
 
-            			<div class="content_container">
-			  		<h3>Mr Joe Bloggs</h3>
-			  			<p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.&rdquo;</p>
-				</div><!--close content_container--> 
+					
+							Password: <?php print $lpass; ?> <br />
+								<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
+							<br />
+					
 
-				<div class="content_container">
-			  		<h3>Mr Joe Bloggs</h3>
-			  			<p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.&rdquo;</p>
-				</div><!--close content_container-->
+							<input name="enter" class="btn" type="submit" value="Submit" />
 
-            			<div class="content_container">
-			  		<h3>Mr Joe Bloggs</h3>
-			  			<p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.&rdquo;</p>
-				</div><!--close content_container--> 
+
+		
+
+		
+		
+		</div><!--close content_container--> 
 
 	   	</div><!--close content_item-->  		
 	  
