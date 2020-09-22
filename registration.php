@@ -24,7 +24,7 @@
             <div id="content">	  
                 <div class="content_item">
                     <h1>Adminstrator</h1>       
-                    Username (Email): <?php print $emre; ?><br />
+                    Username (Emai): <?php print $emre; ?><br />
                         <input type="text" maxlength = "50" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
                     <br />
             
