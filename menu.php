@@ -1,9 +1,4 @@
-	  
-
-
-
 <div id="menubar_container">
-		
 	<div id="menubar">
 		<div id="menu_items">
 	       		<ul id="menu">
@@ -15,7 +10,5 @@
               			<li><a href="contact.php">Contact Us</a></li>
             		</ul>
           	</div><!--close menu-->
-		
         </div><!--close menubar-->
-	
 </div><!--close menubar_container-->
