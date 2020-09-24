@@ -9,7 +9,12 @@
             <div id="header">  
                 <div id="welcome">
                     <h1><a href="#">Judge Registeration</a></h1>
-                </div><!--close welcome-->	  
+                </div><!--close welcome-->	
+                
+                <!--menu--->
+                <?php
+                    include "menu.php";
+				?>
                 
                 <div id="header_image"></div>	    	
             </div><!--close header-->	
@@ -121,15 +126,15 @@
                                 <div>
                                     <p>
                                         <span>First Name</span>
-                                        <input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="First Name" /><br />
+                                        <input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" /><br />
                                     </p>
                                     <p>
                                         <span>Middle Name</span>
-                                        <input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Middle Name" /><br />
+                                        <input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" /><br />
                                     </p>
                                     <p>
                                         <span>Last Name</span>
-                                        <input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Last Name" /> <br />
+                                        <input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" /> <br />
                                     </p>
                                 </div>
 
@@ -148,7 +153,7 @@
                                                 <option value="Master's Degree">Master's Degree</option>
                                                 <option value="PHD">PHD</option>
                                             </select>
-                                        </div><br />
+                                        </div>
                                     </p>
                                     <p>
                                         <span>Employer</span>
@@ -159,11 +164,11 @@
                                 <div>
                                     <p>
                                         <span>Username (Email)</span>
-                                        <input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="Email" /><br />
+                                        <input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" /><br />
                                     </p>
                                     <p>
                                         <span> Confirm Username</span> 
-                                        <input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="Confirm Email" /><br />
+                                        <input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" /><br />
                                     </p>
                                 </div> 
 

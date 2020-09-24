@@ -8,7 +8,12 @@
             <div id="header">  
                 <div id="welcome">
                     <h1><a href="#">Register</a></h1>
-                </div><!--close welcome-->	  
+                </div><!--close welcome-->
+                
+                <!--menu--->
+                <?php
+                    include "menu.php";
+                ?>
                 
                 <div id="header_image"></div>	    	
             </div><!--close header-->	
@@ -16,10 +21,8 @@
             <div id="site_content">	  
                 <div id="content">	  
                     <div class="content_item" style="padding-top:20px;">
-                        <ul>
-                            <li><a href="adminreg.php">Admin Registration</a></li>
-              			    <li><a href="judgereg.php">Judge Registration</a></li>
-                        </ul>
+                        <h1 align="center"><a href="adminreg.php">Admin Registration</a></li></h1>
+              			<h1 align="center"><a href="judgereg.php">Judge Registration</a></li></h1>
                     </div><!--close content_item-->  		
                 </div><!--content--> 
             </div><!--close site_content--> 

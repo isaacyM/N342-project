@@ -16,7 +16,7 @@
 	<div id="header">  
 	  
 	  <div id="welcome">
-	    <h1><a href="#">Welcome To Leafy</a></h1>
+	    <h1><a href="#">Contact Us</a></h1>
 	  </div><!--close welcome-->	  
 	  
 	<?php

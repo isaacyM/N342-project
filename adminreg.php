@@ -10,6 +10,12 @@
 				<div id="welcome">
 					<h1><a href="#">Admin Register</a></h1>
 				</div><!--close welcome-->
+
+				<!--menu--->
+                <?php
+                    include "menu.php";
+				?>
+				
 				<div id="header_image"></div>	      	
 			</div><!--close header-->	
 			
@@ -143,23 +149,23 @@
 								?>
 								<p>
 									<span>First Name</span>
-									<input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="First Name" />
+									<input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
 								</p>
 								<p>
 									<span>Middle Name</span>
-									<input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Middle Name" />
+									<input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" />
 								</p>
 								<p>
 									<span>Last Name</span>
-									<input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Last Name" />
+									<input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" />
 								</p>
 								<p>
 									<span>Username (Email)</span>
-									<input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="Email" />
+									<input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" />
 								</p>
 								<p>
 									<span>Confirm Username</span>
-									<input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="Confirm Email" />
+									<input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" />
 								</p>
 			
 								<p>
