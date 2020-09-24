@@ -18,6 +18,7 @@
 	<div id="welcome">
 	    
 <h1><a href="#">Main Page</a></h1>
+<img src="/images/logo.png" height="50" width="50">
 	</div><!--close welcome-->
 
 
