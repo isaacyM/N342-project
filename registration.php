@@ -15,7 +15,7 @@
             
             <div id="site_content">	  
                 <div id="content">	  
-                    <div class="content_item">
+                    <div class="content_item" style="padding-top:20px;">
                         <ul>
                             <li><a href="adminreg.php">Admin Registration</a></li>
               			    <li><a href="judgereg.php">Judge Registration</a></li>
