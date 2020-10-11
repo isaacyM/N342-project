@@ -78,7 +78,7 @@ ol li
 }
 
 #header
-{ height: 550px;
+{ height: 450px;
   background: #284020;
   background: -moz-linear-gradient(#437133, #284020);
   background: -o-linear-gradient(#437133, #284020);
@@ -186,10 +186,14 @@ ul#menu li:hover a
 } 
 
 #header_image
-{ width: 900px;
-  height: 300px;
+{ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
-  background: transparent url(../images/header.jpg) no-repeat;
+  background: transparent url(../images/logo2.png) no-repeat;
   border-radius: 7px 7px 7px 7px;
   -moz-border-radius: 7px 7px 7px 7px;
   -webkit-border: 7px 7px 7px 7px;

@@ -8,7 +8,7 @@
 	<div id="header">  
 
 	<div id="welcome">
-		<h1><a href="#">Judge</a></h1>
+		<h1><a href="#">Judge Check In</a></h1>
 	</div><!--close welcome-->	
   
 	<?php
@@ -17,13 +17,7 @@
 
 	<?php
 
-		$em = "";
-		$cem = "";
-		$pass = "";
-		$cpass = "";
-
-		$emre="*";
-		$lpass = "*"
+		$score = "";
 	?>
 
 	
@@ -37,7 +31,7 @@
 		
 	<div class="content_item">		
 		
-	<h1>Judge Login</h1>
+	<h1>Judge Check In</h1>
         		  							
 		<!-- Form -->
 
@@ -48,18 +42,17 @@
 				<table>
 					<tr>
 						<td>	
-							Username (Email): <?php print $emre; ?><br />
-								<input type="text" maxlength = "50" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
+                            
+                            <input class  = "submit" name="check" class="btn" type="submit" value="Check In" />
+								
 							<br />
 					
 
 					
-							Password: <?php print $lpass; ?> <br />
-								<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
+							Enter a score for a project: <?php print $score; ?> <br />
+								<input type="text" maxlength = "10" value="score" name="score" id="score"  placeholder="Score" />
 							<br />
-					
-
-							<input name="enter" class="btn" type="submit" value="Submit" />
+				
 						</td>
 					</tr>
 				</table>

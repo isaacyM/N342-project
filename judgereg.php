@@ -1,6 +1,7 @@
 <?php
 	session_start();
     include "header.php";
+    include "util.php";
 ?>
 
     <body>
@@ -8,14 +9,19 @@
             <div id="header">  
                 <div id="welcome">
                     <h1><a href="#">Judge Registeration</a></h1>
-                </div><!--close welcome-->	  
+                </div><!--close welcome-->	
+                
+                <!--menu--->
+                <?php
+                    include "menu.php";
+				?>
                 
                 <div id="header_image"></div>	    	
             </div><!--close header-->	
             
             <div id="site_content">	  
                 <div id="content">	  
-                    <div class="content_item">
+                    <div class="content_item" style="padding-top:20px;">
                     <?php
                             //always initialize variables to be used
                             $fn = "";
@@ -111,87 +117,92 @@
                             
                         ?>
                         
-                        <!-- Form -->
-                        <form method="post" action="judgereg.php">
-                            <?php
-                                print $msg;
-                            ?>
-                            <div>
-                            First Name: 
-                                <input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="First Name" /><br />
-                            Middle Name: 
-                                <input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Middle Name" /><br />
-                            Last Name: 
-                                <input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Last Name" /> <br />
-                            </div><br />
-
-                            <div>
-                            Title:
-                                <input type="text" maxlength="30" name="title" id="title" value="<?php print $title; ?>" placeholder="Title" /><br />
-                            Highest Degree Earned:
+                        <div class="form_settings">
+                            <!-- Form -->
+                            <form method="post" action="judgereg.php">
+                                <?php
+                                    print $msg;
+                                ?>
                                 <div>
-                                    <select name="degree" id="degree">
-                                        <option value="High School Diploma">High School Diploma</option>
-                                        <option value="Associate Degree">Associate Degree</option>
-                                        <option value="Bachelor's Degree" selected>Bachelor's Degree</option>
-                                        <option value="Master's Degree">Master's Degree</option>
-                                        <option value="PHD">PHD</option>
-                                    </select>
+                                    <p>
+                                        <span>First Name</span>
+                                        <input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" /><br />
+                                    </p>
+                                    <p>
+                                        <span>Middle Name</span>
+                                        <input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" /><br />
+                                    </p>
+                                    <p>
+                                        <span>Last Name</span>
+                                        <input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" /> <br />
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p>
+                                        <span>Title</span>
+                                        <input type="text" maxlength="30" name="title" id="title" value="<?php print $title; ?>" placeholder="Title" /><br />
+                                    </p>
+                                    <p>
+                                        <span>Highest Degree Earned</span>
+                                        <div>
+                                            <select name="degree" id="degree">
+                                                <option value="High School Diploma">High School Diploma</option>
+                                                <option value="Associate Degree">Associate Degree</option>
+                                                <option value="Bachelor's Degree" selected>Bachelor's Degree</option>
+                                                <option value="Master's Degree">Master's Degree</option>
+                                                <option value="PHD">PHD</option>
+                                            </select>
+                                        </div>
+                                    </p>
+                                    <p>
+                                        <span>Employer</span>
+                                        <input type="text" maxlength="50" name="employer" id="employer" value="<?php print $employer; ?>" placeholder="Employer" /><br />
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p>
+                                        <span>Username (Email)</span>
+                                        <input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" /><br />
+                                    </p>
+                                    <p>
+                                        <span> Confirm Username</span> 
+                                        <input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" /><br />
+                                    </p>
+                                </div> 
+
+                                <div>
+                                    <p>
+                                        <span>Password</span>
+                                        <input type="password" name="password" id="password" maxlength="50" value="<?php print $pwd; ?>" placeholder="Password" /><br/>
+                                    </p>
+                                    <p>
+                                        <span>Confirm Password</span>
+                                        <input type="password" name="confirmPassword" id="confirmPassword" maxlength="50" value="<?php print $cpwd; ?>" placeholder="Confirm Password" /><br />	
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p>
+                                        <span>Year of Birth</span>
+                                        <select  name = "birthYear">
+                                            <?php   $today = getdate();
+                                                $yr = $today["year"];
+                                                print birthOptionList($yr-5); 
+                                            ?>
+                                        </select>
+                                    </p>
                                 </div><br />
-                            Employer:
-                                <input type="text" maxlength="50" name="employer" id="employer" value="<?php print $employer; ?>" placeholder="Employer" /><br />
-                            </div><br /> 
 
-                            <div>
-                            Email: 
-                                <input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="Email" /><br />
-                            Confirm Email: 
-                                <input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="Confirm Email" /><br />
-                            </div> <br />
-
-                            <div>
-                            Password:
-                                <input type="password" name="password" id="password" maxlength="50" value="<?php print $pwd; ?>" placeholder="Password" /><br/>
-                            Confirm Password: 
-                                <input type="password" name="confirmPassword" id="confirmPassword" maxlength="50" value="<?php print $cpwd; ?>" placeholder="Confirm Password" /><br />	
-                            </div> <br />
-
-                            <div>
-                            Year of Birth:
-                                <select  name = "birthYear">
-                                    <?php   $today = getdate();
-                                        $yr = $today["year"];
-                                        print birthOptionList($yr-5); 
-                                        /* This function will generate a list of birth years based on the current year.
-                                        * It will start from the current year and provide a 100 year list in decending order.
-                                        * The parameter $bo is the default selected year.
-                                        */
-                                        function birthOptionList($bo){
-
-                                            $today = getdate();
-                                            $thisYear = $today['year'];
-                                            $list = "";
-                                            for($i = $thisYear; $i > ($thisYear - 100); $i--){
-                                                if ($i == $bo)
-                                                    $list = $list."<option value=\"".$i."\" selected = \"selected\">".$i."</option>" ;
-                                                else  $list = $list."<option value=\"".$i."\">".$i."</option>" ;
-                                            }
-                                            return $list;
-
-                                        }
-
-                                    ?>
-                                </select>
-                            </div><br />
-
-                            <!-- Break -->
-                            <!--Submit buttons-->
-                            <div>
-                                <input type="submit" name = "submit"  value="Submit" /></li>
-                                <input type="reset" name = "reset" value="Reset"/></li>
-                            </div>
-                        </form>
-
+                                <!-- Break -->
+                                <!--Submit buttons-->
+                                <div>
+                                    <input class = "submit" type="submit" name = "submit"  value="Submit" /></li>
+                                    <input class = "submit" type="reset" name = "reset" value="Reset"/></li>
+                                </div>
+                            </form>
+                        </div><!--close form_settings-->
                     </div><!--close content_item-->  		
                 </div><!--content--> 
             </div><!--close site_content--> 

@@ -4,8 +4,9 @@
 	       		<ul id="menu">
              			<li><a href="index.php">Home</a></li>
               			<li><a href="judge.php">Judge</a></li>
+						<li><a href="judgecheck.php">Check In</a></li>
               			<li><a href="adminstrator.php">Adminstrator</a></li>
-              			<li><a href="projects.php">Projects</a></li>
+              			<li><a href="projects.php">Add</a></li>
 						<li><a href="registration.php">Register</a></li>
               			<li><a href="contact.php">Contact Us</a></li>
             		</ul>

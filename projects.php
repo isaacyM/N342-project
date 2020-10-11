@@ -1,14 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
-<head>
-  <title>ARaynorDesign Template</title>
-  <meta name="description" content="free website template" />
-  <meta name="keywords" content="enter your keywords here" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'/>    
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
+<?php
+	include "header.php";
+?>
 
 <body>
   <div id="main">
@@ -16,14 +8,26 @@
 	<div id="header">  
 	  
 	  <div id="welcome">
-	    <h1><a href="#">Welcome To Leafy</a></h1>
+	    <h1><a href="#">Add</a></h1>
 	  </div><!--close welcome-->	  
 	  
 		
 	<?php
 		include "menu.php";
 	?>
-	
+	<?php
+		$school = "";
+		$county = "";
+		$project = "";
+		$student = "";
+		$category = "";
+		$grade = "";
+		$gradelevel = "";
+		$judgeSession = "";
+		$booth = "";
+
+
+	?>
 		
 	
 	
@@ -36,50 +40,62 @@
       <div id="content">		  
         
 		<div class="content_item">
-          <h1>Latest Projects</h1>
-		  <p>Morbi ornare neque a viverra venenatis. Donec porta a nisl in fringilla. Praesent lacinia vestibulum massa, ut dapibus ipsum imperdiet at. Donec aliquam sed nisl eu viverra. Suspendisse potenti. Fusce aliquet tempor pulvinar. Vivamus volutpat ornare porttitor. Donec suscipit aliquam lorem, quis pharetra nisl hendrerit et. Nulla et odio arcu. Praesent consectetur quis turpis eu semper. Morbi arcu leo, aliquet ut neque vitae, imperdiet pretium arcu. Proin ullamcorper tempus orci. Duis pharetra purus ac egestas cursus.</p>
-            <div class="content_container">       
-			  <h3>Example 1</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
-			  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->            
-			</div><!--close content_container-->
-            <div class="content_container">			  
-			  <h3>Example 2</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
-			  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->    			
-			</div><!--close content_container-->
-            <div class="content_container">       
-			  <h3>Example 3</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
- 			  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->               
-			</div><!--close content_container-->
-            <div class="content_container">			  
-			  <h3>Example 4</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
-			  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->    			
-			</div><!--close content_container-->
-            <div class="content_container">       
-			  <h3>Example 5</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
- 			  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->               
-			</div><!--close content_container-->
-            <div class="content_container">			  
-			  <h3>Example 6</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
-			  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->    			
-			</div><!--close content_container-->			
+          	<h1>Add Contents</h1>
+			<div class="form_settings">
+				<form method="post" action="projects.php">
+					<p><span>Enter a new school</span>
+						<input type="text" name="school" id="school" maxlength="50" value="<?php print $school; ?>" placeholder="School" />
+					</p>
+					<p><span>Enter a new county</span>
+						<div>
+							<select name="county" id="scounty">
+									<option value="County1" selected>County1</option>
+									<option value="County2">County2</option>
+									<option value="County3">County3</option>
+							</select>
+						</div>
+					</p>
+					<p><span>Enter a new project</span>
+						<input type="text" name="project" id="project" maxlength="50" value="<?php print $project; ?>" placeholder="Project" />
+					</p>
+					<p><span>Enter a new student</span>
+						<input type="text" name="student" id="student" maxlength="50" value="<?php print $student; ?>" placeholder="Student" />
+					</p>
+					<p><span>Enter a new category</span>
+						<div>
+							<select name="category" id="category">
+									<option value="Category1" selected>Category1</option>
+									<option value="Category2">Category2</option>
+									<option value="Category3">Category3</option>
+							</select>
+						</div>
+					</p>
+					<p><span>Enter a new student grade</span>
+						<input type="text" name="grade" id="grade" maxlength="50" value="<?php print $grade; ?>" placeholder="grade" />
+					</p>
+					<p><span>Enter a new project grade level</span>
+						<div>
+							<select name="gradelevel" id="gradelevel">
+									<option value="Level1" selected>Level1</option>
+									<option value="Level2">Level2</option>
+									<option value="Level3">Level3</option>
+							</select>
+						</div>
+					</p>
+					<p><span>Enter a new judge session</span>
+						<input type="judgeSession" name="judgeSession" id="judgeSession" maxlength="50" value="<?php print $judgeSession; ?>" placeholder="judgeSession" />
+					</p>
+					<p><span>Enter a new booth number</span>
+						<input type="text" name="booth" id="booth" maxlength="50" value="<?php print $booth; ?>" placeholder="Booth" />
+					</p>
+					<!--Submit buttons-->
+					<div>
+						<input class = "submit" type="submit" name = "submit"  value="Submit" />
+						<input class = "submit" type="reset" name = "reset" value="Reset"/>
+					</div>
+				</form>
+			</div><!--close form setting--> 
+  						
 	    </div><!--close content_item-->  
 	  
 	  </div><!--close content-->
