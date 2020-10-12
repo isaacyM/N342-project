@@ -24,8 +24,8 @@
 				</nav>
 			</header>
 
-			<?
-				inlcude menu.php;
+			<?php
+				include "menu.php";
 			?>
 		<!-- Main -->
 			<section id="main" class="wrapper">
