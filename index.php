@@ -1,89 +1,128 @@
 <?php
 	include "header.php";
 ?>
+	<body>
+		<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<a href="#menu"><span>Menu</span></a>
+				</nav>
+				<a href="index.html" class="logo">Science</a>
+				<nav class="right">
+					<a href="login.php" class="button alt">Log in</a>
+				</nav>
+			</header>
 
-<body>
-	<div id="main">
-	
-	<div id="header">  
-	  
-	<div id="welcome">
-	    
-<h1><a href="#">Main Page</a></h1>
-	</div><!--close welcome-->
+			<?php
+				include "menu.php";
+			?>
+		<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<h1>Welcome</h1>
+						<p>Please make sure to log-in or register</p>
+					<ul class="actions">
+						<li><a href="#one" class="button scrolly">Get Started</a></li>
+					</ul>
+				</div>
+			</section>
 
+		<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner flex flex-3">
+					<div class="flex-item left">
+						<div>
+							<h3>Magna ultricies</h3>
+							<p>Morbi in sem quis dui plalorem ipsum<br /> euismod in, pharetra sed ultricies.</p>
+						</div>
+						<div>
+							<h3>Ipsum adipiscing lorem</h3>
+							<p>Tristique yonve cursus jam nulla quam<br /> loreipsu gravida adipiscing lorem</p>
+						</div>
+					</div>
+					<div class="flex-item image fit round">
+						<img src="images/pic01.jpg" alt="" />
+					</div>
+					<div class="flex-item right">
+						<div>
+							<h3>Tempus nullam</h3>
+							<p>Sed adipiscing ornare risus. Morbi estes<br /> blandit sit et amet, sagittis magna.</p>
+						</div>
+						<div>
+							<h3>Suscipit nibh dolore</h3>
+							<p>Pellentesque egestas sem. Suspendisse<br /> modo ullamcorper feugiat lorem.</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
+		<!-- Two -->
+			<section id="two" class="wrapper style1 special">
+				<div class="inner">
+					<h2>Feugiat lorem</h2>
+					<figure>
+					    <blockquote>
+					        "Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra<br /> magna etiam lorem ultricies in diam. Sed arcu cras consequat."
+					    </blockquote>
+					    <footer>
+					        <cite class="author">Jane Anderson</cite>
+					        <cite class="company">CEO, Untitled</cite>
+					    </footer>
+					</figure>
+				</div>
+			</section>
 
-	<?php
-		include "menu.php";
-	?>
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner flex flex-3">
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="images/pic02.jpg" alt="" />
+						</div>
+						<div class="content">
+							<h3>Consequat</h3>
+							<p>Placerat ornare. Pellentesque od sed euismod in, pharetra ltricies edarcu cas consequat.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="images/pic03.jpg" alt="" />
+						</div>
+						<div class="content">
+							<h3>Adipiscing</h3>
+							<p>Morbi in sem quis dui placerat Pellentesque odio nisi, euismod pharetra lorem ipsum.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="images/pic04.jpg" alt="" />
+						</div>
+						<div class="content">
+							<h3>Malesuada</h3>
+							<p>Nam dui mi, tincidunt quis, accu an porttitor, facilisis luctus que metus vulputate sem magna.</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>Get In Touch</h2>
+					<ul class="actions">
+						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
+						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
+						<li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+				</div>
+			</footer>
 
-	  
-
-	
-
-    <div id="header_image"></div>		  	  
-	
-	</div><!--close header-->			
-	
-	<div id="site_content">	 
-	
-	 
-	  <div id="content">	  
-        
-		<h1>Welcome To Your Website</h1> 
-	    <p>This standards compliant, simple, fixed width website template is released as an 'open source' design (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and use it for anything you want (including modifying and amending it). If you wish to remove the &lsquo;ARaynorDesign&rsquo; link in the footer of the template, all I ask is for a donation of &pound;20.00 GBP.</p>			
-		
-		<div class="content_container">	
-		  <h3>Your Title Here</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
-		   <div class="button_small">
-		    <a href="#">Read more</a>
-		  </div><!--close button_small-->
-		</div><!--close content_container-->
-          
-		<div class="content_container">
-		  <h3>Your Title Here</h3>		
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
-		   <div class="button_small">
-		    <a href="#">Read more</a>
-		  </div><!--close button_small-->
-		</div><!--close content_container-->	
-		
-		<div class="content_container">
-		  <h3>Your Title Here</h3>		
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
-		   <div class="button_small">
-		    <a href="#">Read more</a>
-		  </div><!--close button_small-->
-		</div><!--close content_container-->		
-      
-	  </div><!--close content--> 
-	  
-	</div><!--close site_content-->   
-  
-  </div><!--close main-->   
-
-  <div id="footer_container">
-	<div id="footer">
-		
-		<div class="content_item_left">  	  			  
-		  <h3>Another Heading</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed adipiscing rhoncus odio. Nulla pellentesque purus purus, in convallis ipsum viverra in. Proin at sapien vitae metus luctus faucibus ut eget nunc. Sed sollicitudin vestibulum risus a laoreet. Maecenas viverra diam risus, a porta odio sodales vel. Donec non varius magna, vitae cursus purus. Nulla facilisi. Integer semper ligula felis, eu tempor nisl placerat luctus. Donec rutrum risus eu enim tempus, nec ullamcorper tortor vulputate. Pellentesque in metus ipsum. Quisque adipiscing, ipsum a tristique condimentum, mauris quam consequat dui, eu eleifend lectus lorem euismod nibh. Integer quis pulvinar enim. Phasellus iaculis dui id tincidunt mollis. Curabitur at leo vestibulum, laoreet purus aliquet, blandit justo.</p>          		  				
-		</div><!--close content_item-->		
-
-		<div class="content_item_right">  	  			  
-		  <h3>Another Heading</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed adipiscing rhoncus odio. Nulla pellentesque purus purus, in convallis ipsum viverra in. Proin at sapien vitae metus luctus faucibus ut eget nunc. Sed sollicitudin vestibulum risus a laoreet. Maecenas viverra diam risus, a porta odio sodales vel. Donec non varius magna, vitae cursus purus. Nulla facilisi. Integer semper ligula felis, eu tempor nisl placerat luctus. Donec rutrum risus eu enim tempus, nec ullamcorper tortor vulputate. Pellentesque in metus ipsum. Quisque adipiscing, ipsum a tristique condimentum, mauris quam consequat dui, eu eleifend lectus lorem euismod nibh. Integer quis pulvinar enim. Phasellus iaculis dui id tincidunt mollis. Curabitur at leo vestibulum, laoreet purus aliquet, blandit justo.</p>          		  				
-		</div><!--close content_item-->		  
-	      
-		<div class="copyright">
-			<a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://fotogrph.com/">Images</a> | website template by <a href="http://www.araynordesign.co.uk">ARaynorDesign</a>
-        </div>
-		
-    </div><!--close footer-->
-  </div><!--close footer_container-->	
-  
-</body>
+		<!-- Scripts -->
+		<?php 
+			include "script.php";
+		?>
+	</body>
 </html>

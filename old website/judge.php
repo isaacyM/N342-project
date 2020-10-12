@@ -8,7 +8,7 @@
 	<div id="header">  
 
 	<div id="welcome">
-		<h1><a href="#">Judge</a></h1>
+		<h1><a>Login</a></h1>
 	</div><!--close welcome-->	
   
 	<?php
@@ -33,38 +33,50 @@
 	
 	<div id="site_content">  
 	 
-	<div id="content">		
+		<div id="content">		
 		
-	<div class="content_item">		
+			<div class="content_item">	
+
+			<div class="content_container">	
+			</div><!--close content_container-->								
 		
-	<h1>Judge Login</h1>
-        		  							
-		<!-- Form -->
+			<div class="content_container">	
+				<h1>Login -  Judge</h1> 
+ 				<div class="form_settings">
+					<form class = "post" method="post" action="#">
 
-				<form method="post" action="#">
-
-				<!----------------------------------------Text Boxes--------------------------------------------------------->
-
-				<table>
-					<tr>
-						<td>	
+					<!----------------------------------------Text Boxes--------------------------------------------------------->	
 							Username (Email): <?php print $emre; ?><br />
-								<input type="text" maxlength = "50" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
+								<input type="text" class = "form-control" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
 							<br />
 					
 
 					
 							Password: <?php print $lpass; ?> <br />
-								<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
+								<input type="password" class = "form-control" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
 							<br />
-					
+							
+							<p>Check-in<input type="checkbox" name="check-in" value="yes" /></p>
+							
+							<div>
+								<input class = "submit" type="submit" name = "submit"  value="Login" />
+								<input class = "submit" type="reset" name = "reset" value="Reset"/>
+							</div><!--close button_small-->   
+					<!----------------------------------------------------------------------------------------------------------->
+					</form>	
+				</div><!--close div form-->
 
-							<input name="enter" class="btn" type="submit" value="Submit" />
-						</td>
-					</tr>
-				</table>
+			</div><!--close content_container-->
 
-				<!----------------------------------------------------------------------------------------------------------->
+		<div class="content_container">	
+			<h1>Switch Login Screen</h1>
+				<p>If you are adminstrator click on button to switch to judge login screen</p>
+			<div class="button_small">
+			<a href="adminstrator.php">switch</a>
+			</div><!--close button_small-->
+		</div><!--close content_container-->
+
+				
 
 	</div><!--close content_item-->	  
 	</div><!--close content-->

@@ -8,7 +8,7 @@
 	<div id="header">  
 	  
 	  <div id="welcome">
-	    <h1><a href="#">Administrator</a></h1>
+	    <h1><a>Login</a></h1>
 	  </div><!--close welcome-->	  
 	  
 		
@@ -35,30 +35,42 @@
 	<div id="content">	  
 
 	<div class="content_item">
-		<h1>Adminstrator</h1>
+
+		<div class="content_container">	
+		</div><!--close content_container-->
+
+		<div class="content_container">	
+		<h1>Login - Adminstrator</h1>	
 
 
+			<form class = "post" method="post" action="#">
 		  
 	
-							Username (Email): <?php print $emre; ?><br />
-								<input type="text" maxlength = "50" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
-							<br />
+				Username (Email): <?php print $emre; ?><br />
+					<input type="text" maxlength = "50" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
+				<br />
 					
 
 					
-							Password: <?php print $lpass; ?> <br />
-								<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
-							<br />
+				Password: <?php print $lpass; ?> <br />
+					<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
+				<br />
 					
 
-							<input name="enter" class="btn" type="submit" value="Submit" />
+				<input name="enter" class="btn" type="submit" value="Submit" />
+				<input class = "reset" type="reset" name = "reset" value="Reset"/>
+			</form>	
+		</div><!--close content_container-->
 
 
-		
-
-		
-		
-		</div><!--close content_container--> 
+		<div class="content_container">	
+			<h1>Switch Login Screen</h1>
+				<p>If you are judge click on button to switch to judge login screen</p>
+			<div class="button_small">
+			<a href="judge.php">switch</a>
+			</div><!--close button_small-->
+		</div><!--close content_container-->
+	
 
 	   	</div><!--close content_item-->  		
 	  
