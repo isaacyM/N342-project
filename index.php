@@ -9,7 +9,7 @@
 				</nav>
 				<a href="index.html" class="logo">Science</a>
 				<nav class="right">
-					<a href="#" class="button alt">Log in</a>
+					<a href="login.php" class="button alt">Log in</a>
 				</nav>
 			</header>
 
