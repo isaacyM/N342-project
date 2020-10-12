@@ -9,7 +9,7 @@
 	  
 	<div id="welcome">
 	    
-<h1><a href="#">Main Page</a></h1>
+<h1><a>Main Page</a></h1>
 	</div><!--close welcome-->
 
 
@@ -19,45 +19,39 @@
 	?>
 
 
-	  
-
-	
-
-    <div id="header_image"></div>		  	  
+	<div id="header_image"></div>		  	  
 	
 	</div><!--close header-->			
 	
 	<div id="site_content">	 
 	
-	 
-	  <div id="content">	  
-        
-		<h1>Welcome To Your Website</h1> 
-	    <p>This standards compliant, simple, fixed width website template is released as an 'open source' design (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and use it for anything you want (including modifying and amending it). If you wish to remove the &lsquo;ARaynorDesign&rsquo; link in the footer of the template, all I ask is for a donation of &pound;20.00 GBP.</p>			
+	<div id="content">	  
+		<h1>Needs lots of work</h1> 
+	    		<p>MAin page will be emtpy until we figure out what we want to pu here</p>			
 		
-		<div class="content_container">	
-		  <h3>Your Title Here</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
-		   <div class="button_small">
-		    <a href="#">Read more</a>
-		  </div><!--close button_small-->
-		</div><!--close content_container-->
+			<div class="content_container">	
+		  		<h3>Your Title Here</h3>
+		  			<p>EMPTY</p>
+		   		<div class="button_small">
+		    		<a href="#">Read more</a>
+		  	</div><!--close button_small-->
+			</div><!--close content_container-->
           
-		<div class="content_container">
-		  <h3>Your Title Here</h3>		
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
-		   <div class="button_small">
-		    <a href="#">Read more</a>
-		  </div><!--close button_small-->
-		</div><!--close content_container-->	
+			<div class="content_container">
+		  		<h3>Your Title Here</h3>		
+		  			<p>EMPTY</p>
+		   		<div class="button_small">
+		    		<a href="#">Read more</a>
+		  	</div><!--close button_small-->
+			</div><!--close content_container-->	
 		
-		<div class="content_container">
-		  <h3>Your Title Here</h3>		
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
-		   <div class="button_small">
-		    <a href="#">Read more</a>
-		  </div><!--close button_small-->
-		</div><!--close content_container-->		
+			<div class="content_container">
+		  		<h3>Your Title Here</h3>		
+		  			<p>EMPTY</p>
+		   		<div class="button_small">
+		    		<a href="#">Read more</a>
+		  	</div><!--close button_small-->
+			</div><!--close content_container-->		
       
 	  </div><!--close content--> 
 	  
@@ -69,13 +63,13 @@
 	<div id="footer">
 		
 		<div class="content_item_left">  	  			  
-		  <h3>Another Heading</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed adipiscing rhoncus odio. Nulla pellentesque purus purus, in convallis ipsum viverra in. Proin at sapien vitae metus luctus faucibus ut eget nunc. Sed sollicitudin vestibulum risus a laoreet. Maecenas viverra diam risus, a porta odio sodales vel. Donec non varius magna, vitae cursus purus. Nulla facilisi. Integer semper ligula felis, eu tempor nisl placerat luctus. Donec rutrum risus eu enim tempus, nec ullamcorper tortor vulputate. Pellentesque in metus ipsum. Quisque adipiscing, ipsum a tristique condimentum, mauris quam consequat dui, eu eleifend lectus lorem euismod nibh. Integer quis pulvinar enim. Phasellus iaculis dui id tincidunt mollis. Curabitur at leo vestibulum, laoreet purus aliquet, blandit justo.</p>          		  				
+		  	<h3>Another Heading</h3>
+		  	<p>BLANK</p>          		  				
 		</div><!--close content_item-->		
 
 		<div class="content_item_right">  	  			  
-		  <h3>Another Heading</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed adipiscing rhoncus odio. Nulla pellentesque purus purus, in convallis ipsum viverra in. Proin at sapien vitae metus luctus faucibus ut eget nunc. Sed sollicitudin vestibulum risus a laoreet. Maecenas viverra diam risus, a porta odio sodales vel. Donec non varius magna, vitae cursus purus. Nulla facilisi. Integer semper ligula felis, eu tempor nisl placerat luctus. Donec rutrum risus eu enim tempus, nec ullamcorper tortor vulputate. Pellentesque in metus ipsum. Quisque adipiscing, ipsum a tristique condimentum, mauris quam consequat dui, eu eleifend lectus lorem euismod nibh. Integer quis pulvinar enim. Phasellus iaculis dui id tincidunt mollis. Curabitur at leo vestibulum, laoreet purus aliquet, blandit justo.</p>          		  				
+		  	<h3>Another Heading</h3>
+			<p>BLANK</p> 
 		</div><!--close content_item-->		  
 	      
 		<div class="copyright">
