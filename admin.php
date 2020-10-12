@@ -40,9 +40,9 @@
 			<div class="inner">
 
 				<h1>Switch Login Screen</h1>
-					<p>If you are an adminstrator click on button below to switch to adminstrator login screen</p>
+					<p>If you are a judge click on the button to switch to judge login screen</p>
 				
-					<a href="admin.php" class = "button">switch</a>
+					<a href="login.php" class = "button">switch</a>
 
 			</div><!--close content_container-->
 		</section>
@@ -52,7 +52,7 @@
 				<div class="inner">
 
 					<header class="align-left">
-					<h1>Login - Judge</h1>
+					<h1>Login - Adminstrator</h1>
 
 
 					<form class = "post" method="post" action="#">
@@ -84,6 +84,7 @@
 					</header>
 				</div>
 			</section>
+
 
 		<!-- Footer -->
 			<footer id="footer">
