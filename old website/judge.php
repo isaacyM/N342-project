@@ -33,18 +33,19 @@
 	
 	<div id="site_content">  
 	 
-	<div id="content">		
+		<div id="content">		
 		
-	<div class="content_item">	
+			<div class="content_item">	
 
-				<div class="content_container">	
-				</div><!--close content_container-->								
+			<div class="content_container">	
+			</div><!--close content_container-->								
 		
-				<div class="content_container">	
-				<h1>Login -  Judge</h1>  
-				<form class = "post" method="post" action="#">
+			<div class="content_container">	
+				<h1>Login -  Judge</h1> 
+ 				<div class="form_settings">
+					<form class = "post" method="post" action="#">
 
-				<!----------------------------------------Text Boxes--------------------------------------------------------->	
+					<!----------------------------------------Text Boxes--------------------------------------------------------->	
 							Username (Email): <?php print $emre; ?><br />
 								<input type="text" class = "form-control" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
 							<br />
@@ -54,13 +55,18 @@
 							Password: <?php print $lpass; ?> <br />
 								<input type="password" class = "form-control" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
 							<br />
-					
+							
+							<p>Check-in<input type="checkbox" name="check-in" value="yes" /></p>
+							
+							<div>
+								<input class = "submit" type="submit" name = "submit"  value="Login" />
+								<input class = "submit" type="reset" name = "reset" value="Reset"/>
+							</div><!--close button_small-->   
+					<!----------------------------------------------------------------------------------------------------------->
+					</form>	
+				</div><!--close div form-->
 
-							<input class = "button" type="submit" name = "submit"  value="Submit" />
-							<input class = "reset" type="reset" name = "reset" value="Reset"/>
-				<!----------------------------------------------------------------------------------------------------------->
-				</form>	
-				</div><!--close content_container-->
+			</div><!--close content_container-->
 
 		<div class="content_container">	
 			<h1>Switch Login Screen</h1>
