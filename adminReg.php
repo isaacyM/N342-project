@@ -161,7 +161,7 @@
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="admin.php">
+                <form method="post" action="adminReg.php">
                     <?php
                         print $msg;
                     ?>
