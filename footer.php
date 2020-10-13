@@ -1,8 +1,8 @@
 <!-- Footer -->
 <footer id="footer">
     <div class="inner">
+        <h2>Get In Touch</h2>
         <div class="row">
-            <h2>Get In Touch</h2>
             <div class="col-sm-4">
                 <span class="icon fa-map-marker"></span> 864 E Cambridge Dr.<br />Terre Haute, IN United States
             </div>
