@@ -178,27 +178,6 @@
                         <input type="password" name="confirmPassword" id="confirmPassword" maxlength="50" value="<?php print $cpwd; ?>" placeholder="Confirm Password" />
                     </dl>	
 
-                    <dl>
-                        <dt>Level:</dt>
-                        <dt>
-                            <select name="level" id="level">
-                                    <option value="Regular Admin" selected>Regular Admin</option>
-                                    <option value="Grade Level Chair">Grade Level Chair</option>
-                            </select>
-                        </dt>
-                    </dl>
-
-                    <dl>
-                        <dt>Active:</dt>
-                        <dt>
-                            <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
-                            <label for="yes">Yes</label>
-
-                            <input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
-                            <label for="no">No</label>
-                        </dt>
-                    </dl><br />
-
                     <!-- Break -->
                     <!--Submit buttons-->
                     <dl>
