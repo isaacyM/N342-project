@@ -4,7 +4,9 @@ function checkSession()
 {
 	if(!isset($_SESSION)){ session_start(); }
 
-         	$username = $_SESSION['username'];
+         	$username = $_SESSION['email'];
+
+
          
         	 if(empty($username))
         	{
