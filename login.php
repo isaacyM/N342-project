@@ -42,7 +42,7 @@
 				<h1>Switch Login Screen</h1>
 					<p>If you are an adminstrator click on button below to switch to adminstrator login screen</p>
 				
-					<a href="admin.php" class = "button">switch</a>
+					<a href="adminLogin.php" class = "button">switch</a>
 
 			</div><!--close content_container-->
 		</section>
