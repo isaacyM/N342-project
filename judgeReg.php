@@ -179,16 +179,6 @@
                     </dl>	
 
                     <dl>
-                        <dt>Level:</dt>
-                        <dt>
-                            <select name="level" id="level">
-                                    <option value="Regular Admin" selected>Regular Admin</option>
-                                    <option value="Grade Level Chair">Grade Level Chair</option>
-                            </select>
-                        </dt>
-                    </dl>
-
-                    <dl>
                         <dt>Active:</dt>
                         <dt>
                             <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
