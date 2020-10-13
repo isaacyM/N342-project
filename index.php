@@ -7,7 +7,7 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="index.html" class="logo">Science</a>
+				<a href="index.html" class="logo">SEFI</a>
 				<nav class="right">
 					<a href="login.php" class="button alt">Log in</a>
 				</nav>
