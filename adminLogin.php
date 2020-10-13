@@ -18,7 +18,7 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="index.html" class="logo">Science</a>
+				<a href="index.php" class="logo">Admin Login</a>
 			</header>
 
 			<?php

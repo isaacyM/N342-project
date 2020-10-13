@@ -7,7 +7,7 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a class="logo">Science</a>
+				<a class="logo">SEFI</a>
 			</header>
 
 			<?php

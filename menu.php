@@ -6,6 +6,6 @@
 		<li><a href="register.php">Register</a></li>
 	</ul>
 	<ul class="actions vertical">
-		<li><a href="#" class="button fit">Login</a></li>
+		<li><a href="login.php" class="button fit">Login</a></li>
 	</ul>
 </nav>
