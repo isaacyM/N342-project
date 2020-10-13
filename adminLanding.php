@@ -15,7 +15,7 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Admin</a></h1>
+		<h1 align = "center"><a href="#">Admin Controls</a></h1>
 		
 		<div align="center" class="container">
 			<div class="row">
