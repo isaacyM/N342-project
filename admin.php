@@ -212,18 +212,21 @@
 				
 					</div><!--close inner-->
 				</div><!--close #enter collapse-->
+				<br />
 
 				<!--For Edit-->
 				<button data-toggle="collapse" data-target="#edit"><i class="fas fa-edit"> Edit</i></button>
 				<div id="edit" class="collapse">
 
-				</div>
+				</div><!--close #delete collapse-->
+				<br />
 
 				<!--For Delete-->
 				<button data-toggle="collapse" data-target="#delete"><i class="fas fa-trash-alt"> Delete</i></button>
 				<div id="delete" class="collapse">
 					
-				</div>
+				</div><!--close #delete collapse-->
+				<br />
 			</div><!--close container-->
 		</section><!--close section-->
 		<!-- Footer and Scripts-->
