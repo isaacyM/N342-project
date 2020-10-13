@@ -15,11 +15,11 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Booth</a></h1>
+		<h1 align = "center"><a href="#">Grade Level</a></h1>
 		
 		<form method="post" action="#">
 			<div class="container"> 
-				<input type="text" name = "booth"  value="Booth" />
+				<input type="text" name = "gradeLevel"  value="Grade Level" />
                 <div>
                     <a href="#" class="button small">
                         <i class="fas fa-sign-in-alt"> Enter</i>
