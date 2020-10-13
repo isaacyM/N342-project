@@ -24,7 +24,7 @@
         <section id="main" class="wrapper">
             <div class="inner">
                 <!--header class="align-left"-->
-                <h1 align = "center"><a href="#">Admin Registration</a></h1>  
+                <h1 align = "center"><a href="#">Enter a new Admin</a></h1>  
                 
                 <!--PHP Code--->
                 <?php
@@ -36,6 +36,7 @@
                     $cem = "";
                     $pwd = "";
                     $cpwd = "";
+                    $adminLevel = "";
                     $level = "";
                     $active = "";
                     $msg = "";
@@ -63,7 +64,7 @@
                         $pwd = $_POST['password'];
                         $cpwd = $_POST['confirmPassword'];
                 
-                        $level = trim($_POST['level']);
+                        $adminLevel = trim($_POST['adminLevel']);
 
                         //Active
                         if (isset($_POST['active']))
@@ -74,6 +75,20 @@
                         if (!spamcheck($em))							
                                 $msg = $msg . '<br/><b>Email is not valid.</b>';
                             else $emailok = true;
+
+                        //assigning actual value for the admin level
+                        switch ($adminLevel)
+                        {
+                            case "1":
+                                $level = "Regular Admin";
+                                break;
+                            case "2":
+                                $level = "Grade Level Chair";
+                                break;
+                            default:
+                                $level = "";
+                                break;
+                        }
 
                         //taking the selected value for active
                         if ($active=="Yes") 
@@ -86,7 +101,7 @@
                             $yesChecked="";
                             $noChecked="checked";
                         }
-                
+                        
                         //Making sure the required fields are not empty
                         if ($fn== "")
                         {
@@ -146,12 +161,12 @@
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="adminReg.php">
+                <form method="post" action="admin.php">
                     <?php
                         print $msg;
                     ?>
                     <dl>
-                        <dt>First Name</dt>
+                        <dt>First Name<sup>*</sup></dt>
                         <input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
                     </dl>
                     <dl>
@@ -159,34 +174,35 @@
                         <input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" />
                     </dl>
                     <dl>
-                        <dt>Last Name</dt>
+                        <dt>Last Name<sup>*</sup></dt>
                         <input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" />
                     </dl>
                     <dl>
-                        <dt>Username (Email)</dt>
+                        <dt>Username (Email)<sup>*</sup></dt>
                         <input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" />
                     </dl>
                     <dl>
-                        <dt>Confirm Username</dt>
+                        <dt>Confirm Username<sup>*</sup></dt>
                         <input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" />
                     </dl>
 
                     <dl>
-                        <dt>Password</dt>
+                        <dt>Password<sup>*</sup></dt>
                         <input type="password" name="password" id="password" maxlength="50" value="<?php print $pwd; ?>" placeholder="Password" />
                     </dl>
 
                     <dl>
-                        <dt>Confirm Password</dt>
+                        <dt>Confirm Password<sup>*</sup></dt>
                         <input type="password" name="confirmPassword" id="confirmPassword" maxlength="50" value="<?php print $cpwd; ?>" placeholder="Confirm Password" />
                     </dl>	
 
                     <dl>
-                        <dt>Level:</dt>
+                        <dt>Admin Level:</dt>
                         <dt>
-                            <select name="level" id="level">
-                                    <option value="Regular Admin" selected>Regular Admin</option>
-                                    <option value="Grade Level Chair">Grade Level Chair</option>
+                            <select name="adminLevel" id="adminLevel">
+                                    <option value="0" selected>-Admin Level-</option>
+                                    <option value="1">Regular Admin</option>
+                                    <option value="2">Grade Level Chair</option>
                             </select>
                         </dt>
                     </dl>
@@ -205,7 +221,7 @@
                     <!-- Break -->
                     <!--Submit buttons-->
                     <dl>
-                        <input class = "submit" type="submit" name = "submit"  value="Submit" />
+                        <input class = "submit" type="submit" name = "submit"  value="Register" />
                         <input class = "submit" type="reset" name = "reset" value="Reset"/>
                     </dl>
                 </form>
