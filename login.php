@@ -25,7 +25,7 @@
 
 			<?php
 
-			$em = "test"; // temp username for testing
+			$em = "judge"; // temp username for testing
 
 			$pass = "123";// temp password for testing 
 

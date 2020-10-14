@@ -27,13 +27,60 @@
 
 			<?php
 
-				$em = "";
-				$cem = "";
-				$pass = "";
-				$cpass = "";
+			$em = "admin"; // temp username for testing
 
-				$emre="*";
-				$lpass = "*"
+			$pass = "123";// temp password for testing 
+
+			$cem = "";
+			$cpass = "";
+
+
+			$emre="*";
+			$lpass = "*";
+		
+			$msg = "";
+
+		if (isset($_POST['enter'])) //check if this page is requested after Submit button is clicked
+		{
+
+
+			$cem = trim($_POST['email']);
+
+			$cpass = trim($_POST['password']); 
+			
+			if($cem != $em)
+			{
+				$emre = "<br /><span style=\"color:red\"> Username was incorrect</span><br />";
+			}	
+			if(($cpass != $pass))
+			{
+				$lpass = "<br /><span style=\"color:red\">Password was incorrect</span><br />";
+			}
+			if($cpass == "")
+			{
+				$lpass = "<br /><span style=\"color:red\">Please type in password</span><br />";
+			}			
+
+
+			if(($cem != $em) || ($cpass != $pass) || ($cpass == ""))
+			{
+				$msg = "<br /><span style=\"color:red\">Failed to Login</span><br />";
+				print $msg;
+			}
+			else
+			{
+				$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
+				print $msg;	
+				$_SESSION['email']= $em;
+				header("Location: adminLanding.php");
+			}
+			
+
+			
+
+		}
+
+
 			?>
 
 		<section id="main" class="wrapper">
@@ -55,17 +102,18 @@
 					<h1>Login - Adminstrator</h1>
 
 
-					<form class = "post" method="post" action="#">
+					<form class = "post" method="post" action="adminLogin.php">
 					<dl>
 					<!----------------------------------------Text Boxes--------------------------------------------------------->	
 							<dt>Username (Email): <?php print $emre; ?></dt>
-								<input type="text" class = "form-control" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
+								<input type="text" maxlength = "50" value="<?php print $cem; ?>" name="email" id="email"  placeholder="example@gmail.com" />
 							<br />
 					
 
 					
 							<dt>Password: <?php print $lpass; ?></dt>
-								<input type="password" class = "form-control" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password" />
+								<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password"/> <br />
+
 							<br />
 
 							<div class="6u$ 12u$(small)">
@@ -74,9 +122,9 @@
 							</div>
 							
 							<div>
-								<input class = "submit" type="submit" name = "submit"  value="Login" />
+								<input name="enter" class="btn" type="submit" value="Login" />
 								<input class = "submit" type="reset" name = "reset" value="Reset"/>
-							</div><!--close button_small-->   
+							</div><!--close button_small-->    
 					<!----------------------------------------------------------------------------------------------------------->
 					</dl>
 					</form>	
