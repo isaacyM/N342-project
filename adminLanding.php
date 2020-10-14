@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include "header.php";
 ?>
 	<body>
@@ -82,10 +83,6 @@
 						<i class="fas fa-store"></i>
 					</a><br />
 					<b>Booth Number</b>
-				</div>
-				<div class="col-sm-3">
-				</div>
-				<div class="col-sm-3">
 				</div>
 			</div><br />
 		</div><br />

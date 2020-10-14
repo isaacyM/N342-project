@@ -1,7 +1,7 @@
 <?php
 	session_start();
-		include "header.php";
-		include "util.php";
+    include "header.php";
+    include "util.php";
 ?>
 
 	<body>
