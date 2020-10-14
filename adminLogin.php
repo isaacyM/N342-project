@@ -1,11 +1,8 @@
-<!DOCTYPE HTML>
-<!--
-	Intensify by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
+<?php
+	session_start()
+?>
+	
+<head>
 		<title>Login</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -71,7 +68,7 @@
 			{
 				$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
 				print $msg;	
-				$_SESSION['email']= $em;
+				$_SESSION['aEmail'] = $em;
 				header("Location: adminLanding.php");
 			}
 			
@@ -115,11 +112,6 @@
 								<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password"/> <br />
 
 							<br />
-
-							<div class="6u$ 12u$(small)">
-								<input type="checkbox" id="check-in" name="check-in">
-								<label for="check-in">Check-in</label>
-							</div>
 							
 							<div>
 								<input name="enter" class="btn" type="submit" value="Login" />
