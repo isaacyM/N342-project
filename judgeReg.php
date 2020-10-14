@@ -2,6 +2,7 @@
 	session_start();
 		include "header.php";
 		include "util.php";
+		require_once "dbconnect.php";
 ?>
 
 	<body>
@@ -39,7 +40,7 @@
                     $cem = "";
                     $pwd = "";
                     $cpwd = "";
-                    $year = "";
+                    //year = "";
                     $msg = "";
                     
                     $fnok = false;
@@ -66,7 +67,7 @@
                         $pwd = $_POST['password'];
                         $cpwd = $_POST['confirmPassword'];
                         
-                        $birthYear = $_POST['birthYear'];
+                        //$birthYear = $_POST['birthYear'];
 
                         //VALIDATION
                         //Validating email
@@ -99,6 +100,29 @@
                             $msg = $msg . '<br/><b>Passwords are not the same.</b>';
                         else $pwdok = true;
 
+                        //Assigning actual value to the degree
+                        switch($degree)
+                        {
+                            case "1":
+                                $degree = "High School Diploma";
+                                break;
+                            case "2":
+                                $degree = "Associate Degree";
+                                break;
+                            case "3":
+                                $degree = "Bachelor's Degree";
+                                break;
+                            case "4":
+                                $degree = "Master's Degree";
+                                break;
+                            case "5":
+                                $degree = "PHD";
+                                break;
+                            default:
+                                $degree = "";
+
+                        }
+
                         //if everything is correct
                         if ($fnok && $lnok && $emailok && $pwdok) 
                         {
@@ -115,8 +139,10 @@
                             $_SESSION['confirmEmail']= $cem;
                             $_SESSION['password']=$pwd;
                             $_SESSION['confirmPassword']=$cpwd;
-                            $_SESSION['birthYear']= $birthYear;
+                            //$_SESSION['birthYear']= $birthYear;
                             //header("Location: process.php");
+			    $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password, Year)) VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
+			    $stat->execute();
                         }                
                     }
                     
@@ -128,7 +154,7 @@
                         print $msg;
                     ?>
                     <dl>
-                        <dt>First Name</dt>
+                        <dt>First Name<sup>*</sup></dt>
                         <input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
                     </dl>
                     <dl>
@@ -136,7 +162,7 @@
                         <input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" />
                     </dl>
                     <dl>
-                        <dt>Last Name</dt>
+                        <dt>Last Name<sup>*</sup></dt>
                         <input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" />
                     </dl>
                     <dl>
@@ -147,11 +173,12 @@
                         <dt>Highest Degree Earned</dt>
                         <dt>
                             <select name="degree" id="degree">
-                                <option value="High School Diploma">High School Diploma</option>
-                                <option value="Associate Degree">Associate Degree</option>
-                                <option value="Bachelor's Degree" selected>Bachelor's Degree</option>
-                                <option value="Master's Degree">Master's Degree</option>
-                                <option value="PHD">PHD</option>
+                                <option value="" selected>-Degree-</option>
+                                <option value="1">High School Diploma</option>
+                                <option value="2">Associate Degree</option>
+                                <option value="3">Bachelor's Degree</option>
+                                <option value="4">Master's Degree</option>
+                                <option value="5">PHD</option>
                             </select>
                         </dt>
                     </dl>
@@ -160,39 +187,27 @@
                         <input type="text" maxlength="50" name="employer" id="employer" value="<?php print $employer; ?>" placeholder="Employer" />
                     </dl>
                     <dl>
-                        <dt>Username (Email)</dt>
+                        <dt>Username (Email)<sup>*</sup></dt>
                         <input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" />
                     </dl>
                     <dl>
-                        <dt>Confirm Username</dt>
+                        <dt>Confirm Username<sup>*</sup></dt>
                         <input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" />
                     </dl>
 
                     <dl>
-                        <dt>Password</dt>
+                        <dt>Password<sup>*</sup></dt>
                         <input type="password" name="password" id="password" maxlength="50" value="<?php print $pwd; ?>" placeholder="Password" />
                     </dl>
 
                     <dl>
-                        <dt>Confirm Password</dt>
+                        <dt>Confirm Password<sup>*</sup></dt>
                         <input type="password" name="confirmPassword" id="confirmPassword" maxlength="50" value="<?php print $cpwd; ?>" placeholder="Confirm Password" />
                     </dl>	
 
-                    <dl>
-                        <dt>Active:</dt>
-                        <dt>
-                            <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
-                            <label for="yes">Yes</label>
-
-                            <input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
-                            <label for="no">No</label>
-                        </dt>
-                    </dl><br />
-
-                    <!-- Break -->
                     <!--Submit buttons-->
                     <dl>
-                        <input class = "submit" type="submit" name = "submit"  value="Submit" />
+                        <input class = "submit" type="submit" name = "submit"  value="Register" />
                         <input class = "submit" type="reset" name = "reset" value="Reset"/>
                     </dl>
                 </form>
