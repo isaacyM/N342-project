@@ -1,4 +1,10 @@
 <?php
+	require_once("aSession.php");
+	if(checkAdminSession())
+	{
+		header("Location: login.php");
+	}
+
 	include "header.php";
 ?>
 	<body>

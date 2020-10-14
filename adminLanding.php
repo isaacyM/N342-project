@@ -1,12 +1,11 @@
 <?php
 	include "header.php";
-	require_once("session.php");
-	if(checkSession())
+	require_once("aSession.php");
+	if(checkAdminSession())
 	{
 		header("Location: login.php");
 	}
 
-	//session_start();
 ?>
 	<body>
 		<!-- Header -->

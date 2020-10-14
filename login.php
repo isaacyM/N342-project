@@ -69,7 +69,7 @@
 			{
 				$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
 				print $msg;	
-				$_SESSION['email']= $em;
+				$_SESSION['jEmail']= $em;
 				header("Location: judgeLanding.php");
 			}
 			
