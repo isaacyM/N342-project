@@ -20,7 +20,7 @@
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<div class="container"> 
-				<div class="12u">
+				<div class="12u$">
 					<button data-toggle="collapse" data-target="#enter"><i class="fas fa-sign-in-alt"> Enter new School</i></button>
 					<div id="enter" class="collapse">
 						<div class="inner"> 
@@ -99,7 +99,7 @@
 										<input type="text" maxlength="60" name="schoolName" id="schoolName" value="<?php print $schoolName; ?>" placeholder="IUPUI" />
 									</div>
 									<!-- Break -->
-									<div class="6u$ 12u$(xsmall)">
+									<div class="6u 12u$(xsmall)">
 										<b>County</b>
 										<div class="select-wrapper">
 											<select name="county" id="county">
@@ -123,13 +123,13 @@
 										</div>
 									</div>
 									<!-- Break -->
-									<div class="12u$">
+									<div class="row uniform">
 										<b>Active</b>
-										<div class="6u$ 12u$(small)">
+										<div class="4u 12u$(small)">
 											<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
 											<label for="yes">Yes</label>
 										</div>
-										<div class="6u$ 12u$(small)">
+										<div class="4u$ 12u$(small)">
 											<input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
 											<label for="no">No</label>
 										</div>
@@ -148,7 +148,7 @@
 					</div><!--close #enter collapse-->
 				</div>
 				<!-- Break -->
-				<div class="12u">
+				<div class="12u$">
 					<!--For Edit-->
 					<button data-toggle="collapse" data-target="#edit"><i class="fas fa-edit"> Edit</i></button>
 					<div id="edit" class="collapse">
@@ -156,7 +156,7 @@
 					</div><!--close #delete collapse-->
 				</div>
 				<!-- Break -->
-				<div class="12u">
+				<div class="12u$">
 					<!--For Delete-->
 					<button data-toggle="collapse" data-target="#delete"><i class="fas fa-trash-alt"> Delete</i></button>
 					<div id="delete" class="collapse">

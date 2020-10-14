@@ -21,7 +21,7 @@
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<div class="container"> 
-				<div class="12u">
+				<div class="12u$">
 					<button data-toggle="collapse" data-target="#enter"><i class="fas fa-sign-in-alt"> Enter new County</i></button>
 					<div id="enter" class="collapse">
 						<div class="inner"> 
@@ -102,7 +102,7 @@
 					</div><!--close #enter collapse-->
 				</div>
 				<!-- Break -->
-				<div class="12u">
+				<div class="12u$">
 					<!--For Edit-->
 					<button data-toggle="collapse" data-target="#edit"><i class="fas fa-edit"> Edit</i></button>
 					<div id="edit" class="collapse">
@@ -110,7 +110,7 @@
 					</div><!--close #delete collapse-->
 				</div>
 				<!-- Break -->
-				<div class="12u">
+				<div class="12u$">
 					<!--For Delete-->
 					<button data-toggle="collapse" data-target="#delete"><i class="fas fa-trash-alt"> Delete</i></button>
 					<div id="delete" class="collapse">

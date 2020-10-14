@@ -211,16 +211,16 @@
 										</div>
 									</div>
 									<!-- Break -->
-									<div class="1u 12u$(small)">
+									<div class="row uniform">
 										<b>Active</b>
-									</div>
-									<div class="1u 12u$(small)">
-										<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
-										<label for="yes">Yes</label>
-									</div>
-									<div class="1u$ 12u$(small)">
-										<input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
-										<label for="no">No</label>
+										<div class="4u 12u$(small)">
+											<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
+											<label for="yes">Yes</label>
+										</div>
+										<div class="4u$ 12u$(small)">
+											<input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
+											<label for="no">No</label>
+										</div>
 									</div>
 									<!-- Break -->
 									<!--Submit buttons-->

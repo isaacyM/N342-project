@@ -21,7 +21,7 @@
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<div class="container"> 
-				<div class="12u">
+				<div class="12u$">
 					<button data-toggle="collapse" data-target="#enter"><i class="fas fa-sign-in-alt"> Enter new Project</i></button>
 					<div id="enter" class="collapse">
 						<div class="inner"> 
@@ -100,7 +100,7 @@
 										<b>Booth Number<sup>*</sup></b>
 										<input type="text" maxlength="10" name="boothNumber" id="boothNumber" value="<?php print $boothNumber; ?>" placeholder="1" />
 									</div>
-									<div class="4u 12u$(small)">
+									<div class="4u$ 12u$(small)">
 										<b>Course Network ID</b>
 										<input type="text" maxlength="10" name="cnID" id="cnID" value="<?php print $cnID; ?>" placeholder="Course Netwrok ID" />
 									</div>
@@ -115,7 +115,7 @@
 										<textarea name="abstract" id="abstract" placeholder="Abstract" rows="5" value="<?php print $abstract; ?>"></textarea>
 									</div>
 									<!-- Break -->
-									<div class="6u$ 12u$(xsmall)">
+									<div class="6u 12u$(xsmall)">
 										<b>Grade Level</b>
 										<div class="select-wrapper">
 											<select name="gradeLevel" id="gradeLevel">
@@ -152,7 +152,7 @@
 										<b>Average Ranking</b>
 										<input type="text" maxlength="4" name="averageRanking" id="averageRanking" value="<?php print $averageRanking; ?>" placeholder="3" />
 									</div>
-									<div class="6u 12u$(small)">
+									<div class="6u$ 12u$(small)">
 										<b>Year</b>
 										<input type="text" maxlength="4" name="year" id="year" value="<?php print $year; ?>" placeholder="2020" />
 									</div>
@@ -170,7 +170,7 @@
 					</div><!--close #enter collapse-->
 				</div>
 				<!-- Break -->
-				<div class="12u">
+				<div class="12u$">
 					<!--For Edit-->
 					<button data-toggle="collapse" data-target="#edit"><i class="fas fa-edit"> Edit</i></button>
 					<div id="edit" class="collapse">
@@ -178,7 +178,7 @@
 					</div><!--close #delete collapse-->
 				</div>
 				<!-- Break -->
-				<div class="12u">
+				<div class="12u$">
 					<!--For Delete-->
 					<button data-toggle="collapse" data-target="#delete"><i class="fas fa-trash-alt"> Delete</i></button>
 					<div id="delete" class="collapse">

@@ -135,16 +135,16 @@
 										</div>
 									</div>
 									<!-- Break -->
-									<div class="1u$ 12u$(small)">
+									<div class="row uniform">
 										<b>Gender</b>
-									</div>
-									<div class="1u$ 12u$(small)">
-										<input type="radio" name="gender" id = "male" value = "M" checked />
-										<label for="male">Male</label>
-									</div>
-									<div class="1u$ 12u$(small)">
-										<input type="radio" name="gender" id = "female" value = "F" />
-										<label for="female">Female</label>
+										<div class="4u 12u$(small)">
+											<input type="radio" name="gender" id = "male" value = "M" checked />
+											<label for="male">Male</label>
+										</div>
+										<div class="4u$ 12u$(small)">
+											<input type="radio" name="gender" id = "female" value = "F" />
+											<label for="female">Female</label>
+										</div>
 									</div>
 									<!-- Break -->
 									<div class="12u$">
