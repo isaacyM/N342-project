@@ -28,6 +28,19 @@
 				</div>
 			</section>
 
+			<section id="main" class="wrapper">
+				<dl>
+					<dt>Active:</dt>
+					<dt>
+						<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
+						<label for="yes">Yes</label>
+
+						<input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
+						<label for="no">No</label>
+					</dt>
+				</dl>
+			</section>
+
 		<!-- Footer and Scripts-->
 		
 		<?php 

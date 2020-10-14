@@ -1,5 +1,11 @@
 <?php
 	include "header.php";
+	require_once("aSession.php");
+	if(checkAdminSession())
+	{
+		header("Location: login.php");
+	}
+
 ?>
 	<body>
 		<!-- Header -->
@@ -15,7 +21,7 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Admin</a></h1>
+		<h1 align = "center"><a href="#">Admin Controls</a></h1>
 		
 		<div align="center" class="container">
 			<div class="row">
@@ -44,7 +50,7 @@
 					<b>Project</b>
 				</div>
 			</div><br />
-			<div align="center" class="row">
+			<div class="row">
 				<div class="col-sm-3">
 					<a href="student.php" class="button big">
 						<i class="fas fa-user-graduate"></i>
@@ -70,7 +76,7 @@
 					<b>Project Grade Level</b>
 				</div>
 			</div><br />
-			<div align="center" class="row">
+			<div class="row">
 				<div class="col-sm-3">
 					<a href="judgeSession.php" class="button big">
 						<i class="fas fa-clock"></i>
@@ -82,10 +88,6 @@
 						<i class="fas fa-store"></i>
 					</a><br />
 					<b>Booth Number</b>
-				</div>
-				<div class="col-sm-3">
-				</div>
-				<div class="col-sm-3">
 				</div>
 			</div><br />
 		</div><br />
