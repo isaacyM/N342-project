@@ -2,6 +2,10 @@
 	session_start();
     include "header.php";
     include "util.php";
+
+=======
+    require_once "dbconnect.php";
+
 ?>
 
 	<body>
@@ -156,9 +160,13 @@
                             $_SESSION['level']= $level;
                             $_SESSION['active']=$active;
                             //header("Location: process.php");
+			    $statement = $connect->prepare("INSERT INTO ADMIN (FirstName, LastName, MiddleName, Email, Password, Level, Active) VALUES ($fn, $ln, $mn, $em, $pwd, $level, $active)");
+                            //query to send data to database
+			    $statement->execute();
+
                         }                
-                    }	
-                ?>
+                    }
+		                    ?>
 
                 <!-- Form -->
                 <form method="post" action="adminReg.php">

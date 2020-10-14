@@ -2,6 +2,7 @@
 	session_start();
 		include "header.php";
 		include "util.php";
+		require_once "dbconnect.php";
 ?>
 
 	<body>
@@ -39,7 +40,7 @@
                     $cem = "";
                     $pwd = "";
                     $cpwd = "";
-                    $year = "";
+                    //year = "";
                     $msg = "";
                     
                     $fnok = false;
@@ -66,7 +67,7 @@
                         $pwd = $_POST['password'];
                         $cpwd = $_POST['confirmPassword'];
                         
-                        $birthYear = $_POST['birthYear'];
+                        //$birthYear = $_POST['birthYear'];
 
                         //VALIDATION
                         //Validating email
@@ -138,8 +139,10 @@
                             $_SESSION['confirmEmail']= $cem;
                             $_SESSION['password']=$pwd;
                             $_SESSION['confirmPassword']=$cpwd;
-                            $_SESSION['birthYear']= $birthYear;
+                            //$_SESSION['birthYear']= $birthYear;
                             //header("Location: process.php");
+			    $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password, Year)) VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
+			    $stat->execute();
                         }                
                     }
                     
