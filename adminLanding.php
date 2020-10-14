@@ -51,7 +51,7 @@
 					<b>Project</b>
 				</div>
 			</div><br />
-			<div align="center" class="row">
+			<div class="row">
 				<div class="col-sm-3">
 					<a href="student.php" class="button big">
 						<i class="fas fa-user-graduate"></i>
@@ -77,7 +77,7 @@
 					<b>Project Grade Level</b>
 				</div>
 			</div><br />
-			<div align="center" class="row">
+			<div class="row">
 				<div class="col-sm-3">
 					<a href="judgeSession.php" class="button big">
 						<i class="fas fa-clock"></i>
