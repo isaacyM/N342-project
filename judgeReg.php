@@ -1,8 +1,8 @@
 <?php
 	session_start();
-		include "header.php";
-		include "util.php";
-		require_once "dbconnect.php";
+    include "header.php";
+    include "util.php";
+    require_once "dbconnect.php";
 ?>
 
 	<body>
@@ -139,10 +139,10 @@
                             $_SESSION['confirmEmail']= $cem;
                             $_SESSION['password']=$pwd;
                             $_SESSION['confirmPassword']=$cpwd;
-                            //$_SESSION['birthYear']= $birthYear;
-                            //header("Location: process.php");
-			    $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password, Year)) VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
-			    $stat->execute();
+
+                            //query to send data to database
+                            $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password, Year)) VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
+                            $stat->execute();
                         }                
                     }
                     

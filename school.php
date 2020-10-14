@@ -4,7 +4,6 @@
 	{
 		header("Location: login.php");
 	}
-
 	include "header.php";
 ?>
 	<body>

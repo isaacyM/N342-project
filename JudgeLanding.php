@@ -1,4 +1,9 @@
 <?php
+	require_once("jSession.php");
+	if(checkAdminSession())
+	{
+		header("Location: login.php");
+	}
 	include "header.php";
 ?>
 	<body class="subpage">
@@ -42,11 +47,9 @@
 			</section>
 
 		<!-- Footer and Scripts-->
-		
 		<?php 
-            		include "footer.php";
-            		include "script.php";
+			include "footer.php";
+			include "script.php";
 		?>
-
 	</body>
 </html>
