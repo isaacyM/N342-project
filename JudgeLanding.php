@@ -1,6 +1,6 @@
 <?php
 	require_once("jSession.php");
-	if(checkAdminSession())
+	if(checkJudgeSession())
 	{
 		header("Location: login.php");
 	}
