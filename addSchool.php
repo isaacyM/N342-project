@@ -85,7 +85,7 @@
                         if ($schoolNameOk && $countyOk && $cityOk) 
                         {
                             //query to send data to database
-                            $statement = "INSERT INTO SCHOOL(SchoolName, SchoolCity, SchoolCountyID) VALUES('$schoolName', '$city', '$county')";
+                            $statement = "INSERT INTO SCHOOL(SchoolName, SchoolCity, SchoolCountyID) VALUES('$schoolName', '$city', $county)";
 
                             //direct to another page to process using query strings
                             // $_SESSION['schoolName']= $schoolName;
@@ -113,7 +113,7 @@
                     <div class="row uniform">
                         <div class="12u$">
                             <b>School Name<sup>*</sup></b>
-                            <input type="text" maxlength="60" name="schoolName" id="schoolName" value="<?php print $schoolName; ?>" placeholder="IUPUI" />
+                            <input type="text" maxlength="50" name="schoolName" id="schoolName" value="<?php print $schoolName; ?>" placeholder="IUPUI" />
                         </div>
                         <!-- Break -->
                         <div class="6u 12u$(xsmall)">

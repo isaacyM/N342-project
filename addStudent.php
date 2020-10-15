@@ -159,7 +159,7 @@
 
                         
                         //if everything is correct
-                        if ($fnOk  && $lnOk && $gradeLevelOk &&	$genderOk && $schoolNameOk && $countyOk && $cityOk && $projectNumberOk && $projectIDOk &&	$yearOk)
+                        if ($fnOk  && $lnOk && $gradeLevelOk &&	$genderOk && $schoolNameOk && $countyOk && $cityOk && $projectNumberOk && $projectIDOk && $yearOk)
                         {
                             //query to send data to database
                             $statement = "INSERT INTO STUDENT(FirstName, LastName, MiddleName, GradeID, Gender, SchoolID, ProjectID, Year) 
