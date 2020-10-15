@@ -5,6 +5,7 @@
 		header("Location: login.php");
 	}
 	include "header.php";
+	require_once "dbconnect.php";
 ?>
 	<body>
 		<!-- Header -->
@@ -58,7 +59,7 @@
 						{
 					
 							//take the information submitted and send to a process file
-							//always trim the user input to get rid of the additiona white spaces on both ends of the user input
+							//always trim the user input to get rid of the additional white spaces on both ends of the user input
 							$projectNumber = trim($_POST['projectNumber']);
 							$boothNumber = trim($_POST['boothNumber']);
 							$cnID = trim($_POST['cnID']);
@@ -71,7 +72,8 @@
 
 							//VALIDATION
 							//Making sure the required fields are not empty
-							if (($projectNumber== "") | ($boothNumber== "") | ($projectTitle== ""))
+							if (($projectNumber== "") | ($boothNumber== "") | ($cnID== "") | ($projectTitle== "") |
+							($abstract== "") | ($gradeLevel== "") | ($category== "") | ($averageRanking== "") | ($year== ""))
 							{
 								$msg = $msg . '<br/><b>Please enter the required fields.</b>';
 							}
@@ -83,6 +85,11 @@
 							//if everything is correct
 							if ($everythingOk) 
 							{
+								//query to send data to database
+								$statement = $connect->prepare("INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CouseNetworkID, AverageRanking, Year) 
+								VALUES($projectNumber, $projectTitle, $abstract, $gradeLevel, $category, $boothNumber, , $cnID, $averageRanking, $year)");
+								$statement->execute();
+
 								//direct to another page to process using query strings
 								$_SESSION['projectNumber']= $projectNumber;
 								$_SESSION['boothNumber']= $boothNumber;
@@ -93,7 +100,8 @@
 								$_SESSION['category']= $category;
 								$_SESSION['averageRanking']= $averageRanking;
 								$_SESSION['year']= $year;
-								//header("Location: process.php");
+								$msg = '<br/><b>New Category added</b><br/>';
+								header("Location: project.php");
 							}                
 						}	
 					?>
@@ -106,29 +114,29 @@
 							?>
 							<div class="4u 12u$(small)">
 								<b>Project Number<sup>*</sup></b>
-								<input type="text" maxlength="10" name="projectNumber" id="projectNumber" value="<?php print $projectNumber; ?>" placeholder="4" />
+								<input type="number" maxlength="11" name="projectNumber" id="projectNumber" value="<?php print $projectNumber; ?>" placeholder="4" />
 							</div>
 							<div class="4u 12u$(small)">
 								<b>Booth Number<sup>*</sup></b>
-								<input type="text" maxlength="10" name="boothNumber" id="boothNumber" value="<?php print $boothNumber; ?>" placeholder="1" />
+								<input type="number" maxlength="11" name="boothNumber" id="boothNumber" value="<?php print $boothNumber; ?>" placeholder="1" />
 							</div>
 							<div class="4u$ 12u$(small)">
 								<b>Course Network ID</b>
-								<input type="text" maxlength="10" name="cnID" id="cnID" value="<?php print $cnID; ?>" placeholder="Course Netwrok ID" />
+								<input type="number" maxlength="11" name="cnID" id="cnID" value="<?php print $cnID; ?>" placeholder="123" />
 							</div>
 							<!-- Break -->
 							<div class="12u$">
 								<b>Project Title<sup>*</sup></b>
-								<input type="text" maxlength="60" name="projectTitle" id="projectTitle" value="<?php print $projectTitle; ?>" placeholder="Robots" />
+								<input type="text" maxlength="50" name="projectTitle" id="projectTitle" value="<?php print $projectTitle; ?>" placeholder="Robots" />
 							</div>
 							<!-- Break -->
 							<div class="12u$">
-								<b>Abstract</b>
-								<textarea name="abstract" id="abstract" placeholder="Abstract" rows="5" value="<?php print $abstract; ?>"></textarea>
+								<b>Abstract<sup>*</sup</b>
+								<textarea maxlength="250" name="abstract" id="abstract" placeholder="Abstract" rows="5" value="<?php print $abstract; ?>"></textarea>
 							</div>
 							<!-- Break -->
 							<div class="6u 12u$(xsmall)">
-								<b>Grade Level</b>
+								<b>Grade Level<sup>*</sup</b>
 								<div class="select-wrapper">
 									<select name="gradeLevel" id="gradeLevel">
 										<option value="" selected>Grade Level</option>
@@ -148,7 +156,7 @@
 								</div>
 							</div>
 							<div class="6u$ 12u$(xsmall)">
-								<b>Category</b>
+								<b>Category<sup>*</sup</b>
 								<div class="select-wrapper">
 									<select name="category" id="category">
 										<option value="" selected>Category</option>
@@ -161,12 +169,12 @@
 							</div>
 							<!-- Break -->
 							<div class="6u 12u$(small)">
-								<b>Average Ranking</b>
-								<input type="text" maxlength="4" name="averageRanking" id="averageRanking" value="<?php print $averageRanking; ?>" placeholder="3" />
+								<b>Average Ranking<sup>*</sup</b>
+								<input type="number" maxlength="11" name="averageRanking" id="averageRanking" value="<?php print $averageRanking; ?>" placeholder="3" />
 							</div>
 							<div class="6u$ 12u$(small)">
-								<b>Year</b>
-								<input type="text" maxlength="4" name="year" id="year" value="<?php print $year; ?>" placeholder="2020" />
+								<b>Year<sup>*</sup</b>
+								<input type="number" name="year" id="year" min="1900" max="2030" step="1" value="<?php print $year; ?>" placeholder="2020" />
 							</div>
 							<!-- Break -->
 							<!--Submit buttons-->

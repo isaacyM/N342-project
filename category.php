@@ -5,6 +5,7 @@
 		header("Location: login.php");
 	}
 	include "header.php";
+	require_once "dbconnect.php";
 ?>
 	<body>
 		<!-- Header -->
@@ -41,54 +42,66 @@
 					<!--PHP Code--->
 					<?php
 						//always initialize variables to be used
-						$CategoryName = "";
+						$categoryName = "";
 						$active = "";
 						$msg = "";
 
 						$yesChecked = "";
 						$noChecked = "";
-						$everythingOk= false;
+						$categoryOk = false;
+						$activeOk = false;
 
 						if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
 						{
 					
 							//take the information submitted and send to a process file
 							//always trim the user input to get rid of the additiona white spaces on both ends of the user input
-							$CategoryName = trim($_POST['CategoryName']);
-
-							//Active
-							if (isset($_POST['active']))
-								$active = trim($_POST['active']);
-							//taking the selected value for active
-							if ($active=="Yes") 
-							{
-								$yesChecked="checked";
-								$noChecked="";
-							}
-							else 
-							{
-								$yesChecked="";
-								$noChecked="checked";
-							}
-
+							$categoryName = trim($_POST['CategoryName']);
+							$active = trim($_POST['active']);
+							
 							//VALIDATION
+							if ($active == "")
+							{
+								$msg = $msg . '<br/><b>Please select if active.</b>';
+							}
+							else
+							{
+								//taking the selected value for active
+								if ($active=="Yes") 
+								{
+									$yesChecked="checked";
+									$noChecked="";
+								}
+								else 
+								{
+									$yesChecked="";
+									$noChecked="checked";
+								}
+								$activeOk = true;
+							}
+
 							//Making sure the required fields are not empty
-							if ($CategoryName== "")
+							if ($categoryName== "")
 							{
 								$msg = $msg . '<br/><b>Please enter the required fields.</b>';
 							}
 							else
 							{
-								$everythingOk= true;
+								$categoryOk= true;
 							}
 					
 							//if everything is correct
-							if ($everythingOk) 
+							if ($categoryOk && $activeOk) 
 							{
+								//query to send data to database
+								$statement = $connect->prepare("INSERT INTO CATEGORY(CategoryName, Active) VALUES($categoryName, $active)");
+								$statement->execute();
+
 								//direct to another page to process using query strings
-								$_SESSION['CategoryName']= $CategoryName;
+								$_SESSION['categoryName']= $categoryName;
 								$_SESSION['active']=$active;
-								//header("Location: process.php");
+								$msg = '<br/><b>New Category added</b><br/>';
+								header("Location: category.php");
 							}                
 						}	
 					?>
@@ -101,13 +114,13 @@
 							?>
 							<div class="12u$">
 								<b>Category Name<sup>*</sup></b>
-								<input type="text" maxlength="60" name="CategoryName" id="CategoryName" value="<?php print $CategoryName; ?>" placeholder="Computer Science" />
+								<input type="text" maxlength="50" name="CategoryName" id="CategoryName" value="<?php print $CategoryName; ?>" placeholder="Computer Science" />
 							</div>
 							<!-- Break -->
 							<div class="row uniform">
-								<b>Active</b>
+								<b>Active<sup>*</sup></b>
 								<div class="4u 12u$(small)">
-									<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
+									<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> />
 									<label for="yes">Yes</label>
 								</div>
 								<div class="4u$ 12u$(small)">

@@ -5,6 +5,7 @@
 		header("Location: login.php");
 	}
 	include "header.php";
+	require_once "dbconnect.php";
 ?>
 	<body>
 		<!-- Header -->
@@ -49,7 +50,10 @@
 
 						$yesChecked = "";
 						$noChecked = "";
-						$everythingOk= false;
+						$sessionNumberOk= false;
+						$startTimeOk = false;
+						$endTimeOk = false;
+						$activeOk = false;
 
 						if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
 						{
@@ -57,42 +61,70 @@
 							//take the information submitted and send to a process file
 							//always trim the user input to get rid of the additiona white spaces on both ends of the user input
 							$sessionNumber = trim($_POST['sessionNumber']);
-							$startTime = trim($_POST['startTime']);
-							$endTime = trim($_POST['endTime']);
-
-							//Active
-							if (isset($_POST['active']))
-								$active = trim($_POST['active']);
-							//taking the selected value for active
-							if ($active=="Yes") 
-							{
-								$yesChecked="checked";
-								$noChecked="";
-							}
-							else 
-							{
-								$yesChecked="";
-								$noChecked="checked";
-							}
-
+							$startTime = $_POST['startTime'];
+							$endTime = $_POST['endTime'];
+							$active = $_POST['active'];
+							
 							//VALIDATION
-							//Making sure the required fields are not empty
-							if (($sessionNumber == "") | ($startTime == "") | ($endTime == ""))
+							if ($active == "")
 							{
-								$msg = $msg . '<br/><b>Please enter the required fields.</b>';
+								$msg = $msg . '<br/><b>Please select if active.</b>';
 							}
 							else
 							{
-								$everythingOk= true;
+								//taking the selected value for active
+								if ($active=="Yes") 
+								{
+									$yesChecked="checked";
+									$noChecked="";
+								}
+								else 
+								{
+									$yesChecked="";
+									$noChecked="checked";
+								}
+								$activeOk = true;
+							}
+							//Making sure the required fields are not empty
+							if ($sessionNumber == "")
+							{
+								$msg = $msg . '<br/><b>Please enter the session number.</b>';
+							}
+							else
+							{
+								$sessionNumberOk= true;
+							}
+							if ($startTime == "")
+							{
+								$msg = $msg . '<br/><b>Please set the start time.</b>';
+							}
+							else
+							{
+								$startTimeOk = true;
+							}
+							if ($endTime == "")
+							{
+								$msg = $msg . '<br/><b>Please set the end time.</b>';
+							}
+							else
+							{
+								$endTimeOk= true;
 							}
 					
 							//if everything is correct
-							if ($everythingOk) 
+							if ($sessionNumberOk && $startTimeOk && $endTimeOk && $activeOk) 
 							{
+								//query to send data to database
+								$statement = $connect->prepare("INSERT INTO SESSION(SessionNumber, StartTime, EndTime, Active) 
+								VALUES($sessionNumber, $startTime, $endTime, $active)");
+								$statement->execute();
+
 								//direct to another page to process using query strings
-								$_SESSION['judgeSession']= $judgeSession;
+								$_SESSION['sessionNumber']= $sessionNumber;
+								$_SESSION['startTime']=$startTime;
+								$_SESSION['endTime']=$endTime;
 								$_SESSION['active']=$active;
-								//header("Location: process.php");
+								header("Location: judgeSession.php");
 							}                
 						}	
 					?>
@@ -105,7 +137,7 @@
 							?>
 							<div class="12u$">
 								<b>Session Number<sup>*</sup></b>
-								<input type="text" maxlength="10" name="sessionNumber" id="sessionNumber" placeholder="Session Number" />
+								<input type="number" maxlength="11" name="sessionNumber" id="sessionNumber" placeholder="Session Number" />
 							</div>
 							<!-- Break -->
 							<div class="6u$">
@@ -118,10 +150,10 @@
 							</div>
 							<!-- Break -->
 							<div class="1u$ 12u$(small)">
-								<b>Active</b>
+								<b>Active<sup>*</sup></b>
 							</div>
 							<div class="1u$ 12u$(small)">
-								<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
+								<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> />
 								<label for="yes">Yes</label>
 							</div>
 							<div class="1u$ 12u$(small)">

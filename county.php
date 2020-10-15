@@ -5,6 +5,7 @@
 		header("Location: login.php");
 	}
 	include "header.php";
+	require_once "dbconnect.php";
 ?>
 	<body>
 		<!-- Header -->
@@ -53,7 +54,7 @@
 							//take the information submitted and send to a process file
 							//always trim the user input to get rid of the additiona white spaces on both ends of the user input
 							$countyName = trim($_POST['countyName']);
-							$city = trim($_POST['city']);
+							// $city = trim($_POST['city']);
 
 							//VALIDATION
 							//Making sure the required fields are not empty
@@ -70,10 +71,15 @@
 							//if everything is correct
 							if ($countyNameok) 
 							{
+								//query to send data to database
+								$statement = $connect->prepare("INSERT INTO COUNTY(CountyName) VALUES ($countyName)");
+								$statement->execute();
+
 								//direct to another page to process using query strings
 								$_SESSION['countyName']= $countyName;
-								$_SESSION['city']= $city;
-								//header("Location: process.php");
+								// $_SESSION['city']= $city;
+								$msg = '<br/><b>New County added</b><br/>';
+								header("Location: county.php");
 							}                
 						}	
 					?>
@@ -86,10 +92,10 @@
 							?>
 							<div class="12u$">
 								County Name<sup>*</sup>
-								<input type="text" maxlength="30" name="countyName" id="countyName" value="<?php print $countyName; ?>" placeholder="Marion" />
+								<input type="text" maxlength="50" name="countyName" id="countyName" value="<?php print $countyName; ?>" placeholder="Marion" />
 							</div>
 							<!-- Break -->
-							<div class="12u$">
+							<!-- <div class="12u$">
 								City
 								<div class="select-wrapper">
 									<select name="city" id="city">
@@ -99,7 +105,7 @@
 											<option value="City4">City4</option>
 									</select>
 								</div>
-							</div>
+							</div> -->
 							<!-- Break -->
 							<!--Submit buttons-->
 							<div class="12u$">

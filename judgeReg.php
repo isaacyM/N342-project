@@ -40,13 +40,12 @@
                     $cem = "";
                     $pwd = "";
                     $cpwd = "";
-                    //year = "";
                     $msg = "";
                     
-                    $fnok = false;
-                    $lnok = false;
-                    $emailok = false;
-                    $pwdok = false;
+                    $fnOk = false;
+                    $lnOk = false;
+                    $emailOk = false;
+                    $pwdOk = false;
 
                     if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
                     {
@@ -72,33 +71,37 @@
                         //VALIDATION
                         //Validating email
                         if (!spamcheck($em))
+                        {
                             $msg = $msg . '<br/><b>Email is not valid.</b>';
-                        else $emailok = true;
+                        }
+                        //Matching the emails       
+                        elseif ($em!=$cem)
+                        {
+                            $msg = $msg . '<br/><b>Emails are not the same.</b>';
+                        }
+                        else 
+                        {
+                            $emailOk = true;
+                        }
                         
                         //Making sure the required fields are not empty
                         if ($fn== "")
                             $msg = $msg . '<br/><b>Please enter the First Name</b>';
                         else
-                            $fnok = true;
+                            $fnOk = true;
                         
                         if ($ln== "")
                             $msg = $msg . '<br/><b>Please enter the Last Name</b>';
                         else
-                            $lnok = true;
+                            $lnOk = true;
 
                         if ($pwd== "")
                             $msg = $msg . '<br/><b>Please enter the Password</b>';
                         
-                        //Matching the emails       
-                        if ($em!=$cem)
-                        {
-                            $msg = $msg . '<br/><b>Emails are not the same.</b>';
-                        }
-                        
                         //Matching the passwords
                         if ($pwd != $cpwd)
                             $msg = $msg . '<br/><b>Passwords are not the same.</b>';
-                        else $pwdok = true;
+                        else $pwdOk = true;
 
                         //Assigning actual value to the degree
                         switch($degree)
@@ -124,9 +127,25 @@
                         }
 
                         //if everything is correct
-                        if ($fnok && $lnok && $emailok && $pwdok) 
+                        if ($fnOk && $lnOk && $emailOk && $pwdOk) 
                         {
+                            //query to send data to database
+                            $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password)) 
+                            VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
+                            $stat->execute();
 
+                            //now send the email to the username registered for activating the account
+                            $code = randomCodeGenerator(50);
+                            $subject = "Email Activation";
+                                                
+                            $body = 'Hello '.$fn.'! '.'Thank you for registering. Please click on this url to activate your account.
+                                    http://corsair.cs.iupui.edu:24561/judgeLogin.php?a='.$code;
+
+                            //use PHP built-in functions, see details on https://www.w3schools.com/php/func_mail_mail.asp
+                            $body = wordwrap($body,70);// use wordwrap() if lines are longer than 70 characters
+                            if(!mail($em,$subject,$body)) //mail() functions returns a hash value of the address parameter, or false
+                                $msg = "Email not sent. " . $em.' '. $fn.' '. $subject.' '. $body;
+                            else $msg = "<b>Thank you for registering. A welcome message has been sent to the address you have just registered.</b>";
 
                             //direct to another page to process using query strings
                             $_SESSION['firstName']= $fn;
@@ -136,13 +155,8 @@
                             $_SESSION['degree']= $degree;
                             $_SESSION['employer']= $employer;
                             $_SESSION['email']= $em;
-                            $_SESSION['confirmEmail']= $cem;
                             $_SESSION['password']=$pwd;
-                            $_SESSION['confirmPassword']=$cpwd;
-
-                            //query to send data to database
-                            $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password, Year)) VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
-                            $stat->execute();
+                            header("Location: judgeProcess.php");
                         }                
                     }
                     

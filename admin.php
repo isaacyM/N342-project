@@ -5,6 +5,7 @@
 		header("Location: login.php");
 	}
 	include "header.php";
+	require_once "dbconnect.php";
 ?>
 	<body>
 		<!-- Header -->
@@ -56,10 +57,10 @@
 						$yesChecked = "";
 						$noChecked = "";
 				
-						$fnok = false;
-						$lnok = false;
-						$emailok = false;
-						$pwdok = false;
+						$fnOk = false;
+						$lnOk = false;
+						$emailOk = false;
+						$pwdOk = false;
 
 						if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
 						{
@@ -86,7 +87,7 @@
 							//Validating email
 							if (!spamcheck($em))							
 									$msg = $msg . '<br/><b>Email is not valid.</b>';
-								else $emailok = true;
+								else $emailOk = true;
 
 							//assigning actual value for the admin level
 							switch ($adminLevel)
@@ -121,7 +122,7 @@
 							}
 							else
 							{
-								$fnok = true;
+								$fnOk = true;
 							}
 					
 							if ($ln== "")
@@ -130,7 +131,7 @@
 							}
 							else
 							{
-								$lnok = true;
+								$lnOk = true;
 							}
 
 							if ($pwd== "")
@@ -151,12 +152,17 @@
 							}
 							else 
 							{
-								$pwdok = true;
+								$pwdOk = true;
 							}
 
 							//if everything is correct
-							if ($fnok && $lnok && $emailok && $pwdok) 
+							if ($fnOk && $lnOk && $emailOk && $pwdOk) 
 							{
+								//query to send data to database
+								$statement = $connect->prepare("INSERT INTO ADMIN(FirstName, LastName, MiddleName, Email, Password, Level, Active) 
+								VALUES($fn, $ln, $mn, $em, $pwd, $adminLevel, $active)");
+								$statement->execute();
+
 								//direct to another page to process using query strings
 								$_SESSION['firstName']= $fn;
 								$_SESSION['middleName']= $mn;
@@ -167,7 +173,8 @@
 								$_SESSION['confirmPassword']=$cpwd;
 								$_SESSION['level']= $level;
 								$_SESSION['active']=$active;
-								//header("Location: process.php");
+								$msg = '<br/><b>New Admin added</b><br/>';
+								header("Location: admin.php");
 							}                
 						}	
 					?>
@@ -180,41 +187,41 @@
 							?>
 							<div class="4u 12u$(small)">
 								<b>First Name<sup>*</sup></b>
-								<input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
+								<input type="text" maxlength="50" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
 							</div>
 							<!-- Break -->
 							<div class="4u 12u$(small)">
 								<b>Middle Name</b>
-								<input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" />
+								<input type="text" maxlength="50" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" />
 							</div>
 							<!-- Break -->
 							<div class="4u$ 12u$(small)">
 								<b>Last Name<sup>*</sup></b>
-								<input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" />
+								<input type="text" maxlength="50" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" />
 							</div>
 							<!-- Break -->
 							<div class="6u 12u$(small)">
 								<b>Username (Email)<sup>*</sup></b>
-								<input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" />
+								<input type="text" name="email" id="email" maxlength="80" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" />
 							</div>
 							<!-- Break -->
 							<div class="6u$ 12u$(small)">
 								<b>Confirm Username<sup>*</sup></b>
-								<input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" />
+								<input type="text" name="confirmEmail" id="confirmEmail" maxlength="80" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" />
 							</div>
 							<!-- Break -->
 							<div class="6u 12u$(small)">
 								<b>Password<sup>*</sup></b>
-								<input type="password" name="password" id="password" maxlength="50" value="<?php print $pwd; ?>" placeholder="Password" />
+								<input type="password" name="password" id="password" maxlength="30" value="<?php print $pwd; ?>" placeholder="Password" />
 							</div>
 							<!-- Break -->
 							<div class="6u$ 12u$(small)">
 								<b>Confirm Password<sup>*</sup></b>
-								<input type="password" name="confirmPassword" id="confirmPassword" maxlength="50" value="<?php print $cpwd; ?>" placeholder="Confirm Password" />
+								<input type="password" name="confirmPassword" id="confirmPassword" maxlength="30" value="<?php print $cpwd; ?>" placeholder="Confirm Password" />
 							</div>	
 							<!-- Break -->
 							<div class="12u$">
-								<b>Admin Level</b>
+								<b>Admin Level<sup>*</sup></b>
 								<div class="select-wrapper">
 									<select name="adminLevel" id="adminLevel">
 											<option value="0" selected>Admin Level</option>
@@ -225,9 +232,9 @@
 							</div>
 							<!-- Break -->
 							<div class="row uniform">
-								<b>Active</b>
+								<b>Active<sup>*</sup></b>
 								<div class="4u 12u$(small)">
-									<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
+									<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?>/>
 									<label for="yes">Yes</label>
 								</div>
 								<div class="4u$ 12u$(small)">

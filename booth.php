@@ -5,6 +5,7 @@
 		header("Location: login.php");
 	}
 	include "header.php";
+	require_once "dbconnect.php";
 ?>
 	<body>
 		<!-- Header -->
@@ -47,7 +48,8 @@
 
 						$yesChecked = "";
 						$noChecked = "";
-						$everythingOk= false;
+						$activeOk = false;
+						$boothOk= false;
 
 						if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
 						{
@@ -55,40 +57,51 @@
 							//take the information submitted and send to a process file
 							//always trim the user input to get rid of the additiona white spaces on both ends of the user input
 							$boothNumber = trim($_POST['boothNumber']);
-
-							//Active
-							if (isset($_POST['active']))
-								$active = trim($_POST['active']);
-							//taking the selected value for active
-							if ($active=="Yes") 
-							{
-								$yesChecked="checked";
-								$noChecked="";
-							}
-							else 
-							{
-								$yesChecked="";
-								$noChecked="checked";
-							}
-
+							$active = trim($_POST['active']);
+							
 							//VALIDATION
-							//Making sure the required fields are not empty
-							if ($boothNumber== "")
+							if ($active == "")
 							{
-								$msg = $msg . '<br/><b>Please enter the required fields.</b>';
+								$msg = $msg . '<br/><b>Please select if active.</b>';
 							}
 							else
 							{
-								$everythingOk= true;
+								//taking the selected value for active
+								if ($active=="Yes") 
+								{
+									$yesChecked="checked";
+									$noChecked="";
+								}
+								else 
+								{
+									$yesChecked="";
+									$noChecked="checked";
+								}
+								$activeOk = true;
+							}
+
+							if ($boothNumber== "")
+							{
+								$msg = $msg . '<br/><b>Please enter the booth Number.</b>';
+							}
+							else
+							{
+								$boothOk= true;
 							}
 					
 							//if everything is correct
-							if ($everythingOk) 
+							if ($boothOk && $activeOk) 
 							{
+								//query to send data to database
+								$statement = $connect->prepare("INSERT INTO BOOTH_NUMBER(Number, Active) VALUES 
+								($boothNumber, $active)");
+								$statement->execute();
+
 								//direct to another page to process using query strings
 								$_SESSION['boothNumber']= $boothNumber;
 								$_SESSION['active']=$active;
-								//header("Location: process.php");
+								$msg = '<br/><b>New Booth Number added</b><br/>';
+								header("Location: booth.php");
 							}                
 						}	
 					?>
@@ -101,13 +114,13 @@
 							?>
 							<div class="12u$">
 								<b>Booth Number<sup>*</sup></b>
-								<input type="text" maxlength="3" name="boothNumber" id="boothNumber" placeholder="1" />
+								<input type="number" maxlength="11" name="boothNumber" id="boothNumber" placeholder="1" />
 							</div>
 							<!-- Break -->
 							<div class="row uniform">
-								<b>Active</b>
+								<b>Active<sup>*</sup></b>
 								<div class="4u 12u$(small)">
-									<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
+									<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> />
 									<label for="yes">Yes</label>
 								</div>
 								<div class="4u$ 12u$(small)">
