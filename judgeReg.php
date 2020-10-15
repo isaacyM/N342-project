@@ -137,10 +137,26 @@
                         //if everything is correct
                         if ($fnOk && $lnOk && $emailOk && $pwdOk) 
                         {
-                            //query to send data to database
-                            $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password)) 
-                            VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
-                            $stat->execute();
+
+                            	$_SESSION['firstName']= $fn;
+                            	$_SESSION['middleName']= $mn;
+                            	$_SESSION['lastName']= $ln;
+                            	$_SESSION['title']= $title;
+                            	$_SESSION['degree']= $degree;
+                            	$_SESSION['employer']= $employer;
+                            	$_SESSION['email']= $em;
+                            	$_SESSION['password']=$pwd;
+
+                            	//query to send data to database
+                            	$state = "INSERT INTO JUDGE(FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password) VALUES('$fn', '$mn', '$ln', '$title', '$degree', '$employer', '$em', '$em', '$pwd')";
+				if(!mysql_query($state))
+				{
+    					die("WHY !!!!!!!!!!!!");
+				}
+				else{ echo "Success"; }
+
+				mysql_close();
+
 
                             //now send the email to the username registered for activating the account
                             $code = randomCodeGenerator(50);
@@ -156,14 +172,6 @@
                             else $msg = "<b>Thank you for registering. A welcome message has been sent to the address you have just registered.</b>";
 
                             //direct to another page to process using query strings
-                            $_SESSION['firstName']= $fn;
-                            $_SESSION['middleName']= $mn;
-                            $_SESSION['lastName']= $ln;
-                            $_SESSION['title']= $title;
-                            $_SESSION['degree']= $degree;
-                            $_SESSION['employer']= $employer;
-                            $_SESSION['email']= $em;
-                            $_SESSION['password']=$pwd;
                             header("Location: judgeProcess.php");
                         }                
                     }
