@@ -138,7 +138,7 @@
                         if ($fnOk && $lnOk && $emailOk && $pwdOk) 
                         {
                             //query to send data to database
-                            $statement = "INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password)) 
+                            $statement = "INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password)
                             VALUES ('$fn', '$mn', '$ln', '$title', '$degree', '$employer', '$em', '$em', '$pwd')";
 
                             //now send the email to the username registered for activating the account
