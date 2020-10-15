@@ -47,15 +47,15 @@
                         //take the information submitted and send to a process file
                         //always trim the user input to get rid of the additiona white spaces on both ends of the user input
                         $boothNumber = trim($_POST['boothNumber']);
-                        $active = trim($_POST['active']);
                         
                         //VALIDATION
-                        if ($active == "")
+                        if (!isset($_POST['active']))
                         {
                             $msg = $msg . '<br/><b>Please select if active.</b>';
                         }
                         else
                         {
+                            $active = $_POST['active'];
                             //taking the selected value for active
                             if ($active=="Yes") 
                             {
@@ -86,9 +86,9 @@
                             $statement = "INSERT INTO BOOTH_NUMBER(Number, Active) VALUES ($boothNumber, '$active')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['boothNumber']= $boothNumber;
-                            $_SESSION['active']=$active;
-                            $msg = '<br/><b>New Booth Number added</b><br/>';
+                            // $_SESSION['boothNumber']= $boothNumber;
+                            // $_SESSION['active']=$active;
+                            // $msg = '<br/><b>New Booth Number added</b><br/>';
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -96,14 +96,14 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: booth.php");
+                                die("New Booth Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="booth.php" onsubmit="return false">
+                <form method="post" action="addBooth.php">
                     <?php
                         print $msg;
                     ?>
@@ -116,7 +116,7 @@
                         <div class="row uniform">
                             <b>Active<sup>*</sup></b>
                             <div class="4u 12u$(small)">
-                                <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> />
+                                <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?>/>
                                 <label for="yes">Yes</label>
                             </div>
                             <div class="4u$ 12u$(small)">

@@ -85,13 +85,13 @@
                         if ($schoolNameOk && $countyOk && $cityOk) 
                         {
                             //query to send data to database
-                            $statement = "INSERT INTO SCHOOL(SchoolName, SchoolCity, SchoolCountyID) VALUES('$schoolName', '$city', $county)";
+                            $statement = "INSERT INTO SCHOOL(SchoolName, SchoolCity, SchoolCountyID) VALUES('$schoolName', '$city', '$county')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['schoolName']= $schoolName;
-                            $_SESSION['county']= $county;
-                            $_SESSION['city']= $city;
-                            $msg = '<br/><b>New School added</b><br/>';
+                            // $_SESSION['schoolName']= $schoolName;
+                            // $_SESSION['county']= $county;
+                            // $_SESSION['city']= $city;
+                            // $msg = '<br/><b>New School added</b><br/>';
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -99,14 +99,14 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: school.php");
+                                die("New School Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="school.php" onsubmit="return false">
+                <form method="post" action="addSchool.php">
                     <?php
                         print $msg;
                     ?>
@@ -120,10 +120,11 @@
                             <b>County<sup>*</sup></b>
                             <div class="select-wrapper">
                                 <select name="county" id="county">
-                                        <option value="1" selected>County1</option>
-                                        <option value="2">County2</option>
-                                        <option value="3">County3</option>
-                                        <option value="4">County4</option>
+                                    <option value="" selected>County</option>
+                                    <option value="1" >County1</option>
+                                    <option value="2">County2</option>
+                                    <option value="3">County3</option>
+                                    <option value="4">County4</option>
                                 </select>
                             </div>
                         </div>
@@ -132,10 +133,11 @@
                             <b>City<sup>*</sup></b>
                             <div class="select-wrapper">
                                 <select name="city" id="city">
-                                        <option value="City1" selected>City1</option>
-                                        <option value="City2">City2</option>
-                                        <option value="City3">City3</option>
-                                        <option value="City4">City4</option>
+                                    <option value="" selected>City</option>
+                                    <option value="1" >City1</option>
+                                    <option value="2">City2</option>
+                                    <option value="3">City3</option>
+                                    <option value="4">City4</option>
                                 </select>
                             </div>
                         </div>

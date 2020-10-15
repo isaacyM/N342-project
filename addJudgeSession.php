@@ -52,15 +52,16 @@
                         $sessionNumber = trim($_POST['sessionNumber']);
                         $startTime = $_POST['startTime'];
                         $endTime = $_POST['endTime'];
-                        $active = $_POST['active'];
+
                         
                         //VALIDATION
-                        if ($active == "")
+                        if (!isset($_POST['active']))
                         {
                             $msg = $msg . '<br/><b>Please select if active.</b>';
                         }
                         else
                         {
+                            $active = $_POST['active'];
                             //taking the selected value for active
                             if ($active=="Yes") 
                             {
@@ -107,26 +108,26 @@
                             $statement = "INSERT INTO SESSION(SessionNumber, StartTime, EndTime, Active) VALUES($sessionNumber, '$startTime', '$endTime', '$active')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['sessionNumber']= $sessionNumber;
-                            $_SESSION['startTime']=$startTime;
-                            $_SESSION['endTime']=$endTime;
-                            $_SESSION['active']=$active;
-                            $msg = '<br/><b>New Session added</b><br/>';
+                            // $_SESSION['sessionNumber']= $sessionNumber;
+                            // $_SESSION['startTime']=$startTime;
+                            // $_SESSION['endTime']=$endTime;
+                            // $_SESSION['active']=$active;
+                            // $msg = '<br/><b>New Session added</b><br/>';
                             if(!mysql_query($statement))
                             {
-                                    die("Error adding");
+                                die("Error adding");
                             }
                             else
                             { 
                                 mysql_close();
-                                header("Location: judgeSession.php");
+                                die("New Judge Session Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="judgeSession.php">
+                <form method="post" action="addJudgeSession.php">
                     <?php
                         print $msg;
                     ?>

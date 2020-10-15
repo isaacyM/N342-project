@@ -48,12 +48,13 @@
                         $active = trim($_POST['active']);
                         
                         //VALIDATION
-                        if ($active == "")
+                        if (!isset($_POST['active']))
                         {
                             $msg = $msg . '<br/><b>Please select if active.</b>';
                         }
                         else
                         {
+                            $active = $_POST['active'];
                             //taking the selected value for active
                             if ($active=="Yes") 
                             {
@@ -85,9 +86,9 @@
                             $statement = "INSERT INTO CATEGORY(CategoryName, Active) VALUES('$categoryName', '$active')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['categoryName']= $categoryName;
-                            $_SESSION['active']=$active;
-                            $msg = '<br/><b>New Category added</b><br/>';
+                            // $_SESSION['categoryName']= $categoryName;
+                            // $_SESSION['active']=$active;
+                            // $msg = '<br/><b>New Category added</b><br/>';
                             if(!mysql_query($statement))
                             {
                                     die("Error registering");
@@ -95,21 +96,21 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: category.php");
+                                die("New Category Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="category.php" onsubmit="return false">
+                <form method="post" action="addCategory.php">
                     <?php
                         print $msg;
                     ?>
                     <div class="row uniform">
                         <div class="12u$">
                             <b>Category Name<sup>*</sup></b>
-                            <input type="text" maxlength="50" name="CategoryName" id="CategoryName" value="<?php print $CategoryName; ?>" placeholder="Computer Science" />
+                            <input type="text" maxlength="50" name="CategoryName" id="CategoryName" value="<?php print $categoryName; ?>" placeholder="Computer Science" />
                         </div>
                         <!-- Break -->
                         <div class="row uniform">

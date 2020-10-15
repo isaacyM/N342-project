@@ -38,7 +38,6 @@
                     $pwd = "";
                     $cpwd = "";
                     $adminLevel = "";
-                    $level = "";
                     $active = "";
                     $msg = "";
 
@@ -49,6 +48,8 @@
                     $lnOk = false;
                     $emailOk = false;
                     $pwdOk = false;
+                    $adminLevelOk = false;
+                    $activeOk = false;
 
                     if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
                     {
@@ -67,11 +68,43 @@
                 
                         $adminLevel = trim($_POST['adminLevel']);
 
-                        //Active
-                        if (isset($_POST['active']))
-                            $active = trim($_POST['active']);
-
                         //VALIDATION
+                        if (!isset($_POST['active']))
+                        {
+                            $msg = $msg . '<br/><b>Please select if active.</b>';
+                        }
+                        else
+                        {
+                            $active = $_POST['active'];
+                            //taking the selected value for active
+                            if ($active=="Yes") 
+                            {
+                                $yesChecked="checked";
+                                $noChecked="";
+                            }
+                            else 
+                            {
+                                $yesChecked="";
+                                $noChecked="checked";
+                            }
+                            $activeOk = true;
+                        }
+                        else
+                        {
+                            //taking the selected value for active
+                            if ($active=="Yes") 
+                            {
+                                $yesChecked="checked";
+                                $noChecked="";
+                                $activeOk = true;
+                            }
+                            else 
+                            {
+                                $yesChecked="";
+                                $noChecked="checked";
+                                $activeOk = true;
+                            }
+                        }
                         //Validating email
                         if (!spamcheck($em))							
                                 $msg = $msg . '<br/><b>Email is not valid.</b>';
@@ -81,28 +114,19 @@
                         switch ($adminLevel)
                         {
                             case "1":
-                                $level = "Regular Admin";
+                                $adminLevel = "Regular Admin";
+                                $adminLevelOk = true;
                                 break;
                             case "2":
-                                $level = "Grade Level Chair";
+                                $adminLevel = "Grade Level Chair";
+                                $adminLevelOk = true;
                                 break;
                             default:
-                                $level = "";
+                                $adminLevel = "";
+                                $adminLevelOk = false;
+                                $msg = $msg . '<br/><b>Please select the admin level</b>';
                                 break;
                         }
-
-                        //taking the selected value for active
-                        if ($active=="Yes") 
-                        {
-                            $yesChecked="checked";
-                            $noChecked="";
-                        }
-                        else 
-                        {
-                            $yesChecked="";
-                            $noChecked="checked";
-                        }
-                        
                         //Making sure the required fields are not empty
                         if ($fn== "")
                         {
@@ -144,23 +168,21 @@
                         }
 
                         //if everything is correct
-                        if ($fnOk && $lnOk && $emailOk && $pwdOk) 
+                        if ($fnOk && $lnOk && $emailOk && $pwdOk && $adminLevelOk && $activeOk) 
                         {
                             //query to send data to database
                             $statement = "INSERT INTO ADMIN(FirstName, LastName, MiddleName, Email, Password, Level, Active) 
                             VALUES('$fn', '$ln', '$mn', '$em', '$pwd', '$adminLevel', '$active')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['firstName']= $fn;
-                            $_SESSION['middleName']= $mn;
-                            $_SESSION['lastName']= $ln;
-                            $_SESSION['email']= $em;
-                            $_SESSION['confirmEmail']= $cem;
-                            $_SESSION['password']=$pwd;
-                            $_SESSION['confirmPassword']=$cpwd;
-                            $_SESSION['level']= $level;
-                            $_SESSION['active']=$active;
-                            $msg = '<br/><b>New Admin added</b><br/>';
+                            // $_SESSION['firstName']= $fn;
+                            // $_SESSION['middleName']= $mn;
+                            // $_SESSION['lastName']= $ln;
+                            // $_SESSION['email']= $em;
+                            // $_SESSION['password']=$pwd;
+                            // $_SESSION['adminLevel']= $adminLevel;
+                            // $_SESSION['active']=$active;
+
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -168,14 +190,14 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: admin.php");
+                                die("New Admin Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="admin.php" onsubmit="return false">
+                <form method="post" action="addAdmin.php">
                     <?php
                         print $msg;
                     ?>
@@ -219,7 +241,7 @@
                             <b>Admin Level<sup>*</sup></b>
                             <div class="select-wrapper">
                                 <select name="adminLevel" id="adminLevel">
-                                        <option value="0" selected>Admin Level</option>
+                                        <option value="" selected>Admin Level</option>
                                         <option value="1">Regular Admin</option>
                                         <option value="2">Grade Level Chair</option>
                                 </select>

@@ -61,7 +61,7 @@
                         $cnID = trim($_POST['cnID']);
                         $projectTitle = trim($_POST['projectTitle']);
                         $abstract = trim($_POST['abstract']);
-                        $gradeLevel = trim($_POST['gradeLevel ']);
+                        $gradeLevel = trim($_POST['gradeLevel']);
                         $category = trim($_POST['category']);
                         $averageRanking = trim($_POST['averageRanking']);
                         $year = trim($_POST['year']);
@@ -142,23 +142,23 @@
                         }
                 
                         //if everything is correct
-                        if ($everythingOk) 
+                        if ($projectNumberOk && $boothNumberOk && $cnIDOk && $projectTitleOk && $abstractOk && $gradeLevelOk && $categoryOk && $averageRankingOk && $yearOk) 
                         {
                             //query to send data to database
                             $statement = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CouseNetworkID, AverageRanking, Year) 
                             VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $gradeLevel, $cnID, $averageRanking, $year)";
 
                             //direct to another page to process using query strings
-                            $_SESSION['projectNumber']= $projectNumber;
-                            $_SESSION['boothNumber']= $boothNumber;
-                            $_SESSION['cnID']= "$cnID";
-                            $_SESSION['projectTitle']= $projectTitle;
-                            $_SESSION['abstract']= $abstract;
-                            $_SESSION['gradeLevel']= $gradeLevel;
-                            $_SESSION['category']= $category;
-                            $_SESSION['averageRanking']= $averageRanking;
-                            $_SESSION['year']= $year;
-                            $msg = '<br/><b>New Project added</b><br/>';
+                            // $_SESSION['projectNumber']= $projectNumber;
+                            // $_SESSION['boothNumber']= $boothNumber;
+                            // $_SESSION['cnID']= "$cnID";
+                            // $_SESSION['projectTitle']= $projectTitle;
+                            // $_SESSION['abstract']= $abstract;
+                            // $_SESSION['gradeLevel']= $gradeLevel;
+                            // $_SESSION['category']= $category;
+                            // $_SESSION['averageRanking']= $averageRanking;
+                            // $_SESSION['year']= $year;
+                            // $msg = '<br/><b>New Project added</b><br/>';
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -166,14 +166,14 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: project.php");
+                                die("New Project Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="project.php" onsubmit="return false">
+                <form method="post" action="addProject.php">
                     <?php
                         print $msg;
                     ?>
@@ -201,7 +201,7 @@
                             <input type="text" maxlength="250" name="abstract" id="abstract" placeholder="Abstract" value="<?php print $abstract; ?>"/>
                         </div>
                         <!-- Break -->
-                        <div class="6u 12u$(xsmall)">
+                        <div class="12u$">
                             <b>Grade Level<sup>*</sup</b>
                             <div class="select-wrapper">
                                 <select name="gradeLevel" id="gradeLevel">
@@ -221,7 +221,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="6u$ 12u$(xsmall)">
+                        <div class="12u$">
                             <b>Category<sup>*</sup</b>
                             <div class="select-wrapper">
                                 <select name="category" id="category">
@@ -234,11 +234,11 @@
                             </div>
                         </div>
                         <!-- Break -->
-                        <div class="6u 12u$(small)">
+                        <div class="12u$">
                             <b>Average Ranking<sup>*</sup</b>
                             <input type="number" maxlength="11" name="averageRanking" id="averageRanking" value="<?php print $averageRanking; ?>" placeholder="3" />
                         </div>
-                        <div class="6u$ 12u$(small)">
+                        <div class="12u$">
                             <b>Year<sup>*</sup</b>
                             <input type="number" name="year" id="year" min="1900" max="2030" step="1" value="<?php print $year; ?>" placeholder="2020" />
                         </div>

@@ -22,7 +22,7 @@
             include "util.php"
 ;		?>
 
-		<h1 align = "center"><a href="#">add New Grade</a></h1>
+		<h1 align = "center"><a href="#">Add New Grade</a></h1>
 		
 		<!-- Main -->
 		<div class="container">	
@@ -46,15 +46,16 @@
                         //take the information submitted and send to a process file
                         //always trim the user input to get rid of the additiona white spaces on both ends of the user input
                         $grade = trim($_POST['grade']);
-                        $active = trim($_POST['active']);
+                        
                         
                         //VALIDATION
-                        if ($active == "")
+                        if (!isset($_POST['active']))
                         {
                             $msg = $msg . '<br/><b>Please select if active.</b>';
                         }
                         else
                         {
+                            $active = $_POST['active'];
                             //taking the selected value for active
                             if ($active=="Yes") 
                             {
@@ -75,7 +76,7 @@
                         }
                         else
                         {
-                            $everythingOk= true;
+                            $gradeOk= true;
                         }
                 
                         //if everything is correct
@@ -85,9 +86,9 @@
                             $statement = "INSERT INTO GRADE(Grade, Active) VALUES('$grade', '$active')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['grade']= $grade;
-                            $_SESSION['active']=$active;
-                            $msg = '<br/><b>New Grade added</b><br/>';
+                            // $_SESSION['grade']= $grade;
+                            // $_SESSION['active']=$active;
+                            // $msg = '<br/><b>New Grade added</b><br/>';
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -95,25 +96,25 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: grade.php");
+                                die("New Grade added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="grade.php" onsubmit="return false">
+                <form method="post" action="addGrade.php">
+                    <?php
+                        print $msg;
+                    ?>
                     <div class="row uniform">
-                        <?php
-                            print $msg;
-                        ?>
                         <div class="12u$">
                             <b>Grade<sup>*</sup></b>
                             <input type="text" maxlength="20" name="grade" id="grade" placeholder="1" />
                         </div>
                         <!-- Break -->
                         <div class="row uniform">
-                            <b>Active</b>
+                            <b>Active<sup>*</sup></b>
                             <div class="4u 12u$(small)">
                                 <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?>/>
                                 <label for="yes">Yes</label>

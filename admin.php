@@ -26,7 +26,7 @@
         <div align="center" class="container">
 			<div class="row">
 				<div class="col-sm-6">
-					<a href="adminReg.php" class="button big">
+					<a href="existAdmin.php" class="button big">
 						<i class="fas fa-database"></i>
 					</a><br />
 					<b>Existing Admins</b>

@@ -46,15 +46,15 @@
                         //take the information submitted and send to a process file
                         //always trim the user input to get rid of the additiona white spaces on both ends of the user input
                         $gradeLevel = trim($_POST['gradeLevel']);
-                        $active = trim($_POST['active']);
                         
                         //VALIDATION
-                        if ($active == "")
+                        if (!isset($_POST['active']))
                         {
                             $msg = $msg . '<br/><b>Please select if active.</b>';
                         }
                         else
                         {
+                            $active = $_POST['active'];
                             //taking the selected value for active
                             if ($active=="Yes") 
                             {
@@ -71,7 +71,7 @@
                         //Making sure the required fields are not empty
                         if ($gradeLevel== "")
                         {
-                            $msg = $msg . '<br/><b>Please enter the required fields.</b>';
+                            $msg = $msg . '<br/><b>Please enter the Project Grade Level.</b>';
                         }
                         else
                         {
@@ -85,24 +85,24 @@
                             $statement = "INSERT INTO PROJECT_GRADE_LEVEL(LevelName, Active) VALUES('$gradeLevel', '$active')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['gradeLevel']= $gradeLevel;
-                            $_SESSION['active']=$active;
-                            $msg = '<br/><b>New project Grade Level added</b><br/>';
+                            // $_SESSION['gradeLevel']= $gradeLevel;
+                            // $_SESSION['active']=$active;
+                            // $msg = '<br/><b>New project Grade Level added</b><br/>';
                             if(!mysql_query($statement))
                             {
-                                    die("Error adding");
+                                die("Error adding");
                             }
                             else
                             { 
                                 mysql_close();
-                                header("Location: gradeLevel.php");
+                                die("New Project Grade Level Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="gradeLevel.php" onsubmit="return false">
+                <form method="post" action="addGradeLevel.php">
                     <?php
                         print $msg;
                     ?>

@@ -73,7 +73,6 @@
                         $year = trim($_POST['year']);
                         $msg = "";
 
-                        $everythingOk = "";
 
                         //VALIDATION
                         //Making sure the required fields are not empty
@@ -160,26 +159,25 @@
 
                         
                         //if everything is correct
-                        if ($fnOk && $mnOk && $lnOk && $gradeLevelOk &&	$genderOk && $schoolNameOk && $countyOk && $cityOk && $projectNumberOk && 
-                        $projectIDOk &&	$yearOk)
+                        if ($fnOk  && $lnOk && $gradeLevelOk &&	$genderOk && $schoolNameOk && $countyOk && $cityOk && $projectNumberOk && $projectIDOk &&	$yearOk)
                         {
                             //query to send data to database
                             $statement = "INSERT INTO STUDENT(FirstName, LastName, MiddleName, GradeID, Gender, SchoolID, ProjectID, Year) 
-                            VALUES('$fn', '$ln', '$mn', $gradeLevel, '$gender', $schoolName, $projectID, $year)";
+                            VALUES('$fn', '$ln', '$mn', '$gradeLevel', '$gender', '$schoolName', '$projectID', '$year')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['fn'] = $fn;
-                            $_SESSION['mn'] = $mn;
-                            $_SESSION['ln'] = $ln;
-                            $_SESSION['gradeLevel'] = $gradeLevel;
-                            $_SESSION['gender'] = $gender;
-                            $_SESSION['schoolName'] = $schoolName;
-                            $_SESSION['county']= $county;
-                            $_SESSION['city']= $city;
-                            $_SESSION['projectNumber'] = $projectNumber;
-                            $_SESSION['projectID'] = $projectID;
-                            $_SESSION['year'] = $year;
-                            $msg = '<br/><b>New Student added</b><br/>';
+                            // $_SESSION['fn'] = $fn;
+                            // $_SESSION['mn'] = $mn;
+                            // $_SESSION['ln'] = $ln;
+                            // $_SESSION['gradeLevel'] = $gradeLevel;
+                            // $_SESSION['gender'] = $gender;
+                            // $_SESSION['schoolName'] = $schoolName;
+                            // $_SESSION['county']= $county;
+                            // $_SESSION['city']= $city;
+                            // $_SESSION['projectNumber'] = $projectNumber;
+                            // $_SESSION['projectID'] = $projectID;
+                            // $_SESSION['year'] = $year;
+                            // $msg = '<br/><b>New Student added</b><br/>';
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -187,14 +185,14 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: student.php");
+                                die("New Student Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="student.php" onsubmit="return false">
+                <form method="post" action="addStudent.php">
                     <?php
                         print $msg;
                     ?>
@@ -236,7 +234,7 @@
                         <div class="row uniform">
                             <b>Gender<sup>*</sup></b>
                             <div class="4u 12u$(small)">
-                                <input type="radio" name="gender" id = "male" value = "M"/>
+                                <input type="radio" name="gender" id = "male" value = "M" checked/>
                                 <label for="male">Male</label>
                             </div>
                             <div class="4u$ 12u$(small)">
@@ -262,7 +260,8 @@
                             <b> School County<sup>*</sup></b>
                             <div class="select-wrapper">
                                 <select name="county" id="county">
-                                        <option value="County1" selected>County1</option>
+                                        <option value="" selected>County</option>
+                                        <option value="County1">County1</option>
                                         <option value="County2">County2</option>
                                         <option value="County3">County3</option>
                                         <option value="County4">County4</option>
@@ -273,7 +272,8 @@
                             <b>School City<sup>*</sup></b>
                             <div class="select-wrapper">
                                 <select name="city" id="city">
-                                        <option value="City1" selected>City1</option>
+                                        <option value="City" selected>City</option>
+                                        <option value="City1">City1</option>
                                         <option value="City2">City2</option>
                                         <option value="City3">City3</option>
                                         <option value="City4">City4</option>

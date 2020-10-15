@@ -62,8 +62,8 @@
                             $statement = "INSERT INTO COUNTY(CountyName) VALUES ('$countyName')";
 
                             //direct to another page to process using query strings
-                            $_SESSION['countyName']= $countyName;
-                            $msg = '<br/><b>New County added</b><br/>';
+                            // $_SESSION['countyName']= $countyName;
+                            // $msg = '<br/><b>New County added</b><br/>';
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -71,14 +71,14 @@
                             else
                             { 
                                 mysql_close();
-                                header("Location: county.php");
+                                die("New Booth Added");
                             }
                         }                
                     }	
                 ?>
 
                 <!-- Form -->
-                <form method="post" action="county.php" onsubmit="return false">
+                <form method="post" action="addCounty.php">
                     <?php
                         print $msg;
                     ?>

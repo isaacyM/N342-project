@@ -26,13 +26,13 @@
         <div align="center" class="container">
 			<div class="row">
 				<div class="col-sm-6">
-					<a href="existBooth.php" class="button big">
+					<a href="existCounty.php" class="button big">
 						<i class="fas fa-database"></i>
 					</a><br />
 					<b>Existing Counties</b>
                 </div>
                 <div class="col-sm-6">
-					<a href="addBooth.php" class="button big">
+					<a href="addCounty.php" class="button big">
 						<i class="fas fa-plus-square"></i>
 					</a><br />
 					<b>Add New County</b>
