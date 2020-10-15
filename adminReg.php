@@ -167,10 +167,24 @@
                         //if everything is correct
                         if ($fnOk && $lnOk && $emailOk && $pwdOk && $adminLevelOk && $activeOk) 
                         {
-                            //query to send data to database
-			                $statement = $connect->prepare("INSERT INTO ADMIN(FirstName, LastName, MiddleName, Email, Password, Level, Active) 
-                            VALUES($fn, $ln, $mn, $em, $pwd, $adminLevel, $active)");
-			                $statement->execute();
+                            $_SESSION['FirstName']= $fn;
+                            $_SESSION['MiddleName']= $mn;
+                            $_SESSION['LastName']= $ln;
+                            $_SESSION['Email']= $em;
+                            $_SESSION['Password']=$pwd;
+                            $_SESSION['Level']= $adminLevel;
+                            $_SESSION['Active']=$active;
+
+                            //query to send data to datab
+
+				$statement = "INSERT INTO ADMIN(FirstName, LastName, MiddleName, Email, Password, Level, Active) VALUES('$fn', '$ln', '$mn', '$em', '$pwd', '$adminLevel', '$active')";
+				if(!mysql_query($statement))
+				{
+    					die("WHY !!!!!!!!!!!!");
+				}
+				else{ echo "Success"; }
+
+				mysql_close();
 
                             //now send the email to the username registered for activating the account
                             $code = randomCodeGenerator(50);
@@ -186,13 +200,6 @@
                             else $msg = "<b>Thank you for registering. A welcome message has been sent to the address you have just registered.</b>";
 
                             //direct to another page to process using query strings
-                            $_SESSION['firstName']= $fn;
-                            $_SESSION['middleName']= $mn;
-                            $_SESSION['lastName']= $ln;
-                            $_SESSION['email']= $em;
-                            $_SESSION['password']=$pwd;
-                            $_SESSION['adminLevel']= $adminLevel;
-                            $_SESSION['active']=$active;
                             $_SESSION['code'] = $code;
                             header("Location: adminProcess.php");
                         }                

@@ -1,14 +1,24 @@
 <?php
-    $hostname = 'localhost';
-    $username = 'gilberlu';
-    $password = 'gilberlu';
+	$hostname = 'localhost';
+    	$husername = 'gilberlu';
+    	$hpassword = 'gilberlu';
+	$dbname = "gilberlu_db";
 
-    try 
-    {
-        $connect = new PDO("mysql:host=$hostname;dbname=gilberlu_db", $username, $password);
-    }
-    catch(PDOException $e)
-    {
-        echo $e->getMessage();
-    }
+	$link = mysql_connect($hostname, $husername, $hpassword);
+
+	if(!$link)
+	{
+   		die('Could not connect to database: ' . mysql_error());
+	}
+
+	$db_select = mysql_select_db($dbname);
+
+	if(!$db_select)
+	{
+    		die('Can\'t use ' . $dbname . ': ' . mysql_error());
+	}
+
+
+
+
 ?>
