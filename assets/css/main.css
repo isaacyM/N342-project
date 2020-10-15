@@ -19,33 +19,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	vertical-align: baseline;
 }
 
-/* Style tab links */
-.tablink {
-	background-color: #555;
-	color: whit;
-	float: left;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 14px 16px;
-	font-size: 17px;
-	width: 50%;
-}
-
-	.tablink:hover {
-		background-color: #777;
-	}
-  
-	/* Style the tab content (and add height:100% for full page content) */
-	.tabcontent {
-		color: black;
-		display: none;
-		padding: 100px 20px;
-		height: 100%;
-	}
-  
-	#enter {background-color: white;}
-	#show1 {background-color: white;}
 /*Style for table*/
 table {
 	border-top: double;

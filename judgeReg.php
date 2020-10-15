@@ -138,9 +138,8 @@
                         if ($fnOk && $lnOk && $emailOk && $pwdOk) 
                         {
                             //query to send data to database
-                            $stat = $connect->prepare("INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password)) 
-                            VALUES ($fn, $mn, $ln, $title, $degree, $employer, $em, $em, $pwd)");
-                            $stat->execute();
+                            $statement = "INSERT INTO JUDGE (FirstName, MiddleName, LastName, Title, HighestDegreeEarned, Employer, Email, Username, Password)) 
+                            VALUES ('$fn', '$mn', '$ln', '$title', '$degree', '$employer', '$em', '$em', '$pwd')";
 
                             //now send the email to the username registered for activating the account
                             $code = randomCodeGenerator(50);
@@ -164,7 +163,15 @@
                             $_SESSION['employer']= $employer;
                             $_SESSION['email']= $em;
                             $_SESSION['password']=$pwd;
-                            header("Location: judgeProcess.php");
+                            if(!mysql_query($statement))
+                            {
+                                    die("Error registering");
+                            }
+                            else
+                            { 
+                                mysql_close();
+                                header("Location: judgeProcess.php"); 
+                            }
                         }                
                     }
                     
@@ -195,7 +202,7 @@
                         <dt>Highest Degree Earned</dt>
                         <dt>
                             <select name="degree" id="degree">
-                                <option value="" selected>-Degree-</option>
+                                <option value="" selected>Degree</option>
                                 <option value="1">High School Diploma</option>
                                 <option value="2">Associate Degree</option>
                                 <option value="3">Bachelor's Degree</option>
