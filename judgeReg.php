@@ -98,6 +98,14 @@
                         if ($pwd== "")
                             $msg = $msg . '<br/><b>Please enter the Password</b>';
                         
+                        if ($cpwd== "")
+                            $msg = $msg . '<br/><b>Please enter the Password</b>';
+
+                        if ($em== "")
+                            $msg = $msg . '<br/><b>Please enter the Password</b>';
+                        
+                        if ($cem== "")
+                            $msg = $msg . '<br/><b>Please enter the Password</b>';
                         //Matching the passwords
                         if ($pwd != $cpwd)
                             $msg = $msg . '<br/><b>Passwords are not the same.</b>';

@@ -201,10 +201,10 @@
 
                 <!-- Form -->
                 <form method="post" action="adminReg.php">
+                    <?php
+                        print $msg;
+                    ?>
                     <div class="row uniform">
-                        <?php
-                            print $msg;
-                        ?>
                         <div class="4u 12u$(small)">
                             <b>First Name<sup>*</sup></b>
                             <input type="text" maxlength="50" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
