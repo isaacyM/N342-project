@@ -2,7 +2,6 @@
 	session_start();
     include "header.php";
     include "util.php";
-
     require_once "dbconnect.php";
 
 ?>
@@ -40,17 +39,18 @@
                     $pwd = "";
                     $cpwd = "";
                     $adminLevel = "";
-                    $level = "";
                     $active = "";
                     $msg = "";
 
                     $yesChecked = "";
                     $noChecked = "";
             
-                    $fnok = false;
-                    $lnok = false;
-                    $emailok = false;
-                    $pwdok = false;
+                    $fnOk = false;
+                    $lnOk = false;
+                    $emailOk = false;
+                    $pwdOk = false;
+                    $adminLevelOk = false;
+                    $activeOk = false;
 
                     if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
                     {
@@ -66,45 +66,29 @@
 
                         $pwd = $_POST['password'];
                         $cpwd = $_POST['confirmPassword'];
-                
-                        $adminLevel = trim($_POST['adminLevel']);
-
-                        //Active
+                        
+                        if (isset($_POST['adminLevel']))
+                            $adminLevel = trim($_POST['adminLevel']);
                         if (isset($_POST['active']))
-                            $active = trim($_POST['active']);
+                            $active = $_POST['active'];
+
 
                         //VALIDATION
                         //Validating email
-                        if (!spamcheck($em))							
-                                $msg = $msg . '<br/><b>Email is not valid.</b>';
-                            else $emailok = true;
-
-                        //assigning actual value for the admin level
-                        switch ($adminLevel)
-                        {
-                            case "1":
-                                $level = "Regular Admin";
-                                break;
-                            case "2":
-                                $level = "Grade Level Chair";
-                                break;
-                            default:
-                                $level = "";
-                                break;
+                        if (!spamcheck($em))
+                        {							
+                            $msg = $msg . '<br/><b>Email is not valid.</b>';
                         }
-
-                        //taking the selected value for active
-                        if ($active=="Yes") 
+                        //Matching the emails       
+                        elseif ($em!=$cem)
                         {
-                            $yesChecked="checked";
-                            $noChecked="";
+                            $msg = $msg . '<br/><b>Emails are not the same.</b>';
                         }
                         else 
                         {
-                            $yesChecked="";
-                            $noChecked="checked";
+                            $emailOk = true;
                         }
-                        
+
                         //Making sure the required fields are not empty
                         if ($fn== "")
                         {
@@ -112,7 +96,7 @@
                         }
                         else
                         {
-                            $fnok = true;
+                            $fnOk = true;
                         }
                 
                         if ($ln== "")
@@ -121,18 +105,12 @@
                         }
                         else
                         {
-                            $lnok = true;
+                            $lnOk = true;
                         }
 
                         if ($pwd== "")
                         {
                             $msg = $msg . '<br/><b>Please enter the Password</b>';
-                        }
-                
-                        //Matching the emails       
-                        if ($em!=$cem)
-                        {
-                            $msg = $msg . '<br/><b>Emails are not the same.</b>';
                         }
                 
                         //Matching the passwords
@@ -142,95 +120,161 @@
                         }
                         else 
                         {
-                            $pwdok = true;
+                            $pwdOk = true;
+                        }
+
+                        if ($adminLevel == "")
+                        {
+                            $msg = $msg . '<br/><b>Please select the admin level.</b>';
+                        }
+                        else
+                        {
+                            //assigning actual value for the admin level
+                            switch ($adminLevel)
+                            {
+                                case "1":
+                                    $adminLevel = "Regular Admin";
+                                    break;
+                                case "2":
+                                    $adminLevel = "Grade Level Chair";
+                                    break;
+                                default:
+                                    $adminLevel = "";
+                                    break;
+                            }
+                            $adminLevelOk = true;
+
+                        }
+                        
+                        if ($active == "")
+                        {
+                            $msg = $msg . '<br/><b>Please select if active.</b>';
+                        }
+                        else
+                        {
+                            //taking the selected value for active
+                            if ($active=="Yes") 
+                            {
+                                $yesChecked="checked";
+                                $noChecked="";
+                            }
+                            else 
+                            {
+                                $yesChecked="";
+                                $noChecked="checked";
+                            }
+                            $activeOk = true;
                         }
 
                         //if everything is correct
-                        if ($fnok && $lnok && $emailok && $pwdok) 
+                        if ($fnOk && $lnOk && $emailOk && $pwdOk && $adminLevelOk && $activeOk) 
                         {
-                            //direct to another page to process using query strings
                             $_SESSION['firstName']= $fn;
                             $_SESSION['middleName']= $mn;
                             $_SESSION['lastName']= $ln;
                             $_SESSION['email']= $em;
-                            $_SESSION['confirmEmail']= $cem;
                             $_SESSION['password']=$pwd;
-                            $_SESSION['confirmPassword']=$cpwd;
-                            $_SESSION['level']= $level;
+                            $_SESSION['adminLevel']= $adminLevel;
                             $_SESSION['active']=$active;
-                            //header("Location: process.php");
-			    $statement = $connect->prepare("INSERT INTO ADMIN (FirstName, LastName, MiddleName, Email, Password, Level, Active) VALUES ($fn, $ln, $mn, $em, $pwd, $level, $active)");
-                            //query to send data to database
-			    $statement->execute();
 
+                            //query to send data to datab
+
+                            $statement = "INSERT INTO ADMIN(FirstName, LastName, MiddleName, Email, Password, Level, Active) VALUES('$fn', '$ln', '$mn', '$em', '$pwd', '$adminLevel', '$active')";
+                            mysql_query($statement);
+                            mysql_close();
+
+                            //now send the email to the username registered for activating the account
+                            $code = randomCodeGenerator(50);
+                            $subject = "Email Activation";
+                                                
+                            $body = 'Hello '.$fn.'! '.'Thank you for registering. Please click on this url to activate your account.
+                                    http://corsair.cs.iupui.edu:24561/adminLogin.php?a='.$code;
+
+                            //use PHP built-in functions, see details on https://www.w3schools.com/php/func_mail_mail.asp
+                            $body = wordwrap($body,70);// use wordwrap() if lines are longer than 70 characters
+                            if(!mail($em,$subject,$body)) //mail() functions returns a hash value of the address parameter, or false
+                                $msg = "Email not sent. " . $em.' '. $fn.' '. $subject.' '. $body;
+                            else $msg = "<b>Thank you for registering. A welcome message has been sent to the address you have just registered.</b>";
+
+                            //direct to another page to process using query strings
+                            $_SESSION['code'] = $code;
+                            header("Location: adminProcess.php");
                         }                
                     }
-		                    ?>
+		        ?>
 
                 <!-- Form -->
                 <form method="post" action="adminReg.php">
                     <?php
                         print $msg;
                     ?>
-                    <dl>
-                        <dt>First Name<sup>*</sup></dt>
-                        <input type="text" maxlength="30" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
-                    </dl>
-                    <dl>
-                        <dt>Middle Name</dt>
-                        <input type="text" maxlength="30" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" />
-                    </dl>
-                    <dl>
-                        <dt>Last Name<sup>*</sup></dt>
-                        <input type="text" maxlength="30" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" />
-                    </dl>
-                    <dl>
-                        <dt>Username (Email)<sup>*</sup></dt>
-                        <input type="text" name="email" id="email" maxlength="50" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" />
-                    </dl>
-                    <dl>
-                        <dt>Confirm Username<sup>*</sup></dt>
-                        <input type="text" name="confirmEmail" id="confirmEmail" maxlength="50" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" />
-                    </dl>
-
-                    <dl>
-                        <dt>Password<sup>*</sup></dt>
-                        <input type="password" name="password" id="password" maxlength="50" value="<?php print $pwd; ?>" placeholder="Password" />
-                    </dl>
-
-                    <dl>
-                        <dt>Confirm Password<sup>*</sup></dt>
-                        <input type="password" name="confirmPassword" id="confirmPassword" maxlength="50" value="<?php print $cpwd; ?>" placeholder="Confirm Password" />
-                    </dl>	
-
-                    <dl>
-                        <dt>Admin Level:</dt>
-                        <dt>
-                            <select name="adminLevel" id="adminLevel">
-                                    <option value="0" selected>-Admin Level-</option>
-                                    <option value="1">Regular Admin</option>
-                                    <option value="2">Grade Level Chair</option>
-                            </select>
-                        </dt>
-                    </dl>
-
-                    <dl>
-                        <dt>Active:</dt>
-                        <dt>
-                            <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
-                            <label for="yes">Yes</label>
-
-                            <input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
-                            <label for="no">No</label>
-                        </dt>
-                    </dl><br />
-
-                    <!-- Break -->
-                    <!--Submit buttons-->
-                    <dl>
-                        <input class = "submit" type="submit" name = "submit"  value="Register" />
-                        <input class = "submit" type="reset" name = "reset" value="Reset"/>
-                    </dl>
+                    <div class="row uniform">
+                        <div class="4u 12u$(small)">
+                            <b>First Name<sup>*</sup></b>
+                            <input type="text" maxlength="50" name="firstName" id="firstName" value="<?php print $fn; ?>" placeholder="John" />
+                        </div>
+                        <!-- Break -->
+                        <div class="4u 12u$(small)">
+                            <b>Middle Name</b>
+                            <input type="text" maxlength="50" name="middleName" id="middleName" value="<?php print $mn; ?>" placeholder="Adam" />
+                        </div>
+                        <!-- Break -->
+                        <div class="4u$ 12u$(small)">
+                            <b>Last Name<sup>*</sup></b>
+                            <input type="text" maxlength="50" name="lastName" id="lastName" value="<?php print $ln; ?>" placeholder="Doe" />
+                        </div>
+                        <!-- Break -->
+                        <div class="6u 12u$(small)">
+                            <b>Username (Email)<sup>*</sup></b>
+                            <input type="text" name="email" id="email" maxlength="80" value="<?php print $em; ?>" placeholder="johndoe@gmail.com" />
+                        </div>
+                        <!-- Break -->
+                        <div class="6u$ 12u$(small)">
+                            <b>Confirm Username<sup>*</sup></b>
+                            <input type="text" name="confirmEmail" id="confirmEmail" maxlength="80" value="<?php print $cem; ?>" placeholder="johndoe@gmail.com" />
+                        </div>
+                        <!-- Break -->
+                        <div class="6u 12u$(small)">
+                            <b>Password<sup>*</sup></b>
+                            <input type="password" name="password" id="password" maxlength="30" value="<?php print $pwd; ?>" placeholder="Password" />
+                        </div>
+                        <!-- Break -->
+                        <div class="6u$ 12u$(small)">
+                            <b>Confirm Password<sup>*</sup></b>
+                            <input type="password" name="confirmPassword" id="confirmPassword" maxlength="30" value="<?php print $cpwd; ?>" placeholder="Confirm Password" />
+                        </div>	
+                        <!-- Break -->
+                        <div class="12u$">
+                            <b>Admin Level<sup>*</sup></b>
+                            <div class="select-wrapper">
+                                <select name="adminLevel" id="adminLevel">
+                                        <option value="" selected>Admin Level</option>
+                                        <option value="1">Regular Admin</option>
+                                        <option value="2">Grade Level Chair</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Break -->
+                        <div class="row uniform">
+                            <b>Active<sup>*</sup></b>
+                            <div class="4u 12u$(small)">
+                                <input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> />
+                                <label for="yes">Yes</label>
+                            </div>
+                            <div class="4u$ 12u$(small)">
+                                <input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                        <!-- Break -->
+                        <!--Submit buttons-->
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><input type="submit" name = "submit"  value="Register"/></li>
+                                <li><input type="reset" name ="reset" value="Reset" class="alt" /></li>
+                            </ul>
+                        </div>
+                    </div>
                 </form>
         
             </div><!--close inner-->

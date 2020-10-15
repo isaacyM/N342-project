@@ -12,3 +12,16 @@
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!--Script for Datatable-->
+<script type="text/javascript" language="javascript" src="../../media/js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="../../media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" language="javascript" src="../resources/syntax/shCore.js"></script>
+<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
+<script type="text/javascript" language="javascript" class="init">
+
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+
+</script>
