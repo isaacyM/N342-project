@@ -24,8 +24,8 @@
 		
 		<!-- Main -->
 		<div class="container">	
-			<button class="tablink" onclick="openPage('show', this, '#ff9900')">Existing Grade</button>
-			<button class="tablink" onclick="openPage('enter', this, '#ff9900')" id="defaultOpen">Enter new Grade</button>
+			<button class="tablink" onclick="openPage('show', this, '#ff9900')" id="defaultOpen">Existing Grade</button>
+			<button class="tablink" onclick="openPage('enter', this, '#ff9900')">Enter new Grade</button>
 			<!--First Tab Content-->
             <div id="show" class="tabcontent">
 				<h1>Existing Content</h1>

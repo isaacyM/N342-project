@@ -24,8 +24,8 @@
 		
 		<!-- Main -->
 		<div class="container">	
-			<button class="tablink" onclick="openPage('show', this, '#ff9900')">Existing Booth</button>
-			<button class="tablink" onclick="openPage('enter', this, '#ff9900')" id="defaultOpen">Enter new Booth Number</button>
+			<button class="tablink" onclick="openPage('show', this, '#ff9900')" id="defaultOpen">Existing Booth</button>
+			<button class="tablink" onclick="openPage('enter', this, '#ff9900')">Enter new Booth Number</button>
 			<!--First Tab Content-->
             <div id="show" class="tabcontent">
 				<h1>Existing Content</h1>

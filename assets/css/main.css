@@ -2025,8 +2025,8 @@ input[type="radio"] {
 
 	input[type="checkbox"]:checked + label:before,
 	input[type="radio"]:checked + label:before {
-		background: #f6755e;
-		border-color: #f6755e;
+		background:#f6755e;
+		border-color:#f6755e;
 		color: #ffffff;
 		content: '\f00c';
 	}
@@ -2666,7 +2666,7 @@ button,
 	}
 
 	.wrapper.style1 {
-		background: #f6755e;
+		background:#f6755e;
 		color: #fcdcd6;
 	}
 
@@ -2719,9 +2719,9 @@ body {
 }
 
 	#header .logo {
-		color: #f6755e;
-		font-family: "Pacifico", cursive;
-		font-size: 2.5em;
+		color:#f6755e;
+		font-family: "sans-serif";
+		font-size: 3em;
 		letter-spacing: 2px;
 		margin-top: -5px;
 		text-decoration: none;
@@ -3182,7 +3182,7 @@ body {
 	}
 
 	#footer .icon {
-		color: #f6755e;
+		color:#f6755e;
 	}
 
 	#footer a {
