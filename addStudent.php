@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="student.php" class="logo">STUDENT</a>
+			<a href="index.php" class="logo">SEFI</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -216,17 +216,17 @@
                                 <select name="gradeLevel" id="gradeLevel">
                                     <option value="" selected>Grade Level</option>
                                     <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
+                                    <option value="4">2</option>
+                                    <option value="5">3</option>
+                                    <option value="6">4</option>
+                                    <option value="7">5</option>
+                                    <option value="8">6</option>
+                                    <option value="9">7</option>
+                                    <option value="10">8</option>
+                                    <option value="11">9</option>
+                                    <option value="12">10</option>
+                                    <option value="13">11</option>
+                                    <option value="14">12</option>
                                 </select>
                             </div>
                         </div>
@@ -248,10 +248,10 @@
                             <div class="select-wrapper">
                                 <select name="schoolName" id="schoolName">
                                     <option value="" selected>School</option>
-                                    <option value="1">School1</option>
-                                    <option value="2">School2</option>
-                                    <option value="3">School3</option>
-                                    <option value="4">School4</option>
+                                    <option value="17">IUPUI</option>
+                                    <option value="18">IU</option>
+                                    <option value="19">PURDUE</option>
+                                    <option value="20">WOWSERS</option>
                                 </select>
                             </div>
                         </div>

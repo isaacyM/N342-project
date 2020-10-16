@@ -14,15 +14,18 @@
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
 				<a href="index.php" class="logo">SEFI</a>
-				<nav class="right">
-					<a href="#" class="button alt">Log in</a>
-				</nav>
 			</header>
 
 			<?php
 				include "menu.php";
+
+				if (isset($_POST['submit']))
+				{
+					header("Location: .php");
+				}
 			?>
-		<!-- Main -->
+
+			<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="inner">
 					<header class="align-center">
@@ -33,41 +36,12 @@
 							<label for="check-in">Check-in</label>
 						</div>
 							
-							<input class = "submit" type="submit" name = "submit"  value="Login" />
+							<input class = "submit" type="submit" name = "submit"  value="Check-in" />
 
 					</header>
 
 				</div>
 			</section>
-
-			<section id="main" class="wrapper">
-				<div class="col-sm-3">
-					<a href="jCheckIn.php" class="button big">
-						<i class="fas fa-clock"></i>
-					</a><br />
-					<b>Judge Session</b>
-				</div>
-
-
-				<div class="col-sm-3">
-					<a href="gradeLevel.php" class="button big">
-						<i class="fas fa-poll"></i>
-					</a><br />
-					<b>Project Grade Level</b>
-				</div>
-
-				<div class="col-sm-3">
-					<a href="judgeSession.php" class="button big">
-						<i class="fas fa-clock"></i>
-					</a><br />
-					<b>Judge Session</b>
-				</div>
-
-
-			</section>
-
-		<!-- Footer and Scripts-->
-		
 		<?php 
             		include "footer.php";
             		include "script.php";
