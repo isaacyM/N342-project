@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="admin.php" class="logo">ADMIN</a>
+			<a href="index.php" class="logo">SEFI</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -88,22 +88,6 @@
                                 $noChecked="checked";
                             }
                             $activeOk = true;
-                        }
-                        else
-                        {
-                            //taking the selected value for active
-                            if ($active=="Yes") 
-                            {
-                                $yesChecked="checked";
-                                $noChecked="";
-                                $activeOk = true;
-                            }
-                            else 
-                            {
-                                $yesChecked="";
-                                $noChecked="checked";
-                                $activeOk = true;
-                            }
                         }
                         //Validating email
                         if (!spamcheck($em))							

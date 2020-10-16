@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="project.php" class="logo">PROJECT</a>
+			<a href="index.php" class="logo">SEFI</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -146,7 +146,7 @@
                         {
                             //query to send data to database
                             $statement = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CouseNetworkID, AverageRanking, Year) 
-                            VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $gradeLevel, $cnID, $averageRanking, $year)";
+                            VALUES($projectNumber, '$projectTitle', '$abstract', '$gradeLevel', '$category', '$boothNumber', '$gradeLevel', '$cnID', '$averageRanking', '$year')";
 
                             //direct to another page to process using query strings
                             // $_SESSION['projectNumber']= $projectNumber;
@@ -203,9 +203,8 @@
                         <!-- Break -->
                         <div class="12u$">
                             <b>Grade Level<sup>*</sup</b>
-                            <div class="select-wrapper">
+                            
                                 <select name="gradeLevel" id="gradeLevel">
-                                    <option value="" selected>Grade Level</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -219,19 +218,18 @@
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                 </select>
-                            </div>
+                           
                         </div>
                         <div class="12u$">
                             <b>Category<sup>*</sup</b>
-                            <div class="select-wrapper">
+
                                 <select name="category" id="category">
-                                    <option value="" selected>Category</option>
                                     <option value="1">Physics</option>
                                     <option value="2">Chemistry</option>
                                     <option value="3">Biology</option>
-                                    <option value="4">Computer</option>
+                                    <option value="4">Computer Science</option>
                                 </select>
-                            </div>
+
                         </div>
                         <!-- Break -->
                         <div class="12u$">

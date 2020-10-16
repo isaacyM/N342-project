@@ -5,7 +5,8 @@
 		header("Location: login.php");
 	}
 	include "header.php";
-	require_once "dbconnect.php";
+	require_once "dbconnect.php";	
+	include "util.php";
 ?>
 	<body>
 		<!-- Header -->
@@ -13,13 +14,12 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="school.php" class="logo">SCHOOL</a>
+			<a href="index.php" class="logo">SEFI</a>
 		</header>
 		
 		<!--Navigation menu-->
 		<?php
-            include "menu.php";
-            include "util.php";
+            		include "menu.php";
 		?>
 
 		<h1 align = "center"><a href="#">Add New School</a></h1>
@@ -85,13 +85,14 @@
                         if ($schoolNameOk && $countyOk && $cityOk) 
                         {
                             //query to send data to database
-                            $statement = "INSERT INTO SCHOOL(SchoolName, SchoolCity, SchoolCountyID) VALUES('$schoolName', '$city', $county)";
+                            $statement = "INSERT INTO SCHOOL(SchoolName, SchoolCity, SchoolCountyID) VALUES('$schoolName', '$city', '$county')";
 
                             //direct to another page to process using query strings
                             // $_SESSION['schoolName']= $schoolName;
                             // $_SESSION['county']= $county;
                             // $_SESSION['city']= $city;
                             // $msg = '<br/><b>New School added</b><br/>';
+
                             if(!mysql_query($statement))
                             {
                                     die("Error adding");
@@ -99,7 +100,8 @@
                             else
                             { 
                                 mysql_close();
-                                die("New School Added");
+				header("Location: adminLanding.php");
+
                             }
                         }                
                     }	
@@ -120,11 +122,10 @@
                             <b>County<sup>*</sup></b>
                             <div class="select-wrapper">
                                 <select name="county" id="county">
-                                    <option value="" selected>County</option>
-                                    <option value="1" >County1</option>
-                                    <option value="2">County2</option>
-                                    <option value="3">County3</option>
-                                    <option value="4">County4</option>
+                                    <option value="1">Marion</option>
+                                    <option value="2">Hamilton</option>
+                                    <option value="3">Shelby</option>
+                                    <option value="4">Brown</option>
                                 </select>
                             </div>
                         </div>
@@ -133,11 +134,10 @@
                             <b>City<sup>*</sup></b>
                             <div class="select-wrapper">
                                 <select name="city" id="city">
-                                    <option value="" selected>City</option>
-                                    <option value="1" >City1</option>
-                                    <option value="2">City2</option>
-                                    <option value="3">City3</option>
-                                    <option value="4">City4</option>
+                                    <option value="Indianapolis">Indianapolis</option>
+                                    <option value="Evansville">Evansville</option>
+                                    <option value="Fort Wayne">Fort Wayne</option>
+                                    <option value="Blommington">Bloomington</option>
                                 </select>
                             </div>
                         </div>
