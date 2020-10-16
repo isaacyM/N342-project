@@ -25,6 +25,8 @@
 		
 		<!-- Main -->
 		<div class="container">
+			<button id="deleteButton">Delete selected row</button>
+			<button id="editButton">Edit selected row</button>
 			<?php
 				$query = "SELECT * FROM COUNTY"; 
 				$result = mysql_query($query);

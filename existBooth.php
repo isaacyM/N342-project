@@ -26,6 +26,8 @@
 		
 		<!-- Main -->
 		<div class="container">	
+			<button id="deleteButton">Delete selected row</button>
+			<button id="editButton">Edit selected row</button>
 			<?php
 				$query = "SELECT * FROM BOOTH_NUMBER"; 
 				$result = mysql_query($query);

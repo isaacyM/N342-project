@@ -40,7 +40,7 @@
                 }
             } );
         
-            $('#button').click( function () {
+            $('#deleteButton').click( function () {
                 table.row('.selected').remove().draw( false );
             } );
         } );

@@ -24,7 +24,9 @@
 		<h1 align = "center"><a href="#">Existing Grades</a></h1>
 		
 		<!-- Main -->
-		<div class="container">	
+		<div class="container">
+			<button id="deleteButton">Delete selected row</button>
+			<button id="editButton">Edit selected row</button>	
 			<?php
 				$query = "SELECT * FROM GRADE"; 
 				$result = mysql_query($query);
