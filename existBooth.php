@@ -14,7 +14,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
+			<a href="booth.php" class="logo">BOOTH</a>
 		</header>
 		
 		<!--Navigation menu-->

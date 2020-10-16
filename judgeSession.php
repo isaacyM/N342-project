@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
+			<a href="adminLanding.php" class="logo">Admin Controls</a>
 		</header>
 
 		<!--Navigation menu-->
@@ -21,7 +21,7 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Judge Session</a></h1>
+		<a href="adminLanding.php" class="logo">Admin Controls</a>
 
         <div align="center" class="container">
 			<div class="row">

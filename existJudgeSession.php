@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
+			<a href="judgeSession.php" class="logo">JUDGE SESSION</a>
 		</header>
 		
 		<!--Navigation menu-->
