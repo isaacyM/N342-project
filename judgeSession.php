@@ -21,8 +21,6 @@
 			include "menu.php";
 		?>
 
-		<a href="adminLanding.php" class="logo">Admin Controls</a>
-
         <div align="center" class="container">
 			<div class="row">
 				<div class="col-sm-6">

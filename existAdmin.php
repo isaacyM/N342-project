@@ -25,21 +25,28 @@
 		
 		<!-- Main -->
 		<div class="container">	
-			
-            <h1>Existing Content</h1>
 			<?php
-				$query = "SELECT * FROM ADMIN"; //You don't need a ; like you do in SQL
+				$query = "SELECT * FROM ADMIN"; 
 				$result = mysql_query($query);
 
-				echo "<table>"; // start a table tag in the HTML
+				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
+				// start a table tag in the HTML
+				print '<table  id="example" class="display" cellspacing="0" width="100%">';
+				print '<thead>
+				<tr><th>AdminID</th><th>FirstName</th><th>LastName</th><th>MiddleName</th><th>Email</th><th>Password</th><th>Level</th><th>Active</th></tr></thead>
+				<tfoot><tr><th>AdminID</th><th>FirstName</th><th>LastName</th><th>MiddleName</th><th>Email</th><th>Password</th><th>Level</th><th>Active</th></tr></tfoot>';
 
-				while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<tr><td>" . $row['AdminID'] . "</td></tr>" .$row['FirstName'] . "</td><td>" . $row['LastName'] . "</td></tr>" . $row['MiddleName'] . "</td></tr>" 
-				. $row['Email'] . "</td></tr>". $row['Password'] . "</td></tr>". $row['Level'] . "</td></tr>" . $row['Active'] . "</td></tr>";  //$row['index'] the index here is a field name
+				while($row = mysql_fetch_array($result))
+				{   
+					//Creates a loop to loop through results
+					print "<tr>";
+					print "<td>".$row["AdminID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["MiddleName"]."</td>
+					<td>".$row["Email"]."</td><td>".$row["Password"]."</td><td>".$row["Level"]."</td><td>".$row["Active"]."</td>";
 				}
 
-				echo "</table>"; //Close the table in HTML
-
+				print "</td>";
+				print "</tr>";
+				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection
 			?>
         </div>

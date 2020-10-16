@@ -25,10 +25,28 @@
 		
 		<!-- Main -->
 		<div class="container">	
-            <h1>Existing Content</h1>
-            <p>gggg</p>
-            <input type="reset" name ="reset" value="Reset" class="alt" />
-            <h2>ggg</h2>
+			<?php
+				$query = "SELECT * FROM SCHOOL"; 
+				$result = mysql_query($query);
+
+				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
+				// start a table tag in the HTML
+				print '<table  id="example" class="display" cellspacing="0" width="100%">';
+				print '<thead><tr><th>SchoolID</th><th>SchoolName</th><th>SchoolCity</th><th>SchoolCountyID</th></tr></thead>
+				<tfoot><tr><th>SchoolID</th><th>SchoolName</th><th>SchoolCity</th><th>SchoolCountyID</th></tr></tfoot>';
+
+				while($row = mysql_fetch_array($result))
+				{   
+					//Creates a loop to loop through results
+					print "<tr>";
+					print "<td>".$row["SchoolID"]."</td><td>".$row["SchoolName"]."</td><td>".$row["SchoolCity"]."</td><td>".$row["SchoolCountyID"]."</td>";
+				}
+
+				print "</td>";
+				print "</tr>";
+				print "</table>"; //Close the table in HTML
+				mysql_close(); //Make sure to close out the database connection
+			?>
 		</div><!--close container-->
 
 		<!-- Footer and Scripts-->

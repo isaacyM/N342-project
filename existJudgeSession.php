@@ -25,10 +25,29 @@
 		
 		<!-- Main -->
 		<div class="container">
-				<h1>Existing Content</h1>
-				<p>gggg</p>
-				<input type="reset" name ="reset" value="Reset" class="alt" />
-				<h2>ggg</h2>
+			<?php
+				$query = "SELECT * FROM SESSION"; 
+				$result = mysql_query($query);
+
+				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
+				// start a table tag in the HTML
+				print '<table  id="example" class="display" cellspacing="0" width="100%">';
+				print '<thead><tr><th>SessionID</th><th>SessionNumber</th><th>StartTime</th><th>EndTime</th><th>Active</th></tr></thead>
+				<tfoot><tr><th>SessionID</th><th>SessionNumber</th><th>StartTime</th><th>EndTime</th><th>Active</th></tr></tfoot>';
+
+				while($row = mysql_fetch_array($result))
+				{   
+					//Creates a loop to loop through results
+					print "<tr>";
+					print "<td>".$row["SessionID"]."</td><td>".$row["SessionNumber"]."</td><td>".$row["StartTime"]."</td><td>".$row["EndTime"]."</td><td>"
+					.$row["Active"]."</td>";
+				}
+
+				print "</td>";
+				print "</tr>";
+				print "</table>"; //Close the table in HTML
+				mysql_close(); //Make sure to close out the database connection
+			?>
 		</div><!--close container-->
 
 		<!-- Footer and Scripts-->
