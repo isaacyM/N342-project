@@ -109,11 +109,6 @@
 								<input type="password" maxlength = "50" value="<?php print $cpass; ?>" name="password" id="password"  placeholder="Password"/> <br />
 
 							<br />
-
-							<div class="6u$ 12u$(small)">
-								<input type="checkbox" id="check-in" name="check-in">
-								<label for="check-in">Check-in</label>
-							</div>
 							
 							<div>
 								<input name="enter" class="btn" type="submit" value="Login" />
