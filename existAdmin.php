@@ -25,6 +25,7 @@
 		
 		<!-- Main -->
 		<div class="container">	
+			<button id="button">Delete selected row</button>
 			<?php
 				$query = "SELECT * FROM ADMIN"; 
 				$result = mysql_query($query);
