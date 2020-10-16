@@ -1,14 +1,8 @@
 <?php
 	session_start();
+	include "header.php"
 ?>
 
-<html>
-	<head>
-		<title>Login</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
 	<body class="subpage">
 
 		<!-- Header -->
@@ -16,7 +10,7 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="index.php" class="logo">SEFI</a>
+				<a href="login.php" class="logo">Judge Login</a>
 			</header>
 
 			<?php
@@ -133,6 +127,8 @@
 				</div>
 			</section>
 
+		
+		<!-- Footer and Scripts-->
 		<?php 
 			include "footer.php";
 			include "script.php";

@@ -1,13 +1,8 @@
 <?php
-	session_start()
+	session_start();
+	include "header.php";
 ?>
 	
-<head>
-		<title>Login</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
 	<body class="subpage">
 
 		<!-- Header -->
@@ -15,7 +10,7 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="index.php" class="logo">Admin Login</a>
+				<a href="adminLogin.php" class="logo">Admin Login</a>
 			</header>
 
 			<?php
@@ -125,28 +120,12 @@
 				</div>
 			</section>
 
+		<!-- Footer and Scripts-->
+		<?php 
+			include "footer.php";
+			include "script.php";
+		?>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<h2>Get In Touch</h2>
-					<ul class="actions">
-						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-						<li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
-					</ul>
-				</div>
-				<div class="copyright">
-					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+		
 	</body>
 </html>
