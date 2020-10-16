@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
+			<a href="project.php" class="logo">PROJECT</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -191,52 +191,55 @@
                             <input type="number" maxlength="11" name="cnID" id="cnID" value="<?php print $cnID; ?>" placeholder="123" />
                         </div>
                         <!-- Break -->
-                        <div class="12u$">
+                        <div class="12u">
                             <b>Project Title<sup>*</sup></b>
                             <input type="text" maxlength="50" name="projectTitle" id="projectTitle" value="<?php print $projectTitle; ?>" placeholder="Robots" />
                         </div>
                         <!-- Break -->
-                        <div class="12u$">
+                        <div class="12u">
                             <b>Abstract<sup>*</sup</b>
-                            <input type="text" maxlength="250" name="abstract" id="abstract" placeholder="Abstract" value="<?php print $abstract; ?>"/>
+                            <input type="text" maxlength="50" name="abstract" id="abstract" placeholder="Abstract" value="<?php print $abstract; ?>"/>
                         </div>
                         <!-- Break -->
-                        <div class="12u$">
-                            <b>Grade Level<sup>*</sup</b>
-                            
-                                <select name="gradeLevel" id="gradeLevel">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                           
+                        <div class="row uniform">
+                            <div class="6u 12u$(small)">
+                                <b>Grade Level<sup>*</sup</b>
+                                <div class="select-wrapper">
+                                    <select name="gradeLevel" id="gradeLevel">
+                                        <option value="" selected>Grade Level</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
                         </div>
-                        <div class="12u$">
+                        <div class="6u$ 12u$(small)">
                             <b>Category<sup>*</sup</b>
-
+                            <div class="select-wrapper">
                                 <select name="category" id="category">
+                                    <option value="" selected>Category</option>
                                     <option value="1">Physics</option>
                                     <option value="2">Chemistry</option>
                                     <option value="3">Biology</option>
                                     <option value="4">Computer Science</option>
                                 </select>
-
+                            </div>
                         </div>
                         <!-- Break -->
-                        <div class="12u$">
+                        <div class="6u 12u$(small)">
                             <b>Average Ranking<sup>*</sup</b>
                             <input type="number" maxlength="11" name="averageRanking" id="averageRanking" value="<?php print $averageRanking; ?>" placeholder="3" />
                         </div>
-                        <div class="12u$">
+                        <div class="6u$ 12u$(small)">
                             <b>Year<sup>*</sup</b>
                             <input type="number" name="year" id="year" min="1900" max="2030" step="1" value="<?php print $year; ?>" placeholder="2020" />
                         </div>

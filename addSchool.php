@@ -14,8 +14,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
-		</header>
+			<a href="school.php" class="logo">SCHOOL</a>
 		
 		<!--Navigation menu-->
 		<?php
@@ -100,7 +99,7 @@
                             else
                             { 
                                 mysql_close();
-				header("Location: adminLanding.php");
+                                die("New School Added");
 
                             }
                         }                

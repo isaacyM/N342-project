@@ -71,7 +71,7 @@
                             else
                             { 
                                 mysql_close();
-                                die("New Booth Added");
+                                die("New County Added");
                             }
                         }                
                     }	

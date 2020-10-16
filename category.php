@@ -21,7 +21,7 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Booth</a></h1>
+		<h1 align = "center"><a href="#">Category</a></h1>
 
         <div align="center" class="container">
 			<div class="row">
