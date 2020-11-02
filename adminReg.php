@@ -4,7 +4,6 @@
     include "util.php";
     require_once "dbconnect.php";
     require_once "mail/mail.class.php";
-
 ?>
 
 	<body>

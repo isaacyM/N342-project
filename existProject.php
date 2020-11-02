@@ -44,8 +44,8 @@
 					//Creates a loop to loop through results
 					print "<tr>";
 					print "<td>".$row["ProjectID"]."</td><td>".$row["ProjectNumber"]."</td><td>".$row["Title"]."</td><td>".$row["Abstract"]."</td>
-					<td>".$row["GradeLevelID"]."</td><td>".$row["CategoryID"]."</td><td>".$row["CourseNetworkID"]."</td><td>".$row["AverageRanking"].
-					"</td><td>".$row["Year"]."</td>";
+					<td>".$row["GradeLevelID"]."</td><td>".$row["CategoryID"]."</td><td>".$row["BoothNumberID"]."</td><td>".$row["GradeID"]."</td><td>"
+					.$row["CourseNetworkID"]."</td><td>".$row["AverageRanking"]."</td><td>".$row["Year"]."</td>";
 				}
 
 				print "</td>";
