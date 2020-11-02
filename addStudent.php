@@ -33,9 +33,9 @@
                         $fn = "";
                         $mn = "";
                         $ln = "";
-                        $gradeLevel = "";
+                        $grade = "";
                         $gender = "";
-                        $schoolName = "";
+                        $schoolID = "";
                         $county = "";
                         $city = "";
                         $projectNumber = "";
@@ -46,9 +46,9 @@
                         $fnOk = false;
                         $mnOk = false;
                         $lnOk = false;
-                        $gradeLevelOk= false;
+                        $gradeOk= false;
                         $genderOk = false;
-                        $schoolNameOk = false;
+                        $schoolIDOk = false;
                         $countyOk = false;
                         $cityOk = false;
                         $projectNumberOk= false;
@@ -63,9 +63,9 @@
                             $fn = trim($_POST['firstName']);
                             $mn = trim($_POST['middleName']);
                             $ln = trim($_POST['lastName']);
-                            $gradeLevel = trim($_POST['gradeLevel']);
+                            $grade = trim($_POST['grade']);
                             $gender = trim($_POST['gender']);
-                            $schoolName = trim($_POST['schoolName']);
+                            $schoolID = trim($_POST['schoolID']);
                             $county = trim($_POST['county']);
                             $city = trim($_POST['city']);
                             $projectNumber = trim($_POST['projectNumber']);
@@ -92,13 +92,13 @@
                             {
                                 $lnOk = true;
                             }
-                            if ($gradeLevel == "")
+                            if ($grade == "")
                             {
                                 $msg = $msg . '<br/><b>Please enter the grade level.</b>';
                             }
                             else
                             {
-                                $gradeLevelOk = true;
+                                $gradeOk = true;
                             }
                             if ($gender == "")
                             {
@@ -108,13 +108,13 @@
                             {
                                 $genderOk = true;
                             }
-                            if ($schoolName == "")
+                            if ($schoolID == "")
                             {
                                 $msg = $msg . '<br/><b>Please enter the school Name.</b>';
                             }
                             else
                             {
-                                $schoolNameOk = true;
+                                $schoolIDOk = true;
                             }
                             if ($county == "")
                             {
@@ -159,19 +159,19 @@
 
                             
                             //if everything is correct
-                            if ($fnOk  && $lnOk && $gradeLevelOk &&	$genderOk && $schoolNameOk && $countyOk && $cityOk && $projectNumberOk && $projectIDOk && $yearOk)
+                            if ($fnOk  && $lnOk && $gradeOk &&	$genderOk && $schoolIDOk && $countyOk && $cityOk && $projectNumberOk && $projectIDOk && $yearOk)
                             {
                                 //query to send data to database
                                 $statement = "INSERT INTO STUDENT(FirstName, LastName, MiddleName, GradeID, Gender, SchoolID, ProjectID, Year) 
-                                VALUES('$fn', '$ln', '$mn', '$gradeLevel', '$gender', '$schoolName', '$projectID', '$year')";
+                                VALUES('$fn', '$ln', '$mn', $grade, '$gender', $schoolID, $projectID, '$year')";
 
                                 //direct to another page to process using query strings
                                 // $_SESSION['fn'] = $fn;
                                 // $_SESSION['mn'] = $mn;
                                 // $_SESSION['ln'] = $ln;
-                                // $_SESSION['gradeLevel'] = $gradeLevel;
+                                // $_SESSION['grade'] = $grade;
                                 // $_SESSION['gender'] = $gender;
-                                // $_SESSION['schoolName'] = $schoolName;
+                                // $_SESSION['schoolID'] = $schoolID;
                                 // $_SESSION['county']= $county;
                                 // $_SESSION['city']= $city;
                                 // $_SESSION['projectNumber'] = $projectNumber;
@@ -211,10 +211,10 @@
                             </div>
                             <!-- Break -->
                             <div class="12u$">
-                                <b>Grade Level<sup>*</sup></b>
+                                <b>Grade<sup>*</sup></b>
                                 <div class="select-wrapper">
-                                    <select name="gradeLevel" id="gradeLevel">
-                                        <option value="" selected>Grade Level</option>
+                                    <select name="grade" id="grade">
+                                        <option value="" selected>Grade</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -246,7 +246,7 @@
                             <div class="12u$">
                                 <b>School Name<sup>*</sup></b>
                                 <div class="select-wrapper">
-                                    <select name="schoolName" id="schoolName">
+                                    <select name="schoolID" id="schoolID">
                                         <option value="" selected>School</option>
                                         <option value="1">School1</option>
                                         <option value="2">School2</option>
