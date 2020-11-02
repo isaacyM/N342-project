@@ -145,18 +145,21 @@
                             if ($projectNumberOk && $boothNumberOk && $cnIDOk && $projectTitleOk && $abstractOk && $gradeLevelOk && $categoryOk && $averageRankingOk && $yearOk) 
                             {
                                 //query to send data to database
-                                $statement = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CouseNetworkID, AverageRanking, Year) 
-                                VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $gradeLevel, $cnID, $averageRanking, '$year')";
+                                // $statement = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CouseNetworkID, AverageRanking, Year) 
+                                // VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $gradeLevel, $cnID, $averageRanking, '$year')";
 
-                                if(!mysql_query($statement))
-                                {
-                                        die("Error adding");
-                                }
-                                else
-                                { 
-                                    mysql_close();
-                                    die("New Project Added");
-                                }
+                                // if(!mysql_query($statement))
+                                // {
+                                //         die("Error adding");
+                                // }
+                                // else
+                                // { 
+                                //     mysql_close();
+                                //     die("New Project Added");
+                                // }
+                                echo "project no.".$projectNumber."<br>";
+                                echo "project title".$projectTitle."<br>";
+                                echo "abstract".$abstract."<br>"."gradelevel".$gradeLevel."<br>"."category".$category."<br>"."booth".$boothNumber."<br>"."grade id".$gradeLevel."<br>"."cnID".$cnID."<br>"."avgRank".$averageRanking."<br>"."year".$year."<br>";
                             }                
                         }	
                     ?>
