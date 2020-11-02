@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menuAdmin"><span>Menu</span></a>
 			</nav>
-			<a href="student.php" class="logo">STUDENT</a>
+			<a href="index.php" class="logo">SEFI</a>
 		</header>
 		
 		<!--Navigation menu-->
