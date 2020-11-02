@@ -12,14 +12,14 @@
 		<!-- Header -->
 		<header id="header">
 			<nav class="left">
-				<a href="#menuAdmin"><span>Menu</span></a>
+				<a href="#menu"><span>Menu</span></a>
 			</nav>
 			<a href="booth.php" class="logo">BOOTH</a>
 		</header>
 		
 		<!--Navigation menu-->
 		<?php
-            include "menuAdmin.php";
+            include "menu.php";
             include "util.php";
 		?>
 

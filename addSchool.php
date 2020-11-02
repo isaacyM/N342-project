@@ -12,13 +12,13 @@
 		<!-- Header -->
 		<header id="header">
 			<nav class="left">
-				<a href="#menuAdmin"><span>Menu</span></a>
+				<a href="#menu"><span>Menu</span></a>
 			</nav>
 			<a href="school.php" class="logo">SCHOOL</a>
 		
 		<!--Navigation menu-->
 		<?php
-            include "menuAdmin.php";
+            include "menu.php";
 		?>
 
         <!-- Main -->

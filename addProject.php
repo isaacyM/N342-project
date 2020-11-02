@@ -11,14 +11,14 @@
 		<!-- Header -->
 		<header id="header">
 			<nav class="left">
-				<a href="#menuAdmin"><span>Menu</span></a>
+				<a href="#menu"><span>Menu</span></a>
 			</nav>
 			<a href="project.php" class="logo">PROJECT</a>
 		</header>
 		
 		<!--Navigation menu-->
 		<?php
-			include "menuAdmin.php";
+			include "menu.php";
 		?>
 
         <!-- Main -->
@@ -146,7 +146,7 @@
                             {
                                 //query to send data to database
                                 $statement = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CouseNetworkID, AverageRanking, Year) 
-                                VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $gradeLevel, $cnID, $averageRanking, $year)";
+                                VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $gradeLevel, $cnID, $averageRanking, '$year')";
 
                                 if(!mysql_query($statement))
                                 {
