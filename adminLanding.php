@@ -10,14 +10,14 @@
 		<!-- Header -->
 		<header id="header">
 			<nav class="left">
-				<a href="#menu"><span>Menu</span></a>
+				<a href="#menuAdmin"><span>Menu</span></a>
 			</nav>
 			<a href="index.php" class="logo">SEFI</a>
 		</header>
 
 		<!--Navigation menu-->
 		<?php
-			include "menu.php";
+			include "menuAdmin.php";
 		?>
 
 		<h1 align = "center"><a href="#">Admin Controls</a></h1>
