@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="admin.php" class="logo">ADMIN</a>
+			<a href="adminLanding.php" class="logo">ADMIN CONTROLS</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -21,14 +21,12 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Existing Admins</a></h1>
+		<h1 align = "center"><a href="#">Checked in Judges</a></h1>
 		
 		<!-- Main -->
 		<div class="container">	
-			<button id="deleteButton">Delete selected row</button>
-			<button id="editButton">Edit selected row</button>
 			<?php
-				$query = "SELECT * FROM ADMIN"; 
+				$query = "SELECT * FROM JUDGE"; 
 				$result = mysql_query($query);
 
 				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
@@ -36,48 +34,32 @@
 				print '<table  id="example" class="display" cellspacing="0" width="100%">';
 				print '<thead>
 				<tr>
-					<th>AdminID</th>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>MiddleName</th>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
 					<th>Email</th>
-					<th>Password</th>
-					<th>Level</th><th>Active</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>Checked-In</th>
 				</tr>
 				</thead>
 				<tfoot>
-					<tr>
-						<th>AdminID</th>
-						<th>FirstName</th>
-						<th>LastName</th>
-						<th>MiddleName</th>
-						<th>Email</th>
-						<th>Password</th>
-						<th>Level</th>
-						<th>Active</th>
-						<th>Edit</th>
-						<th>Delete</th>
-
-					</tr>
+				<tr>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Checked-In</th>
+				</tr>
 				</tfoot>';
 
 				while($row = mysql_fetch_array($result))
 				{   
 					//Creates a loop to loop through results
 					print "<tr>";
-					print  "<td>".$row["AdminID"]."</td>
-						<td>".$row["FirstName"]."</td>
-						<td>".$row["LastName"]."</td>
+					print  "<td>".$row["FirstName"]."</td>
 						<td>".$row["MiddleName"]."</td>
+						<td>".$row["LastName"]."</td>
 						<td>".$row["Email"]."</td>
-						<td>".$row["Password"]."</td>
-						<td>".$row["Level"]."</td>
-						<td>".$row["Active"]."</td>";
-							
-					echo '<td>'.'<a href="/project/edit/edit.php?edit='.$row["AdminID"].'"> Edit</a>'.'</td>';
-					echo '<td>'.'<a href="delete.php?delete= '.$row["AdminID"].'">Delete</a>'.'</td>';
+						<td>".$row["CheckIn"]."</td>";
 				}
 
 				print "</td>";

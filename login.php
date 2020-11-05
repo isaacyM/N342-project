@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	include "header.php"
+	include "header.php";
+	include "dbconnect.php";
 ?>
 
 	<body class="subpage">
@@ -17,12 +18,7 @@
 				include "menu.php";
 			?>
 
-			<?php
-
-			$em = "judge"; // temp username for testing
-
-			$pass = "123";// temp password for testing 
-
+		<?php
 			$cem = "";
 			$cpass = "";
 
@@ -32,50 +28,34 @@
 		
 			$msg = "";
 
-		if (isset($_POST['enter'])) //check if this page is requested after Submit button is clicked
-		{
-
-
-			$cem = trim($_POST['email']);
-
-			$cpass = trim($_POST['password']); 
-			
-			if($cem != $em)
+			if (isset($_POST['enter'])) //check if this page is requested after Submit button is clicked
 			{
-				$emre = "<br /><span style=\"color:red\"> Username was incorrect</span><br />";
-			}	
-			if(($cpass != $pass))
-			{
-				$lpass = "<br /><span style=\"color:red\">Password was incorrect</span><br />";
+
+
+				$cem = trim($_POST['email']);
+
+				$cpass = trim($_POST['password']); 
+
+				$query = "SELECT * FROM JUDGE WHERE Email = '$cem' and Password = '$cpass'"; 
+				$result = mysql_query($query);
+
+				if($row = mysql_fetch_array($result))
+				{
+					$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
+					print $msg;	
+					$_SESSION['jID']= $row['JudgeID'];
+					header("Location: judgeLanding.php");
+
+				}
+				else
+				{
+					$emre = "<br /><span style=\"color:red\"> Username was incorrect</span><br />";
+					$lpass = "<br /><span style=\"color:red\">Password was incorrect</span><br />";
+				}
+
 			}
-			if($cpass == "")
-			{
-				$lpass = "<br /><span style=\"color:red\">Please type in password</span><br />";
-			}			
-
-
-			if(($cem != $em) || ($cpass != $pass) || ($cpass == ""))
-			{
-				$msg = "<br /><span style=\"color:red\">Failed to Login</span><br />";
-				print $msg;
-			}
-			else
-			{
-				$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
-				print $msg;	
-				$_SESSION['jEmail']= $em;
-				header("Location: judgeLanding.php");
-			}
-			
-
-			
-
-		}
-            
-
-
-
-			?>
+       
+		?>
 
 		<section id="main" class="wrapper">
 			<div class="inner">
