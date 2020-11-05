@@ -3,7 +3,7 @@
     include "header.php";
     include "util.php";
     require_once "dbconnect.php";
-
+    require_once "mail/mail.class.php";
 ?>
 
 	<body>
@@ -188,7 +188,7 @@
                             $subject = "Email Activation";
                                                 
                             $body = 'Hello '.$fn.'! '.'Thank you for registering. Please click on this url to activate your account.
-                                    http://corsair.cs.iupui.edu:24561/adminLogin.php?a='.$code;
+                                    http://corsair.cs.iupui.edu:24471/adminLogin.php?a='.$code;
 
                             //use PHP built-in functions, see details on https://www.w3schools.com/php/func_mail_mail.asp
                             $body = wordwrap($body,70);// use wordwrap() if lines are longer than 70 characters

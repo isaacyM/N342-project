@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
+			<a href="admin.php" class="logo">ADMIN</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -25,11 +25,66 @@
 		
 		<!-- Main -->
 		<div class="container">	
-			
-            <h1>Existing Content</h1>
-            <p>gggg</p>
-            <input type="reset" name ="reset" value="Reset" class="alt" />
-            <h2>ggg</h2>
+			<button id="deleteButton">Delete selected row</button>
+			<button id="editButton">Edit selected row</button>
+			<?php
+				$query = "SELECT * FROM ADMIN"; 
+				$result = mysql_query($query);
+
+				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
+				// start a table tag in the HTML
+				print '<table  id="example" class="display" cellspacing="0" width="100%">';
+				print '<thead>
+				<tr>
+					<th>AdminID</th>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>MiddleName</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th>Level</th><th>Active</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>AdminID</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>MiddleName</th>
+						<th>Email</th>
+						<th>Password</th>
+						<th>Level</th>
+						<th>Active</th>
+						<th>Edit</th>
+						<th>Delete</th>
+
+					</tr>
+				</tfoot>';
+
+				while($row = mysql_fetch_array($result))
+				{   
+					//Creates a loop to loop through results
+					print "<tr>";
+					print  "<td>".$row["AdminID"]."</td>
+						<td>".$row["FirstName"]."</td>
+						<td>".$row["LastName"]."</td>
+						<td>".$row["MiddleName"]."</td>
+						<td>".$row["Email"]."</td>
+						<td>".$row["Password"]."</td>
+						<td>".$row["Level"]."</td>
+						<td>".$row["Active"]."</td>";
+							
+					echo '<td>'.'<a href="/project/edit/edit.php?edit='.$row["AdminID"].'"> Edit</a>'.'</td>';
+					echo '<td>'.'<a href="delete.php?delete= '.$row["AdminID"].'">Delete</a>'.'</td>';
+				}
+
+				print "</td>";
+				print "</tr>";
+				print "</table>"; //Close the table in HTML
+				mysql_close(); //Make sure to close out the database connection
+			?>
         </div>
 
 		<!-- Footer and Scripts-->

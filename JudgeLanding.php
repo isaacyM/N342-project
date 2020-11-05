@@ -1,10 +1,10 @@
 <?php
+	include "header.php";
 	require_once("jSession.php");
 	if(checkJudgeSession())
 	{
 		header("Location: login.php");
 	}
-	include "header.php";
 ?>
 	<body class="subpage">
 
@@ -28,28 +28,50 @@
 					<header class="align-center">
 						<h1>Check-in</h1>
 						<p>If you have not checked in for event please make sure to do so</p>
+						<div class="6u$ 12u$(small)">
+							<input type="checkbox" id="check-in" name="check-in">
+							<label for="check-in">Check-in</label>
+						</div>
+							
+							<input class = "submit" type="submit" name = "submit"  value="Login" />
+
 					</header>
 
 				</div>
 			</section>
 
 			<section id="main" class="wrapper">
-				<dl>
-					<dt>Active:</dt>
-					<dt>
-						<input type="radio" name="active" id = "yes" value = "Yes" <?php print $yesChecked; ?> checked />
-						<label for="yes">Yes</label>
+				<div class="col-sm-3">
+					<a href="jCheckIn.php" class="button big">
+						<i class="fas fa-clock"></i>
+					</a><br />
+					<b>Judge Session</b>
+				</div>
 
-						<input type="radio" name="active" id = "no" value = "No" <?php print $noChecked; ?> />
-						<label for="no">No</label>
-					</dt>
-				</dl>
+
+				<div class="col-sm-3">
+					<a href="gradeLevel.php" class="button big">
+						<i class="fas fa-poll"></i>
+					</a><br />
+					<b>Project Grade Level</b>
+				</div>
+
+				<div class="col-sm-3">
+					<a href="judgeSession.php" class="button big">
+						<i class="fas fa-clock"></i>
+					</a><br />
+					<b>Judge Session</b>
+				</div>
+
+
 			</section>
 
 		<!-- Footer and Scripts-->
+		
 		<?php 
-			include "footer.php";
-			include "script.php";
+            		include "footer.php";
+            		include "script.php";
 		?>
+
 	</body>
 </html>

@@ -14,7 +14,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
+			<a href="booth.php" class="logo">BOOTH</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -26,10 +26,30 @@
 		
 		<!-- Main -->
 		<div class="container">	
-            <h1>Existing Content</h1>
-            <p>gggg</p>
-            <input type="reset" name ="reset" value="Reset" class="alt" />
-            <h2>ggg</h2>
+			<button id="deleteButton">Delete selected row</button>
+			<button id="editButton">Edit selected row</button>
+			<?php
+				$query = "SELECT * FROM BOOTH_NUMBER"; 
+				$result = mysql_query($query);
+
+				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
+				// start a table tag in the HTML
+				print '<table  id="example" class="display" cellspacing="0" width="100%">';
+				print '<thead><tr><th>BoothID</th><th>Number</th><th>Active</th></tr></thead>
+				<tfoot><tr><th>BoothID</th><th>Number</th><th>Active</th></tr></tfoot>';
+
+				while($row = mysql_fetch_array($result))
+				{   
+					//Creates a loop to loop through results
+					print "<tr>";
+					print "<td>".$row["BoothID"]."</td><td>".$row["Number"]."</td><td>".$row["Active"]."</td>";
+				}
+
+				print "</td>";
+				print "</tr>";
+				print "</table>"; //Close the table in HTML
+				mysql_close(); //Make sure to close out the database connection
+			?>
 		</div><!--close container-->
 
 		<!-- Footer and Scripts-->

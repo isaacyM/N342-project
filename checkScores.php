@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="judgeSession.php" class="logo">JUDGE SESSION</a>
+			<a href="adminLanding.php" class="logo">ADMIN CONTROLS</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -21,36 +21,57 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Existing Judge Session</a></h1>
+		<h1 align = "center"><a href="#">Veiw Scores</a></h1>
 		
 		<!-- Main -->
-		<div class="container">
-			<button id="deleteButton">Delete selected row</button>
-			<button id="editButton">Edit selected row</button>
+		<div class="container">	
 			<?php
-				$query = "SELECT * FROM SESSION"; 
+				$query = "SELECT SCHEDULE.ScheduleId, PROJECT.Title, SCHEDULE.Score, SESSION.StartTime, SESSION.EndTime
+					  FROM ((SCHEDULE
+					  INNER JOIN PROJECT ON SCHEDULE.ProjectID = PROJECT.ProjectID)
+					  INNER JOIN SESSION ON SCHEDULE.SessionID = SESSION.SessionID)
+					 "; 
 				$result = mysql_query($query);
+
 
 				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
 				// start a table tag in the HTML
 				print '<table  id="example" class="display" cellspacing="0" width="100%">';
-				print '<thead><tr><th>SessionID</th><th>SessionNumber</th><th>StartTime</th><th>EndTime</th><th>Active</th></tr></thead>
-				<tfoot><tr><th>SessionID</th><th>SessionNumber</th><th>StartTime</th><th>EndTime</th><th>Active</th></tr></tfoot>';
+				print '<thead>
+				<tr>
+					<th>Title</th>
+					<th>Score</th>
+					<th>Session Start Time</th>
+					<th>Session End Time</th>
+				</tr>
+				</thead>
+				<tfoot>
+				<tr>
+					<th>Title</th>
+					<th>Score</th>
+					<th>Session Start Time</th>
+					<th>Session End Time</th>
+				</tr>
+				</tfoot>';
 
 				while($row = mysql_fetch_array($result))
 				{   
 					//Creates a loop to loop through results
 					print "<tr>";
-					print "<td>".$row["SessionID"]."</td><td>".$row["SessionNumber"]."</td><td>".$row["StartTime"]."</td><td>".$row["EndTime"]."</td><td>"
-					.$row["Active"]."</td>";
+					print  "<td>".$row["Title"]."</td>
+						<td>".$row["Score"]."</td>
+						<td>".$row["StartTime"]."</td>
+						<td>".$row["EndTime"]."</td>
+						";
 				}
+
 
 				print "</td>";
 				print "</tr>";
 				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection
 			?>
-		</div><!--close container-->
+        	</div>
 
 		<!-- Footer and Scripts-->
 		<?php 

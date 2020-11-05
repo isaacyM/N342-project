@@ -16,24 +16,26 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Register</a></h1>
-
-        <div align="center" class="container">
-			<div class="row">
-				<div class="col-sm-6">
-					<a href="adminReg.php" class="button big">
-						<i class="fas fa-user-shield"></i>
-					</a><br />
-					<b>Admin</b>
-                </div>
-                <div class="col-sm-6">
-					<a href="judgeReg.php" class="button big">
-						<i class="fas fa-user-tie"></i>
-					</a><br />
-					<b>Judge</b>
-                </div>
-            </div>
-		</div><br />
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<h1 align = "center"><a href="#">Register</a></h1>
+			<div align="center" class="container wrapper" id = "main">
+				<div class="row wrapper">
+					<div class="col-sm-6">
+						<a href="adminReg.php" class="button big">
+							<i class="fas fa-user-shield"></i>
+						</a><br />
+						<b>Admin</b>
+					</div>
+					<div class="col-sm-6">
+						<a href="judgeReg.php" class="button big">
+							<i class="fas fa-user-tie"></i>
+						</a><br />
+						<b>Judge</b>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<!-- Footer and Scripts-->
 		<?php 

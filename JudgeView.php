@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="judgeSession.php" class="logo">JUDGE SESSION</a>
+			<a href="adminLanding.php" class="logo">ADMIN CONTROLS</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -21,28 +21,45 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Existing Judge Session</a></h1>
+		<h1 align = "center"><a href="#">Checked in Judges</a></h1>
 		
 		<!-- Main -->
-		<div class="container">
-			<button id="deleteButton">Delete selected row</button>
-			<button id="editButton">Edit selected row</button>
+		<div class="container">	
 			<?php
-				$query = "SELECT * FROM SESSION"; 
+				$query = "SELECT * FROM JUDGE"; 
 				$result = mysql_query($query);
 
 				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
 				// start a table tag in the HTML
 				print '<table  id="example" class="display" cellspacing="0" width="100%">';
-				print '<thead><tr><th>SessionID</th><th>SessionNumber</th><th>StartTime</th><th>EndTime</th><th>Active</th></tr></thead>
-				<tfoot><tr><th>SessionID</th><th>SessionNumber</th><th>StartTime</th><th>EndTime</th><th>Active</th></tr></tfoot>';
+				print '<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Checked-In</th>
+				</tr>
+				</thead>
+				<tfoot>
+				<tr>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Checked-In</th>
+				</tr>
+				</tfoot>';
 
 				while($row = mysql_fetch_array($result))
 				{   
 					//Creates a loop to loop through results
 					print "<tr>";
-					print "<td>".$row["SessionID"]."</td><td>".$row["SessionNumber"]."</td><td>".$row["StartTime"]."</td><td>".$row["EndTime"]."</td><td>"
-					.$row["Active"]."</td>";
+					print  "<td>".$row["FirstName"]."</td>
+						<td>".$row["MiddleName"]."</td>
+						<td>".$row["LastName"]."</td>
+						<td>".$row["Email"]."</td>
+						<td>".$row["CheckIn"]."</td>";
 				}
 
 				print "</td>";
@@ -50,7 +67,7 @@
 				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection
 			?>
-		</div><!--close container-->
+        </div>
 
 		<!-- Footer and Scripts-->
 		<?php 

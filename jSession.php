@@ -5,7 +5,7 @@
 		{ 
 			session_start(); 
 		}
-		$jusername = $_SESSION['jEmail'];
+		$jusername = $_SESSION['jID'];
 		
 		if(empty($jusername))
 		{
