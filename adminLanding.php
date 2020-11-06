@@ -108,7 +108,7 @@
 						<a href="JudgeView.php" class="button big">
 							<i class="fas fa-user"></i>
 						</a><br />
-						<b>View Judges</b>
+						<b>Judges Checked In</b>
 					</div>
 					<div class="col-sm-3">
 						<a href="checkScores.php" class="button big">
@@ -126,10 +126,17 @@
 						<a href="viewJudge.php" class="button big">
 							<i class="fas fa-user"></i>
 						</a><br />
-						<b>Judge Inromation</b>
+						<b>Judge Information</b>
 					</div>
 				</div><!--close row--->
-
+				<div class="row">
+					<div class="col-sm-3">
+						<a href="schedule.php" class="button big">
+							<i class="fas fa-scroll"></i>
+						</a><br />
+						<b>Schedule</b>
+					</div>
+				</div><!--close row--->
 			</div><!--close container wrapper--->
 		</section><!--close section--->
 

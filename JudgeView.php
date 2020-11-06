@@ -21,7 +21,7 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Checked in Judges</a></h1>
+		<h1 align = "center"><a href="#">Judges Checked In</a></h1>
 		
 		<!-- Main -->
 		<div class="container">	
