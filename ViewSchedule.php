@@ -62,7 +62,7 @@
 						<td>".$row["SessionID"]."</td>
 						<td>".$row["ProjectID"]."</td>
 						<td>".$row["JudgeID"]."</td>
-						<td>".$row["Score"]."</td>
+						<td>".$row["Score"]."</td>";
 							
 				}
 

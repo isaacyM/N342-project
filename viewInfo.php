@@ -24,34 +24,32 @@
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<h1 align = "center">View Informations</h1>
-			<div align="center" class="container wrapper" id = "main">
-				<div class="row wrapper">
-					<div class="col-sm-3">
-						<a href="viewBooth.php" class="button big">
-                            <i class="fas fa-store"></i>
-						</a><br />
-						<b>Booth</b>
-					</div>
-					<div class="col-sm-3">
-						<a href="viewJudge.php" class="button big">
-                            <i class="fas fa-gavel"></i>
-						</a><br />
-						<b>Judge</b>
-                    </div>
-					<div class="col-sm-3">
-						<a href="viewProject.php" class="button big">
-                            <i class="fas fa-flask"></i>
-						</a><br />
-						<b>Project</b>
-					</div>
-					<div class="col-sm-3">
-						<a href="viewSession.php" class="button big">
-                            <i class="fas fa-clock"></i>
-						</a><br />
-						<b>Session</b>
-					</div>
-				</div><!--close row wrapper--->
-			</div><!--close container wrapper--->
+			<div class="container">
+			<?php
+				$query = "SELECT Judge.FirstName, Judge.LastName, Judge.Email, Project.ProjectNumber, Project.Title, Session.StartTime, Session.EndTime, Category.CategoryName FROM 
+				((((Schedule INNER JOIN Judge ON Schedule.JudgeID = Judge.JudgeID) 
+				INNER JOIN Project ON Schedule.ProjectID = Project.ProjectID)
+				INNER JOIN Session ON Schedule.SessionID = Session.SessionID)
+				INNER JOIN Category ON Schedule.CategoryID = Category.CategoryID)"; 
+				$result = mysql_query($query);
+
+				// start a table tag in the HTML
+				print '<table  id="example" class="display" cellspacing="0" width="100%">';
+				print '<thead><tr><th>FirstName</th><th>LastName</th><th>Email</th><th>Project Number</th><th>Title</th><th>Session Start</th>
+				<th>Session End</th><th>Category Name</th></tr></thead>';
+
+				while($row = mysql_fetch_array($result))
+				{   
+					//Creates a loop to loop through results
+					print "<tr>";
+					print "<td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["Email"]."</td><td>".$row["ProjectNumber"]."</td>
+					<td>".$row["Title"]."</td><td>".$row["StartTime"]."</td><td>".$row["EndTime"]."</td><td>".$row["CategoryName"]."</td>";
+					print "</tr>";
+				}
+				print "</table>"; //Close the table in HTML
+				mysql_close(); //Make sure to close out the database connection
+			?>
+		</div><!--close container-->
 		</section><!--close section--->
 
 		<!-- Footer and Scripts-->
