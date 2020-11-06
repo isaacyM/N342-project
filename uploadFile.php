@@ -152,7 +152,7 @@
                                         }
 
                                         //for adding project data to database
-                                        $statement2 = "SELECT * FROM PROJECT WHERE ProjectNumber = '$data[10]'";
+                                        $statement2 = "SELECT * FROM PROJECT WHERE ProjectNumber = '".$data[10]."'";
                                         $query = mysql_query($statement2);
                                         if(mysql_num_rows($query) == 0)
                                         {
