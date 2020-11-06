@@ -5,6 +5,7 @@
 		header("Location: login.php");
 	}
 	include "header.php";
+	require_once "dbconnect.php";
 ?> 
 
 	<body>
