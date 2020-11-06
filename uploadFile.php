@@ -94,7 +94,7 @@
 
                             //download file
                             // $filePath = "http://corsair.cs.iupui.edu:24561/N342_project/csv/".$fileName;
-                            print 'Click <a href="http://corsair.cs.iupui.edu:24561/N342_project/csv/">here</a> to download the csv file<br>';
+                            print 'Click <a href="http://corsair.cs.iupui.edu:24471/project/csv/">here</a> to download the csv file<br>';
 
                             $row = 1;
                             if (($fp = fopen("csv/".$fileName, "r")) !== FALSE) 
