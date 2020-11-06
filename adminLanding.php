@@ -122,6 +122,12 @@
 						</a><br />
 						<b>Project Rank</b>
 					</div>
+					<div class="col-sm-3">
+						<a href="viewJudge.php" class="button big">
+							<i class="fas fa-user"></i>
+						</a><br />
+						<b>Judge Inromation</b>
+					</div>
 				</div><!--close row--->
 
 			</div><!--close container wrapper--->

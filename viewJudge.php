@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="viewInfo.php" class="logo">View Informations</a>
+			<a href="adminLanding.php" class="logo">Admin Controls</a>
 		</header>
 		
 		<!--Navigation menu-->
