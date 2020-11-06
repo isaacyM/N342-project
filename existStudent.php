@@ -21,9 +21,8 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Existing Students</a></h1>
-		
 		<!-- Main -->
+		<h1 align = "center">Existing Students</h1>
 		<div class="container">	
 			<button id="deleteButton">Delete selected row</button>
 			<button id="editButton">Edit selected row</button>
@@ -46,10 +45,8 @@
 					print "<td>".$row["StudentID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["MiddleName"]."</td>
 					<td>".$row["GradeID"]."</td><td>".$row["Gender"]."</td><td>".$row["SchoolID"]."</td><td>".$row["ProjectID"]
 					."</td><td>".$row["Year"]."</td>";
+					print "</tr>";
 				}
-
-				print "</td>";
-				print "</tr>";
 				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection
 			?>

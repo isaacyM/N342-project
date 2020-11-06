@@ -20,10 +20,9 @@
 		<?php
 			include "menu.php";
 		?>
-
-		<h1 align = "center"><a href="#">Existing Project Grade Levels</a></h1>
 		
 		<!-- Main -->
+		<h1 align = "center">Existing Project Grade Levels</h1>
 		<div class="container">
 			<button id="deleteButton">Delete selected row</button>
 			<button id="editButton">Edit selected row</button>
@@ -42,10 +41,8 @@
 					//Creates a loop to loop through results
 					print "<tr>";
 					print "<td>".$row["GradeLevelID"]."</td><td>".$row["LevelName"]."</td><td>".$row["Active"]."</td>";
+					print "</tr>";
 				}
-
-				print "</td>";
-				print "</tr>";
 				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection
 			?>

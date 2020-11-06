@@ -89,6 +89,18 @@
 						</a><br />
 						<b>Booth Number</b>
 					</div>
+					<div class="col-sm-3">
+						<a href="uploadFile.php" class="button big">
+							<i class="fas fa-file-upload"></i>
+						</a><br />
+						<b>Upload File</b>
+					</div>
+					<div class="col-sm-3">
+						<a href="viewInfo.php" class="button big">
+						<i class="fas fa-database"></i>
+						</a><br />
+						<b>View Informations</b>
+					</div>
 				</div><!--close--->
 			</div><!--close container wrapper--->
 		</section><!--close section--->
