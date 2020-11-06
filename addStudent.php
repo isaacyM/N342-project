@@ -13,7 +13,7 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="index.php" class="logo">SEFI</a>
+			<a href="student.php" class="logo">STUDENT</a>
 		</header>
 		
 		<!--Navigation menu-->
@@ -23,7 +23,7 @@
 
         <!-- Main -->
 		<section id="main" class="wrapper">
-            <h1 align = "center"><a href="#">Add New Student</a></h1>
+            <h1 align = "center">Add New Student</h1>
 			<div class="container">	
                 <div class="inner">
                 
@@ -36,8 +36,6 @@
                         $grade = "";
                         $gender = "";
                         $schoolID = "";
-                        $county = "";
-                        $city = "";
                         $projectNumber = "";
                         $projectID = "";
                         $year = "";
@@ -49,8 +47,6 @@
                         $gradeOk= false;
                         $genderOk = false;
                         $schoolIDOk = false;
-                        $countyOk = false;
-                        $cityOk = false;
                         $projectNumberOk= false;
                         $projectIDOk= false;
                         $yearOk= false;
@@ -116,22 +112,6 @@
                             {
                                 $schoolIDOk = true;
                             }
-                            if ($county == "")
-                            {
-                                $msg = $msg . '<br/><b>Please select the county.</b>';
-                            }
-                            else
-                            {
-                                $countyOk = true;
-                            }
-                            if ($city == "")
-                            {
-                                $msg = $msg . '<br/><b>Please select the city.</b>';
-                            }
-                            else
-                            {
-                                $cityOk = true;
-                            }
                             if ($projectNumber == "")
                             {
                                 $msg = $msg . '<br/><b>Please enter the project number.</b>';
@@ -159,25 +139,12 @@
 
                             
                             //if everything is correct
-                            if ($fnOk  && $lnOk && $gradeOk &&	$genderOk && $schoolIDOk && $countyOk && $cityOk && $projectNumberOk && $projectIDOk && $yearOk)
+                            if ($fnOk  && $lnOk && $gradeOk &&	$genderOk && $schoolIDOk && $projectNumberOk && $projectIDOk && $yearOk)
                             {
                                 //query to send data to database
                                 $statement = "INSERT INTO STUDENT(FirstName, LastName, MiddleName, GradeID, Gender, SchoolID, ProjectID, Year) 
                                 VALUES('$fn', '$ln', '$mn', $grade, '$gender', $schoolID, $projectID, '$year')";
 
-                                //direct to another page to process using query strings
-                                // $_SESSION['fn'] = $fn;
-                                // $_SESSION['mn'] = $mn;
-                                // $_SESSION['ln'] = $ln;
-                                // $_SESSION['grade'] = $grade;
-                                // $_SESSION['gender'] = $gender;
-                                // $_SESSION['schoolID'] = $schoolID;
-                                // $_SESSION['county']= $county;
-                                // $_SESSION['city']= $city;
-                                // $_SESSION['projectNumber'] = $projectNumber;
-                                // $_SESSION['projectID'] = $projectID;
-                                // $_SESSION['year'] = $year;
-                                // $msg = '<br/><b>New Student added</b><br/>';
                                 if(!mysql_query($statement))
                                 {
                                         die("Error adding");
@@ -252,31 +219,6 @@
                                         <option value="2">School2</option>
                                         <option value="3">School3</option>
                                         <option value="4">School4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Break -->
-                            <div class="6u$ 12u$(xsmall)">
-                                <b> School County<sup>*</sup></b>
-                                <div class="select-wrapper">
-                                    <select name="county" id="county">
-                                            <option value="" selected>County</option>
-                                            <option value="County1">County1</option>
-                                            <option value="County2">County2</option>
-                                            <option value="County3">County3</option>
-                                            <option value="County4">County4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="6u$ 12u$(xsmall)">
-                                <b>School City<sup>*</sup></b>
-                                <div class="select-wrapper">
-                                    <select name="city" id="city">
-                                            <option value="City" selected>City</option>
-                                            <option value="City1">City1</option>
-                                            <option value="City2">City2</option>
-                                            <option value="City3">City3</option>
-                                            <option value="City4">City4</option>
                                     </select>
                                 </div>
                             </div>

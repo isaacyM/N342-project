@@ -23,7 +23,7 @@
 
         <!-- Main -->
 		<section id="main" class="wrapper">
-            <h1 align = "center"><a href="#">Add New Project</a></h1>
+            <h1 align = "center">Add New Project</h1>
 			<div class="container">	
                 <div class="inner">
 
@@ -36,6 +36,7 @@
                         $projectTitle = "";
                         $abstract = "";
                         $gradeLevel = "";
+                        $grade = "";
                         $category = "";
                         $averageRanking = "";
                         $year = "";
@@ -48,7 +49,6 @@
                         $abstractOk= false;
                         $gradeLevelOk= false;
                         $categoryOk= false;
-                        $averageRankingOk= false;
                         $yearOk= false;
 
                         if (isset($_POST['submit'])) //check if this page is requested after Submit button is clicked
@@ -62,6 +62,7 @@
                             $projectTitle = trim($_POST['projectTitle']);
                             $abstract = trim($_POST['abstract']);
                             $gradeLevel = trim($_POST['gradeLevel']);
+                            $grade = $gradeLevel;
                             $category = trim($_POST['category']);
                             $averageRanking = trim($_POST['averageRanking']);
                             $year = trim($_POST['year']);
@@ -124,14 +125,6 @@
                             {
                                 $categoryOk= true;
                             }
-                            if ($averageRanking == "")
-                            {
-                                $msg = $msg . '<br/><b>Please enter the average ranking.</b>';
-                            }
-                            else
-                            {
-                                $averageRankingOk= true;
-                            }
                             if ($year == "")
                             {
                                 $msg = $msg . '<br/><b>Please enter the year.</b>';
@@ -142,24 +135,24 @@
                             }
                     
                             //if everything is correct
-                            if ($projectNumberOk && $boothNumberOk && $cnIDOk && $projectTitleOk && $abstractOk && $gradeLevelOk && $categoryOk && $averageRankingOk && $yearOk) 
+                            if ($projectNumberOk && $boothNumberOk && $cnIDOk && $projectTitleOk && $abstractOk && $gradeLevelOk && $categoryOk && $yearOk) 
                             {
                                 //query to send data to database
-                                // $statement = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CouseNetworkID, AverageRanking, Year) 
-                                // VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $gradeLevel, $cnID, $averageRanking, '$year')";
+                                $statement = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CourseNetworkID, AverageRanking, Year) 
+                                VALUES($projectNumber, '$projectTitle', '$abstract', $gradeLevel, $category, $boothNumber, $grade, $cnID, $averageRanking, '$year')";
 
-                                // if(!mysql_query($statement))
-                                // {
-                                //         die("Error adding");
-                                // }
-                                // else
-                                // { 
-                                //     mysql_close();
-                                //     die("New Project Added");
-                                // }
-                                echo "project no.".$projectNumber."<br>";
-                                echo "project title".$projectTitle."<br>";
-                                echo "abstract".$abstract."<br>"."gradelevel".$gradeLevel."<br>"."category".$category."<br>"."booth".$boothNumber."<br>"."grade id".$gradeLevel."<br>"."cnID".$cnID."<br>"."avgRank".$averageRanking."<br>"."year".$year."<br>";
+                                if(!mysql_query($statement))
+                                {
+                                        die("Error adding");
+                                }
+                                else
+                                { 
+                                    mysql_close();
+                                    die("New Project Added");
+                                }
+                                // echo "project no.".$projectNumber."<br>";
+                                // echo "project title".$projectTitle."<br>";
+                                // echo "abstract".$abstract."<br>"."gradelevel".$gradeLevel."<br>"."category".$category."<br>"."booth".$boothNumber."<br>"."grade id".$gradeLevel."<br>"."cnID".$cnID."<br>"."avgRank".$averageRanking."<br>"."year".$year."<br>";
                             }                
                         }	
                     ?>
@@ -227,7 +220,7 @@
                             </div>
                             <!-- Break -->
                             <div class="6u 12u$(small)">
-                                <b>Average Ranking<sup>*</sup></b>
+                                <b>Average Ranking</b>
                                 <input type="number" maxlength="11" name="averageRanking" id="averageRanking" value="<?php print $averageRanking; ?>" placeholder="3" />
                             </div>
                             <div class="6u$ 12u$(small)">

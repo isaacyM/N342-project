@@ -13,24 +13,21 @@
 			<nav class="left">
 				<a href="#menu"><span>Menu</span></a>
 			</nav>
-			<a href="project.php" class="logo">PROJECT</a>
+			<a href="viewInfo.php" class="logo">View Informations</a>
 		</header>
 		
 		<!--Navigation menu-->
 		<?php
 			include "menu.php";
-		?>
-
+        ?>
+        
 		<!-- Main -->
-		<h1 align = "center">Existing Projects</h1>
-		<div class="container">	
-			<button id="deleteButton">Delete selected row</button>
-			<button id="editButton">Edit selected row</button>
+		<h1 align = "center">Project Info</h1>
+		<div class="container">
 			<?php
 				$query = "SELECT * FROM PROJECT"; 
 				$result = mysql_query($query);
 
-				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
 				// start a table tag in the HTML
 				print '<table  id="example" class="display" cellspacing="0" width="100%">';
 				print '<thead><tr><th>ProjectID</th><th>ProjectNumber</th><th>Title</th><th>Abstract</th><th>GradeLevelID</th><th>CategoryID</th>

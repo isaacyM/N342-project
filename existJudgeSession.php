@@ -21,9 +21,8 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Existing Judge Session</a></h1>
-		
 		<!-- Main -->
+		<h1 align = "center">Existing Judge Session</h1>
 		<div class="container">
 			<button id="deleteButton">Delete selected row</button>
 			<button id="editButton">Edit selected row</button>
@@ -43,10 +42,8 @@
 					print "<tr>";
 					print "<td>".$row["SessionID"]."</td><td>".$row["SessionNumber"]."</td><td>".$row["StartTime"]."</td><td>".$row["EndTime"]."</td><td>"
 					.$row["Active"]."</td>";
+					print "</tr>";
 				}
-
-				print "</td>";
-				print "</tr>";
 				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection
 			?>

@@ -21,9 +21,8 @@
 			include "menu.php";
 		?>
 
-		<h1 align = "center"><a href="#">Existing Admins</a></h1>
-		
 		<!-- Main -->
+		<h1 align = "center">Existing Admins</h1>
 		<div class="container">	
 			<button id="deleteButton">Delete selected row</button>
 			<button id="editButton">Edit selected row</button>
@@ -44,10 +43,8 @@
 					print "<tr>";
 					print "<td>".$row["AdminID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["MiddleName"]."</td>
 					<td>".$row["Email"]."</td><td>".$row["Password"]."</td><td>".$row["Level"]."</td><td>".$row["Active"]."</td>";
+					print "</tr>";
 				}
-
-				print "</td>";
-				print "</tr>";
 				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection
 			?>
