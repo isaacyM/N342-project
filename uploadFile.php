@@ -156,7 +156,6 @@
                                         $query = mysql_query($statement2);
                                         if(mysql_num_rows($query) == 0)
                                         {
-                                            $newProject = 0;
                                             $statement3 = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CourseNetworkID, AverageRanking, Year)
                                             VALUES($data[10],'$data[11]','$data[12]',$data[13],$data[14],$data[15],$data[3],$data[16],$data[17],'$data[9]')";
 
