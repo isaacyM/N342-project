@@ -101,7 +101,29 @@
 						</a><br />
 						<b>View Informations</b>
 					</div>
+
 				</div><!--close--->
+				<div class="row">
+					<div class="col-sm-3">
+						<a href="JudgeView.php" class="button big">
+							<i class="fas fa-user"></i>
+						</a><br />
+						<b>View Judges</b>
+					</div>
+					<div class="col-sm-3">
+						<a href="checkScores.php" class="button big">
+							<i class="fas fa-check"></i>
+						</a><br />
+						<b>Scores</b>
+					</div>
+					<div class="col-sm-3">
+						<a href="ranking.php" class="button big">
+							<i class="fas fa-list"></i>
+						</a><br />
+						<b>Project Rank</b>
+					</div>
+				</div><!--close row--->
+
 			</div><!--close container wrapper--->
 		</section><!--close section--->
 

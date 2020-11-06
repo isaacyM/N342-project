@@ -77,7 +77,7 @@
 							<td>".$row["EndTime"]."</td>
 							<td>".$row["Score"]."</td>";
 							
-						echo '<td>'.'<a href="/project/edit/edit.php?edit='.$row["ScheduleID"].'">Submit Score</a>'.'</td>';		
+						echo '<td>'.'<a href="submitScore.php?edit='.$row["ScheduleID"].'">Submit Score</a>'.'</td>';		
 					}
 				}
 

@@ -56,7 +56,7 @@
 				<a href='view.php'>View Updated Record</a>";
 
 				echo '<p style="color:#FF0000;">'.$status.'</p>';
-				echo '<a href="jProjects.php">Return to Score submission</a>';
+				echo '<a href="judgeLanding.php">Return to Judge Control Page</a>';
 			}
 			else
 			{
