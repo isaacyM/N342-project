@@ -89,6 +89,13 @@
 						</a><br />
 						<b>Booth Number</b>
 					</div>
+					<div class="col-sm-3">
+						<a href="schedule.php" class="button big">
+							<i class="fas fa-scroll"></i>
+						</a><br />
+						<b>Schedule</b>
+					</div>
+
 				</div><!--close--->
 			</div><!--close container wrapper--->
 		</section><!--close section--->
