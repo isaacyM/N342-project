@@ -93,7 +93,6 @@
                             }
 
                             //download file
-                            // $filePath = "http://corsair.cs.iupui.edu:24561/N342_project/csv/".$fileName;
                             print 'Click <a href="http://corsair.cs.iupui.edu:24471/project/csv/">here</a> to download the csv file<br>';
 
                             $row = 1;
@@ -134,7 +133,7 @@
                                         $schoolName = strtoupper($data[5]);
                                         $query = "SELECT SchoolID FROM SCHOOL WHERE SchoolName = '".$schoolName."'";
                                         $result = mysql_query($query);
-                                        while($row = mysql_fetch_array($result))
+                                        if($row = mysql_fetch_array($result))
                                         {   
                                             $schoolID = $row["SchoolID"];
                                         }
@@ -152,7 +151,7 @@
                                         }
 
                                         //for adding project data to database
-                                        $statement2 = "SELECT * FROM PROJECT WHERE ProjectNumber = '".$data[10]."'";
+                                        $statement2 = "SELECT ProjectID FROM PROJECT WHERE ProjectNumber = '".$data[10]."'";
                                         $query = mysql_query($statement2);
                                         if(mysql_num_rows($query) == 0)
                                         {
@@ -165,108 +164,10 @@
                                             }
                                             else
                                             { 
-                                                $msg = $msg . "Project number".$data[8]."added <br>";
+                                                $msg = $msg . "Project number".$data[10]."added <br>";
                                             }
                                         }
                                     }
-
-                                    
-
-                                    // //for adding school data to database
-                                    // $statement4 = "SELECT * FROM School WHERE SchoolID = '$data[5]'";
-                                    // $query = mysql_query($statement4);
-                                    // if(mysql_num_rows($query) == 0)
-                                    // {
-                                    //     $statement5 = "INSERT INTO SCHOOL(SchoolName, SchoolCity, SchoolCountyID) VALUES($data[16], $data[16], $data[16])";
-
-                                    //     if(!mysql_query($statement5))
-                                    //     {
-                                    //         $msg = $msg . "Error adding project<br>";
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $newProject++;
-                                    //         $msg = $msg . "Project number".$data[8]."added <br>";
-                                    //     }
-                                    // }
-
-                                    // //for adding project data to database
-                                    // $statement2 = "SELECT * FROM PROJECT WHERE ProjectNumber = '$data[8]'";
-                                    // $query = mysql_query($statement2);
-                                    // if(mysql_num_rows($query) == 0)
-                                    // {
-                                    //     $statement3 = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CourseNetworkID, AverageRanking, Year)
-                                    //     VALUES($data[8],$data[9],$data[10],$data[11],$data[12],$data[13],$data[3],$data[14],$data[15],$data[7])";
-
-                                    //     if(!mysql_query($statement3))
-                                    //     {
-                                    //         $msg = $msg . "Error adding project<br>";
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $newProject++;
-                                    //         $msg = $msg . "Project number".$data[8]."added <br>";
-                                    //     }
-                                    // }
-
-                                    // //for adding project data to database
-                                    // $statement2 = "SELECT * FROM PROJECT WHERE ProjectNumber = '$data[8]'";
-                                    // $query = mysql_query($statement2);
-                                    // if(mysql_num_rows($query) == 0)
-                                    // {
-                                    //     $statement3 = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CourseNetworkID, AverageRanking, Year)
-                                    //     VALUES($data[8],$data[9],$data[10],$data[11],$data[12],$data[13],$data[3],$data[14],$data[15],$data[7])";
-
-                                    //     if(!mysql_query($statement3))
-                                    //     {
-                                    //         $msg = $msg . "Error adding project<br>";
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $newProject++;
-                                    //         $msg = $msg . "Project number".$data[8]."added <br>";
-                                    //     }
-                                    // }
-
-                                    // //for adding project data to database
-                                    // $statement2 = "SELECT * FROM PROJECT WHERE ProjectNumber = '$data[8]'";
-                                    // $query = mysql_query($statement2);
-                                    // if(mysql_num_rows($query) == 0)
-                                    // {
-                                    //     $statement3 = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CourseNetworkID, AverageRanking, Year)
-                                    //     VALUES($data[8],$data[9],$data[10],$data[11],$data[12],$data[13],$data[3],$data[14],$data[15],$data[7])";
-
-                                    //     if(!mysql_query($statement3))
-                                    //     {
-                                    //         $msg = $msg . "Error adding project<br>";
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $newProject++;
-                                    //         $msg = $msg . "Project number".$data[8]."added <br>";
-                                    //     }
-                                    // }
-
-                                    // //for adding project data to database
-                                    // $statement2 = "SELECT * FROM PROJECT WHERE ProjectNumber = '$data[8]'";
-                                    // $query = mysql_query($statement2);
-                                    // if(mysql_num_rows($query) == 0)
-                                    // {
-                                    //     $statement3 = "INSERT INTO PROJECT(ProjectNumber, Title, Abstract, GradeLevelID, CategoryID, BoothNumberID, GradeID, CourseNetworkID, AverageRanking, Year)
-                                    //     VALUES($data[8],$data[9],$data[10],$data[11],$data[12],$data[13],$data[3],$data[14],$data[15],$data[7])";
-
-                                    //     if(!mysql_query($statement3))
-                                    //     {
-                                    //         $msg = $msg . "Error adding project<br>";
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $newProject++;
-                                    //         $msg = $msg . "Project number".$data[8]."added <br>";
-                                    //     }
-                                    // }
-
-
                                 }
                                 print "</table>"; //Close the table in HTML
                                 fclose($fp);
