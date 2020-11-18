@@ -28,87 +28,25 @@
 <script type="text/javascript" language="javascript" class="init">
 
     $(document).ready(function() {
-        var table = $('#example').DataTable();
+        $('#myTable').DataTable(
+        {
+            //Page length options
+            "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]]
+        })
+        // var table = $('#example').DataTable();
         
-            $('#example tbody').on( 'click', 'tr', function () {
-                if ( $(this).hasClass('selected') ) {
-                    $(this).removeClass('selected');
-                }
-                else {
-                    table.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                }
-            } );
+            // $('#example tbody').on( 'click', 'tr', function () {
+            //     if ( $(this).hasClass('selected') ) {
+            //         $(this).removeClass('selected');
+            //     }
+            //     else {
+            //         table.$('tr.selected').removeClass('selected');
+            //         $(this).addClass('selected');
+            //     }
+            // } );
         
-            $('#deleteButton').click( function () {
-                table.row('.selected').remove().draw( false );
-            } );
-        } );
-
-
-
-// var editor; // use a global for the submit and return data rendering in the examples
- 
-// $(document).ready(function() {
-//     editor = new $.fn.dataTable.Editor( {
-//         ajax: "../php/staff.php",
-//         table: "#example",
-//         fields: [ {
-//                 label: "AdminID:",
-//                 name: "AdminID"
-//             }, {
-//                 label: "First name:",
-//                 name: "FirstName"
-//             }, {
-//                 label: "Last name:",
-//                 name: "LastName"
-//             }, {
-//                 label: "MiddleName",
-//                 name: "MiddleName"
-//             }, {
-//                 label: "Email:",
-//                 name: "Email"
-//             }, {
-//                 label: "Password:",
-//                 name: "Password"
-//             }, {
-//                 label: "Level:",
-//                 name: "Level"
-//             }, {
-//                 label: "Active:",
-//                 name: "Active"
-//             }
-//         ],
-//         formOptions: {
-//             main: {
-//                 scope: 'cell' // Allow multi-row editing with cell selection
-//             }
-//         }
-//     } );
- 
-//     $('#example').DataTable( {
-//         dom: "Bfrtip",
-//         ajax: "../php/staff.php",
-//         columns: [
-//             { data: "AdminID" },
-//             { data: "FirstName" },
-//             { data: "LastName" },
-//             { data: "MiddleName" },
-//             { data: "Email" },
-//             { data: "Password" },
-//             { data: "Level" },
-//             { data: "Active"}
-//         ],
-//         select: true,
-//         buttons: [
-//             { extend: "create", editor: editor },
-//             { extend: "edit",   editor: editor },
-//             { extend: "remove", editor: editor },
-//             "selectRows",
-//             "selectColumns",
-//             "selectCells",
-//             "selectNone"
-//         ]
-//     } );
-// } );
+            // $('#deleteButton').click( function () {
+            //     table.row('.selected').remove().draw( false );
+            // } );
+        });
 </script>

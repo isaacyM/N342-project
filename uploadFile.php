@@ -323,9 +323,8 @@
             </form>
 		</div><!--close container-->
 
-		<!-- Footer and Scripts-->
+		<!-- Scripts-->
 		<?php 
-			// include "footer.php";
 			include "script.php";
 		?>
 	</body>
