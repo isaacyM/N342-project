@@ -42,7 +42,7 @@
 
 				if($row = mysql_fetch_array($result))
 				{
-					if($row["level"] == "Grade Level Chair")
+					if($row["Level"] == "Grade Level Chair")
 					{
 						$_SESSION['aID']= $row['AdminID'];
 						header("Location: viewInfo.php");
