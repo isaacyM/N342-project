@@ -33,14 +33,37 @@
 				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
 				// start a table tag in the HTML
 				print '<table  id="example" class="display" cellspacing="0" width="100%">';
-				print '<thead><tr><th>BoothID</th><th>Number</th><th>Active</th></tr></thead>
-				<tfoot><tr><th>BoothID</th><th>Number</th><th>Active</th></tr></tfoot>';
+				print '<thead>
+						<tr>
+							<th>BoothID</th>
+							<th>Number</th>
+							<th>Active</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>BoothID</th>
+							<th>Number</th>
+							<th>Active</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</tfoot>';
 
 				while($row = mysql_fetch_array($result))
 				{   
 					//Creates a loop to loop through results
 					print "<tr>";
-					print "<td>".$row["BoothID"]."</td><td>".$row["Number"]."</td><td>".$row["Active"]."</td>";
+					print " <td>".$row["BoothID"]."</td>
+						<td>".$row["Number"]."</td>
+						<td>".$row["Active"]."</td>
+					";
+
+					echo '<td>'.'<a href="/project/edit/boothEdit.php?edit='.$row["BoothID"].'"> Edit</a>'.'</td>';
+					echo '<td>'.'<a href="/project/edit/boothDelete.php?delete= '.$row["BoothID"].'">Delete</a>'.'</td>';
+
 					print "</tr>";
 				}
 				print "</table>"; //Close the table in HTML

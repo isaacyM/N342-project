@@ -66,9 +66,18 @@
 				{   
 					//Creates a loop to loop through results
 					print "<tr>";
-					print "<td>".$row["AdminID"]."</td><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["MiddleName"]."</td>
-					<td>".$row["Email"]."</td><td>".$row["Password"]."</td><td>".$row["Level"]."</td><td>".$row["Active"]."</td>";
-					print "</tr>";
+					print "<td>".$row["AdminID"]."</td>
+					       <td>".$row["FirstName"]."</td>
+                                               <td>".$row["LastName"]."</td>
+                                               <td>".$row["MiddleName"]."</td>
+					       <td>".$row["Email"]."</td>
+                                               <td>".$row["Password"]."</td>
+                                               <td>".$row["Level"]."</td>
+                                               <td>".$row["Active"]."</td>
+					";
+
+					echo '<td>'.'<a href="/project/edit/adminEdit.php?edit='.$row["AdminID"].'"> Edit</a>'.'</td>';
+					echo '<td>'.'<a href="/project/edit/adminDelete.php?delete= '.$row["AdminID"].'">Delete</a>'.'</td>';
 				}
 				print "</table>"; //Close the table in HTML
 				mysql_close(); //Make sure to close out the database connection

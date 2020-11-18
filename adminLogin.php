@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include "header.php";
+	include "dbconnect.php";
 ?>
 	
 	<body class="subpage">
@@ -19,10 +20,6 @@
 
 			<?php
 
-			$em = "admin"; // temp username for testing
-
-			$pass = "123";// temp password for testing 
-
 			$cem = "";
 			$cpass = "";
 
@@ -40,32 +37,22 @@
 
 			$cpass = trim($_POST['password']); 
 			
-			if($cem != $em)
-			{
-				$emre = "<br /><span style=\"color:red\"> Username was incorrect</span><br />";
-			}	
-			if(($cpass != $pass))
-			{
-				$lpass = "<br /><span style=\"color:red\">Password was incorrect</span><br />";
-			}
-			if($cpass == "")
-			{
-				$lpass = "<br /><span style=\"color:red\">Please type in password</span><br />";
-			}			
+				$query = "SELECT * FROM ADMIN WHERE Email = '$cem' and Password = '$cpass'"; 
+				$result = mysql_query($query);
 
+				if($row = mysql_fetch_array($result))
+				{
+					$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
+					print $msg;	
+					$_SESSION['aID']= $row['AdminID'];
+					header("Location: adminLanding.php");
 
-			if(($cem != $em) || ($cpass != $pass) || ($cpass == ""))
-			{
-				$msg = "<br /><span style=\"color:red\">Failed to Login</span><br />";
-				print $msg;
-			}
-			else
-			{
-				$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
-				print $msg;	
-				$_SESSION['aEmail'] = $em;
-				header("Location: adminLanding.php");
-			}
+				}
+				else
+				{
+					$emre = "<br /><span style=\"color:red\"> Username was incorrect</span><br />";
+					$lpass = "<br /><span style=\"color:red\">Password was incorrect</span><br />";
+				}
 			
 
 			

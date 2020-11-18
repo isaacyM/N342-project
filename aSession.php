@@ -5,7 +5,7 @@
 		{ 
 			session_start(); 
 		}
-		$ausername = $_SESSION['aEmail'];
+		$ausername = $_SESSION['aID'];
 
 		if(empty($ausername))
 		{
