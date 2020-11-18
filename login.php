@@ -44,7 +44,7 @@
 					$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
 					print $msg;	
 					$_SESSION['jID']= $row['JudgeID'];
-					header("Location: judgeLanding.php");
+					header("Location: JudgeLanding.php");
 
 				}
 				else

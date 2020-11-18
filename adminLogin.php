@@ -42,10 +42,16 @@
 
 				if($row = mysql_fetch_array($result))
 				{
-					$msg = "<br /><span style=\"color:green\">Logged In</span><br />";
-					print $msg;	
-					$_SESSION['aID']= $row['AdminID'];
-					header("Location: adminLanding.php");
+					if($row["level"] == "Grade Level Chair")
+					{
+						$_SESSION['aID']= $row['AdminID'];
+						header("Location: viewInfo.php");
+					}
+					else
+					{
+						$_SESSION['aID']= $row['AdminID'];
+						header("Location: adminLanding.php");
+					}
 
 				}
 				else

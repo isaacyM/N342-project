@@ -24,8 +24,6 @@
 		<!-- Main -->
 		<h1 align = "center">Existing Judge Session</h1>
 		<div class="container">
-			<button id="deleteButton">Delete selected row</button>
-			<button id="editButton">Edit selected row</button>
 			<?php
 				$query = "SELECT * FROM SESSION"; 
 				$result = mysql_query($query);

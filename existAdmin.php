@@ -23,9 +23,7 @@
 
 		<!-- Main -->
 		<h1 align = "center">Existing Admins</h1>
-		<div class="container">	
-			<button id="deleteButton">Delete selected row</button>
-			<button id="editButton">Edit selected row</button>
+		<div class="container">
 			<?php
 				$query = "SELECT * FROM ADMIN"; 
 				$result = mysql_query($query);
