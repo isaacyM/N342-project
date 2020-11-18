@@ -34,6 +34,8 @@
                     $title = "";
                     $degree = "";
                     $employer = "";
+                    $gradePref = "";
+                    $categoryPref = "";
                     $em = "";
                     $cem = "";
                     $pwd = "";
@@ -47,6 +49,8 @@
                     $title = $_SESSION['title'];
                     $degree = $_SESSION['degree'];
                     $employer = $_SESSION['employer'];
+                    $gradePref = $_SESSION['grade'];
+                    $categoryPref = $_SESSION['category'];
                     $em = $_SESSION['email'];
                     $pwd = $_SESSION['password'];      
                 ?>
@@ -59,8 +63,12 @@
                     Title: <?php print $title ?> <br />
                     Degree: <?php print $degree ?> <br />
                     Employer: <?php print $employer ?> <br />
+                    Grade Preference: <?php print $gradePref ?> <br />
+                    Category Preference: <?php print $categoryPref ?> <br />
                     Email:	<?php print $em; ?> <br />
                     Encrypted Password:	<?php print password_hash($pwd, PASSWORD_BCRYPT); ?> <br />
+                    Click on the button below to login<br />
+                    <a href="login.php" class = "button">Login</a>
                 </form>
             </div><!--close inner-->
         </section>
