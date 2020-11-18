@@ -139,16 +139,26 @@
                                             $schoolID = $row["SchoolID"];
                                         }
                                         
-                                        $statement1 = "INSERT INTO STUDENT(FirstName, LastName, MiddleName, GradeID, Gender, SchoolID, ProjectID, Year) 
-                                        VALUES('$data[0]','$data[2]','$data[1]',$data[3],'$data[4]',$schoolID,$data[8],'$data[9]')";
-
-                                        if(!mysql_query($statement1))
+                                        $query2 = "SELECT * FROM STUDENT";
+                                        $result2 = mysql_query($query2);
+                                        while($row = mysql_fetch_array($result))
                                         {
-                                            $msg = $msg . "Error adding student<br>";
-                                        }
-                                        else
-                                        { 
-                                            $newStudent++;
+                                            if(($row["FirstName"]!=$data[0]) && ($row["LastName"]!=$data[2]) && ($row["MiddleName"]!=$data[1]) 
+                                            && ($row["GradeId"]!=$data[3]) && ($row["Gender"]!=$data[4]) && ($row["SchoolID"]!=$schoolID) 
+                                            && ($row["ProjectID"]!=$data[8]) && ($row["Year"]!=$data[9]))
+                                            {
+                                                $statement1 = "INSERT INTO STUDENT(FirstName, LastName, MiddleName, GradeID, Gender, SchoolID, ProjectID, Year) 
+                                                VALUES('$data[0]','$data[2]','$data[1]',$data[3],'$data[4]',$schoolID,$data[8],'$data[9]')";
+
+                                                if(!mysql_query($statement1))
+                                                {
+                                                    $msg = $msg . "Error adding student<br>";
+                                                }
+                                                else
+                                                { 
+                                                    $newStudent++;
+                                                }
+                                            }
                                         }
 
                                         //for adding project data to database
