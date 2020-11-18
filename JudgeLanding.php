@@ -13,55 +13,33 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="index.php" class="logo">SEFI</a>
-				<nav class="right">
-					<a href="#" class="button alt">Log in</a>
-				</nav>
+				<a href="judgeLanding.php" class="logo">Judge Controls</a>
 			</header>
 
 			<?php
 				include "menu.php";
 			?>
-		<!-- Main -->
+			
 			<section id="main" class="wrapper">
-				<div class="inner">
-					<header class="align-center">
-						<h1>Check-in</h1>
-						<p>If you have not checked in for event please make sure to do so</p>
-						<div class="6u$ 12u$(small)">
-							<input type="checkbox" id="check-in" name="check-in">
-							<label for="check-in">Check-in</label>
-						</div>
-							
-							<input class = "submit" type="submit" name = "submit"  value="Login" />
+			<div class = "inner">
+				<p>Judges who have not checked in please check for Admistrators can see your are ready to judge projects</p>
 
-					</header>
-
+				<div class = "row">
+					<div class="col-sm-3">
+						<a href="jCheckIn.php" class="button big">
+							<i class="fas fa-clock"></i>
+						</a><br />
+						<b>Check-in</b>
+					</div>
+			
+					<div class="col-sm-3">
+						<a href="jProjects.php" class="button big">
+							<i class="fas fa-flask"></i>
+						</a><br />
+						<b>View Projects / Submit Scores</b>
+					</div>
 				</div>
-			</section>
-
-			<section id="main" class="wrapper">
-				<div class="col-sm-3">
-					<a href="jCheckIn.php" class="button big">
-						<i class="fas fa-clock"></i>
-					</a><br />
-					<b>Judge Session</b>
-				</div>
-
-
-				<div class="col-sm-3">
-					<a href="gradeLevel.php" class="button big">
-						<i class="fas fa-poll"></i>
-					</a><br />
-					<b>Project Grade Level</b>
-				</div>
-
-				<div class="col-sm-3">
-					<a href="judgeSession.php" class="button big">
-						<i class="fas fa-clock"></i>
-					</a><br />
-					<b>Judge Session</b>
-				</div>
+			</div>
 
 
 			</section>

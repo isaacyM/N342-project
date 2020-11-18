@@ -33,14 +33,39 @@
 				print '<br /><br /><span style="color:red">Data retrieved from database:</span><br/ >';
 				// start a table tag in the HTML
 				print '<table  id="example" class="display" cellspacing="0" width="100%">';
-				print '<thead><tr><th>GradeLevelID</th><th>LevelName</th><th>Active</th></tr></thead>
-				<tfoot><tr><th>GradeLevelID</th><th>LevelName</th><th>Active</th></tr></tfoot>';
+				print '<thead>
+						<tr>
+							<th>GradeLevelID</th>
+							<th>LevelName</th>
+							<th>Active</th>
+							<th>Edit</th>
+							<th>Delete</th>
+
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>GradeLevelID</th>
+							<th>LevelName</th>
+							<th>Active</th>
+							<th>Edit</th>
+							<th>Delete</th>
+
+						</tr>
+					</tfoot>';
 
 				while($row = mysql_fetch_array($result))
 				{   
 					//Creates a loop to loop through results
 					print "<tr>";
-					print "<td>".$row["GradeLevelID"]."</td><td>".$row["LevelName"]."</td><td>".$row["Active"]."</td>";
+					print " <td>".$row["GradeLevelID"]."</td>
+						<td>".$row["LevelName"]."</td>
+						<td>".$row["Active"]."</td>
+						";
+					echo '<td>'.'<a href="/project/edit/GLEdit.php?edit='.$row["GradeLevelID"].'"> Edit</a>'.'</td>';
+					echo '<td>'.'<a href="/project/edit/GLadminDelete.php?delete= '.$row["GradeLevelID"].'">Delete</a>'.'</td>';
+
+
 					print "</tr>";
 				}
 				print "</table>"; //Close the table in HTML
